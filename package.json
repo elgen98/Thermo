@@ -1,0 +1,24 @@
+{
+  "name": "thermo",
+  "version": "1.0.0",
+  "description": "Webbshop för varma föremål",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Weather",
+    "Warm",
+    "Cold",
+    "Thermo",
+    "Clothes",
+    "Accessories"
+  ],
+  "author": "Elliot, Felix, Sofia",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^9.1.0",
+    "parcel": "^2.0.1",
+    "typescript": "^4.5.2"
+  }
+}
