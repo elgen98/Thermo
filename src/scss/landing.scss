@@ -13,15 +13,19 @@ body {
     border-bottom: 1px solid rgb(185, 183, 183);
     display: flex;
     justify-content: space-between;
-    h4 {
+    align-items: center;
+    padding-left: 10px;
+    .brandName {
+      color: black;
       font-weight: bold;
       text-transform: uppercase;
+      letter-spacing: 4px;
+      text-decoration: none;
     }
     #headlines {
       height: 30px;
       padding: 0px;
-      padding-right: 20px;
-      padding-top: 15px;
+      padding-right: 10px;
       margin: 0px;
       display: flex;
       justify-content: center;

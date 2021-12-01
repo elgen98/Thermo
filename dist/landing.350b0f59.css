@@ -13,18 +13,22 @@ body header {
   border-bottom: 1px solid #b9b7b7;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
 }
-html header h4,
-body header h4 {
+html header .brandName,
+body header .brandName {
+  color: black;
   font-weight: bold;
   text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
 }
 html header #headlines,
 body header #headlines {
   height: 30px;
   padding: 0px;
-  padding-right: 20px;
-  padding-top: 15px;
+  padding-right: 10px;
   margin: 0px;
   display: flex;
   justify-content: center;
