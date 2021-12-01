@@ -8,7 +8,7 @@ body {
 
 header {
     width: 100%;
-    height: 75px;
+    height: 50px;
     display: flex;
     border-bottom: 1px solid gray;
     .navBar {
@@ -27,8 +27,7 @@ header {
         margin-right: 10px;
         line-height: 2;
     }
-    
-}  
+    }  
 
 main {
     height: 600px;
