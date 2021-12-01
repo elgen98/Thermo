@@ -1,3 +1,4 @@
+@use "mixins";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap%22");
 
 html,
@@ -21,6 +22,7 @@ body {
       text-transform: uppercase;
       letter-spacing: 4px;
       text-decoration: none;
+      padding-left: 15px;
     }
     #headlines {
       height: 30px;
@@ -55,37 +57,39 @@ body {
       padding-top: 50px;
     }
   }
-  div {
+  .aboutThermo {
     height: 300px;
     border-bottom: 1px solid rgb(185, 183, 183);
+    display: flex;
+    justify-content: center;
     padding-bottom: 50px;
-    h4 {
-      text-align: center;
-      text-transform: uppercase;
-    }
-    p {
-      font-size: 0.8rem;
-      padding-left: 40px;
-      padding-right: 40px;
-      text-align: center;
-      line-height: 25px;
+    .textContainer {
+      width: 450px;
+      h4 {
+        text-align: center;
+        text-transform: uppercase;
+      }
+      p {
+        font-size: 0.9rem;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+        line-height: 25px;
+      }
     }
   }
 
   footer {
-    background-color: #ffffff;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
+    @extend %flex;
     a {
       color: black;
-      font-size: 1.2rem;
-      width: 30px;
+      text-decoration: none;
     }
-    p {
-      padding: 0px;
-      margin: 0px;
-      width: 80px;
-    }
+    height: 150px;
+    border-top: lightgrey 1px solid;
   }
+}
+
+@media screen and (min-width: 768px) {
+  @include mixins.mediaLanding;
 }

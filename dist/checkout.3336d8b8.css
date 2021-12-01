@@ -29,6 +29,7 @@ html header .brandName {
   text-decoration: none;
   font-weight: bold;
   letter-spacing: 4px;
+  padding-left: 15px;
 }
 body main,
 html main {
@@ -44,5 +45,16 @@ body footer a,
 html footer a {
   color: black;
   text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  body header .brandName {
+    padding-left: 30px;
+  }
+  body footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 }
 /*# sourceMappingURL=checkout.3336d8b8.css.map */
