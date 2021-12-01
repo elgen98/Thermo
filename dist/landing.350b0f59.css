@@ -1,0 +1,99 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap%22";
+html,
+body {
+  font-size: 12pt;
+  font-family: Roboto;
+  margin: 0px auto;
+  width: 100%;
+}
+html header,
+body header {
+  background-color: #ffffff;
+  height: 50px;
+  border-bottom: 1px solid #b9b7b7;
+  display: flex;
+  justify-content: space-between;
+}
+html header h4,
+body header h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+html header #headlines,
+body header #headlines {
+  height: 30px;
+  padding: 0px;
+  padding-right: 20px;
+  padding-top: 15px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  border-bottom: none;
+}
+html header #headlines button,
+body header #headlines button {
+  padding-right: 40px;
+  text-transform: uppercase;
+  border-style: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+html header #headlines a,
+html header #headlines i,
+body header #headlines a,
+body header #headlines i {
+  color: black;
+  font-size: 1.5rem;
+}
+html main,
+body main {
+  background-color: #ffffff;
+  height: 500px;
+}
+html main h1,
+body main h1 {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 14px;
+  padding-top: 50px;
+}
+html div,
+body div {
+  height: 300px;
+  border-bottom: 1px solid #b9b7b7;
+  padding-bottom: 50px;
+}
+html div h4,
+body div h4 {
+  text-align: center;
+  text-transform: uppercase;
+}
+html div p,
+body div p {
+  font-size: 0.8rem;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: center;
+  line-height: 25px;
+}
+html footer,
+body footer {
+  background-color: #ffffff;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+html footer a,
+body footer a {
+  color: black;
+  font-size: 1.2rem;
+  width: 30px;
+}
+html footer p,
+body footer p {
+  padding: 0px;
+  margin: 0px;
+  width: 80px;
+}
+/*# sourceMappingURL=landing.350b0f59.css.map */
