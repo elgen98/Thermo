@@ -60,3 +60,20 @@
     }
   }
 }
+
+@mixin mediaProducts {
+  body {
+    header {
+      padding-right: 35px;
+      .brandName {
+        padding-left: 30px;
+      }
+    }
+    footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+}

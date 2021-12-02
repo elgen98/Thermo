@@ -4,45 +4,48 @@
 html,
 body {
   font-size: 12pt;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   margin: 0px auto;
   width: 100%;
 
   header {
     background-color: #ffffff;
     height: 50px;
-    border-bottom: 1px solid rgb(185, 183, 183);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-bottom: 1px solid lightgray;
     padding-left: 10px;
-    .brandName {
-      color: black;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      text-decoration: none;
-      padding-left: 15px;
-    }
-    #headlines {
-      height: 30px;
-      padding: 0px;
-      padding-right: 10px;
-      margin: 0px;
-      display: flex;
-      justify-content: center;
-      border-bottom: none;
-      button {
-        padding-right: 40px;
-        text-transform: uppercase;
-        border-style: none;
-        cursor: pointer;
-        background-color: transparent;
-      }
-      a,
-      i {
+    .navBar {
+      justify-content: space-between;
+      align-items: center;
+      .brandName {
         color: black;
-        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        text-decoration: none;
+        padding-left: 15px;
+      }
+      #headlines {
+        height: 30px;
+        padding: 0px;
+        padding-right: 10px;
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+        border-bottom: none;
+        button {
+          padding-right: 40px;
+          text-transform: uppercase;
+          border-style: none;
+          cursor: pointer;
+          background-color: transparent;
+        }
+        #cart {
+          margin-right: 15px;
+          line-height: 1;
+          color: black;
+          font-size: 1.2rem;
+        }
       }
     }
   }
