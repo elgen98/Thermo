@@ -74,6 +74,30 @@
         padding-left: 30px;
       }
     }
+
+    main {
+      .productContainerStyle {
+        width: 1200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        div {
+          width: 20%;
+          padding-left: 10px;
+          h2 {
+            font-size: 1rem;
+          }
+          span {
+          }
+          img {
+          }
+          span {
+          }
+        }
+      }
+    }
     footer {
       display: flex;
       flex-direction: row;
