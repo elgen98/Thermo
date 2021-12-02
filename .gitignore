@@ -1,3 +1,6 @@
 dist
-.parcel-cashe
+
+
 node_modules
+
+.parcel-cache
