@@ -16,14 +16,23 @@ let productVII = new Products ("Ökenräven", "", '../assets/image7.png', '../as
 
 let productVIII = new Products ("Skinande Dunis", "", '../assets/image8.png', '../assets/image88.png', false, 10000);
 
-/*
+
 var modal = document.getElementById("produktModal") as HTMLDivElement;
 
 var btn = document.getElementById("myBtn") as HTMLButtonElement;
 
-var spanis = document.getElementsByClassName("disappear")[0];
+var spanis = document.getElementsByClassName("disappear")[0] as HTMLSpanElement;
 
 btn.onclick = function() {
     modal.style.display = "block";
 }
-*/
+
+spanis.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

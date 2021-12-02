@@ -43,6 +43,21 @@ main {
         font-size: 40px;
         text-transform: uppercase;
     }
+    #myBtn {
+        height: 40px;
+        width: 40px;
+        font-size: 22.5px;
+        text-transform: uppercase;
+        color: white;
+        background-color: cyan;
+        border: 1px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(0, 221, 221);
+            transition: ease-in-out 0.2s;
+        }
+    }
     .modal {
         display: none;
         position: fixed;
@@ -59,8 +74,10 @@ main {
         background-color: #fefefe;
         margin: 15% auto;
         padding: 20px;
-        width: 75%;
+        width: 62%;
+        height: 550px;
         border: 1px solid #888;
+        justify-content: center;
     }
     .disappear {
         color: #aaa;
@@ -73,6 +90,17 @@ main {
             cursor: pointer;
             text-decoration: none;
         }
+    }
+    .Jacka {
+        letter-spacing: 3px;
+        font-size: 40px;
+        text-transform: uppercase;
+        margin-top: 50px;
+        position: absolute;
+    }
+    p {
+        position: absolute;
+        margin-top: 110px;
     }
 }
 
