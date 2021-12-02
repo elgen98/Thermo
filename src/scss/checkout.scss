@@ -28,6 +28,8 @@ html {
 
     #formContainer {
       @extend %flex;
+      border: lightgrey 2px solid;
+      border-radius: 25px;
       form,
       label {
         display: flex;
@@ -42,6 +44,10 @@ html {
           .cardInfoShow {
             display: flex;
           }
+        }
+        .checkboxInfo {
+          text-align: center;
+          font-size: 0.75rem;
         }
       }
     }
