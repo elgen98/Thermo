@@ -13,24 +13,28 @@ header {
   height: 50px;
   display: flex;
   border-bottom: 1px solid lightgray;
-  padding-left: 10px;
   .navBar {
     width: 100%;
-    height: 100%;
-    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding-left: 25px;
     .brandName {
+      color: black;
       font-weight: bold;
-      margin-left: 10px;
-      line-height: 3;
       text-transform: uppercase;
-      letter-spacing: 2.5px;
+      letter-spacing: 4px;
+      text-decoration: none;
+      text-align: left;
     }
-  }
-  #cart {
-    margin-right: 15px;
-    line-height: 1;
-    color: black;
-    font-size: 1.2rem;
+    #cart {
+      margin-right: 15px;
+      line-height: 1;
+      color: black;
+      font-size: 1rem;
+      text-align: right;
+    }
   }
 }
 
