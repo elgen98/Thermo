@@ -72,6 +72,42 @@ let productVIII = new Products(
   10000
 );
 
+let productArr = [
+  productI,
+  productII,
+  productIII,
+  productIV,
+  productV,
+  productVI,
+  productVII,
+  productVIII,
+];
+
+for (let i: number = 0; i < productArr.length; i++) {
+  let name: HTMLHeadingElement = document.createElement("h2");
+  let size: HTMLSpanElement = document.createElement("span");
+  let img: HTMLImageElement = document.createElement("img");
+  let price: HTMLSpanElement = document.createElement("span");
+
+  let productContainer: HTMLElement =
+    document.getElementById("productContainer");
+
+  let productDiv: HTMLDivElement = document.createElement("div");
+
+  name.innerHTML = productArr[i].name;
+  size.innerHTML = productArr[i].size;
+  img.src = productArr[i].firstPicture;
+  price.innerHTML = productArr[i].price.toString();
+
+  productDiv.appendChild(name);
+  productDiv.appendChild(size);
+  productDiv.appendChild(img);
+  productDiv.appendChild(price);
+  productContainer.appendChild(productDiv);
+
+  productContainer.className = "productContainerStyle";
+}
+
 var modal = document.getElementById("produktModal") as HTMLDivElement;
 
 var btn = document.getElementById("myBtn") as HTMLButtonElement;
