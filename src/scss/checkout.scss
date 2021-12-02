@@ -24,6 +24,7 @@ html {
   }
   main {
     height: 100%;
+    @extend %flex;
 
     #formContainer {
       @extend %flex;
@@ -36,10 +37,10 @@ html {
         #cardContainer {
           @extend %flex;
           .cardInfoHidden {
-            visibility: hidden;
+            display: none;
           }
           .cardInfoShow {
-            visibility: visible;
+            display: flex;
           }
         }
       }
