@@ -1,3 +1,5 @@
+export {Products}
+
 class Products {
     name: string;
     size: string;
@@ -7,18 +9,18 @@ class Products {
     price: number;
 
     constructor(
-        namnet: string,
-        storlek: string,
-        bild1: string,
-        bild2: string,
-        vagn: boolean,
-        pris: number,
+        name: string,
+        size: string,
+        firstPicture: string,
+        secondPicture: string,
+        cart: boolean,
+        price: number,
         ){
-        this.name = namnet;
-        this.size = storlek;
-        this.firstPicture = bild1;
-        this.secondPicture = bild2;
-        this.cart = vagn;
-        this.price = pris;
+        this.name = name;
+        this.size = size;
+        this.firstPicture = firstPicture;
+        this.secondPicture = secondPicture;
+        this.cart = cart;
+        this.price = price;
     }
 }
