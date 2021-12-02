@@ -1,0 +1,60 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap";
+body footer,
+html footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body,
+html {
+  font-size: 12pt;
+  height: 100%;
+  margin: auto 0;
+  font-family: "Roboto", sans-serif;
+}
+body header,
+html header {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  padding-left: 10px;
+  height: 50px;
+  border-bottom: lightgrey 1px solid;
+}
+body header .brandName,
+html header .brandName {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 4px;
+  padding-left: 15px;
+}
+body main,
+html main {
+  height: 100%;
+  display: flex;
+}
+body footer,
+html footer {
+  height: 150px;
+  border-top: lightgrey 1px solid;
+}
+body footer a,
+html footer a {
+  color: black;
+  text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  body header .brandName {
+    padding-left: 30px;
+  }
+  body footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+/*# sourceMappingURL=checkout.3336d8b8.css.map */
