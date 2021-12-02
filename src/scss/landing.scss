@@ -32,8 +32,11 @@ body {
         margin: 0px;
         display: flex;
         justify-content: center;
+        align-items: center;
         border-bottom: none;
-        button {
+        .aboutBtn {
+          text-decoration: none;
+          color: black;
           padding-right: 40px;
           text-transform: uppercase;
           border-style: none;
