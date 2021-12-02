@@ -11,19 +11,19 @@ body {
   header {
     background-color: #ffffff;
     height: 50px;
-    display: flex;
     border-bottom: 1px solid lightgray;
-    padding-left: 10px;
     .navBar {
+      display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 50px;
+      padding-left: 25px;
       .brandName {
         color: black;
         font-weight: bold;
         text-transform: uppercase;
         letter-spacing: 4px;
         text-decoration: none;
-        padding-left: 15px;
       }
       #headlines {
         height: 30px;
@@ -44,28 +44,35 @@ body {
           margin-right: 15px;
           line-height: 1;
           color: black;
-          font-size: 1.2rem;
+          font-size: 1rem;
         }
       }
     }
   }
   main {
-    background-color: #ffffff;
-    height: 500px;
+    background: url("../assets/heroimgMobile.jpg") no-repeat;
+    background-size: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     h1 {
+      padding: 0px;
+      margin: 0px;
       font-size: 2.8rem;
       text-transform: uppercase;
       text-align: center;
       letter-spacing: 14px;
-      padding-top: 50px;
     }
   }
   .aboutThermo {
-    height: 300px;
+    height: 100vh;
     border-bottom: 1px solid rgb(185, 183, 183);
     display: flex;
     justify-content: center;
-    padding-bottom: 50px;
+    align-items: center;
+    padding-bottom: 0px;
     .textContainer {
       width: 450px;
       h4 {
