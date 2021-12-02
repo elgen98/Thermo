@@ -16,32 +16,51 @@
       <a href="" class="brandName">THERMO</a>
     </header>
     <main>
-
       <div id="formContainer">
-        
-
         <form>
-  
-          <label>FORNAME <input type="text" name="forName" required /><label>
-          <label>SURNAME <input type="text" name="surName" required></label>
-          <label>E-MAIL <input type="email" name="eMail" required></label>
-          <label>ADDRESS <input type="text" name="address" required></label>
-          <label>CARD <select name="cardType" id="cardType">
+          <label>FORNAME <input type="text" name="forName" required /></label>
+          <label>SURNAME <input type="text" name="surName" required /></label>
+          <label>E-MAIL <input type="email" name="eMail" required /></label>
+          <label>ADDRESS <input type="text" name="address" required /></label>
 
-            <option value="visa">VISA</option>
-            <option value="masterCard">MASTERCARD</option>
-            <option value="amex">AMERCIAN EXPRESS</option>
+          <div id="cardContainer">
+            <label
+              >CARD
+              <select name="cardType" id="cardType">
+                <option disabled selected value>-- select an option --</option>
+                <option class="card" value="visa">VISA</option>
+                <option value="masterCard">MASTERCARD</option>
+                <option value="amex">AMERCIAN EXPRESS</option>
+              </select></label
+            >
+            <label class="cardInfoHidden"
+              >CARDNUMBER
+              <input
+                type="text"
+                name="cardNumber"
+                inputmode="numeric"
+                autocomplete="cc-number"
+                required
+            /></label>
+            <label class="cardInfoHidden"
+              >EXPIRATION DATE <input type="month" name="cardDate"
+            /></label>
+            <label class="cardInfoHidden"
+              >CVV <input type="number" name="cvv"
+            /></label>
+          </div>
 
-          </select></label>
-          <label>CARDNUMBER <input type="text" name="cardNumber" required></label>
-          <label>EXPIRATION DATE <input type="month" name="cardDate"></label>
-          <label>CVV <input type="number" name="cvv"></label>
-  
+          <label
+            >I want to recieve promotional material through e-mail including new
+            items, special offers and updates regarding the THERMO brand
+            <input type="checkbox" checked
+          /></label>
+          <label class="checkboxInfo"
+            >I have read and accept THERMOs policy and code of conduct
+            <input type="checkbox" required
+          /></label>
         </form>
-
-
       </div>
-
     </main>
     <footer>
       <a href="http://facebook.com"

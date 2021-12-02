@@ -24,12 +24,24 @@ html {
   }
   main {
     height: 100%;
+
     #formContainer {
-      form {
+      @extend %flex;
+      form,
+      label {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
+        #cardContainer {
+          @extend %flex;
+          .cardInfoHidden {
+            visibility: hidden;
+          }
+          .cardInfoShow {
+            visibility: visible;
+          }
+        }
       }
     }
   }
