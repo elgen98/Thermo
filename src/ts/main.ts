@@ -131,7 +131,7 @@ for (let i: number = 0; i < productArr.length; i++) {
 }
 }
 
-var modal = document.getElementById("produktModal") as HTMLDivElement;
+var modal = document.getElementById("productModal") as HTMLDivElement;
 
 var spanis = document.getElementsByClassName("disappear")[0] as HTMLSpanElement;
 
