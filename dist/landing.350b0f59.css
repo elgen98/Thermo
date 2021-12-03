@@ -30,6 +30,7 @@ body header .brandName {
   text-transform: uppercase;
   letter-spacing: 4px;
   text-decoration: none;
+  padding-left: 15px;
 }
 html header #headlines,
 body header #headlines {
