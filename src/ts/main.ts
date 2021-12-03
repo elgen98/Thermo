@@ -1,7 +1,8 @@
 import { Products } from "./Models/models";
 
 window.onload = function () {
-  document.getElementById("cardType").addEventListener("change", addCardForm);
+//   document.getElementById("cardType").addEventListener("change", addCardForm);
+  printProducts();
 };
 
 function addCardForm() {
@@ -14,8 +15,8 @@ function addCardForm() {
 let productI = new Products(
   "Pälsjacka",
   "",
-  "../assets/image1.png",
-  "../assets/image11.png",
+  "image1.6ba3e079.png",
+  "image11.9b11cc4c.png",
   false,
   2500
 );
@@ -23,8 +24,8 @@ let productI = new Products(
 let productII = new Products(
   "Tjock Dunjacka",
   "",
-  "../assets/image2.png",
-  "../assets/image22.png",
+  "image2.4f55778f.png",
+  "image22.f979d21b.png",
   false,
   3300
 );
@@ -32,8 +33,8 @@ let productII = new Products(
 let productIII = new Products(
   "Tunn Dunjacka",
   "",
-  "../assets/image3.png",
-  "../assets/image33.png",
+  "image3.e7559f55.png",
+  "image33.5f6dfb74.png",
   false,
   2300
 );
@@ -41,8 +42,8 @@ let productIII = new Products(
 let productIV = new Products(
   "Dunis",
   "",
-  "../assets/image4.png",
-  "../assets/image44.png",
+  "image4.8e6f679b.png",
+  "image44.6dc488c7.png",
   false,
   4000
 );
@@ -50,8 +51,8 @@ let productIV = new Products(
 let productV = new Products(
   "Silver Dunis",
   "",
-  "../assets/image5.png",
-  "../assets/image55",
+  "image5.f26372db.png",
+  "image55.35abb97f.png",
   false,
   3500
 );
@@ -59,8 +60,8 @@ let productV = new Products(
 let productVI = new Products(
   "Lång Dunster",
   "",
-  "../assets/image6.png",
-  "../assets/image66.png",
+  "image6.214487d0.png",
+  "image66.85ae833f.png",
   false,
   4300
 );
@@ -68,8 +69,8 @@ let productVI = new Products(
 let productVII = new Products(
   "Ökenräven",
   "",
-  "../assets/image7.png",
-  "../assets/image77.png",
+  "image7.b3b5c798.png",
+  "image77.7490008f.png",
   false,
   8000
 );
@@ -77,8 +78,8 @@ let productVII = new Products(
 let productVIII = new Products(
   "Skinande Dunis",
   "",
-  "../assets/image8.png",
-  "../assets/image88.png",
+  "image8.ea8d10e3.png",
+  "image88.1dadde8e.png",
   false,
   10000
 );
@@ -94,11 +95,15 @@ let productArr = [
   productVIII,
 ];
 
+
+function printProducts() {
 for (let i: number = 0; i < productArr.length; i++) {
   let name: HTMLHeadingElement = document.createElement("h2");
   let size: HTMLSpanElement = document.createElement("span");
   let img: HTMLImageElement = document.createElement("img");
+  let img2: HTMLImageElement = document.createElement("img");
   let price: HTMLSpanElement = document.createElement("span");
+  let btn: HTMLButtonElement = document.createElement("button");
 
   let productContainer: HTMLElement =
     document.getElementById("productContainer");
@@ -108,24 +113,29 @@ for (let i: number = 0; i < productArr.length; i++) {
   name.innerHTML = productArr[i].name;
   size.innerHTML = productArr[i].size;
   img.src = productArr[i].firstPicture;
+  img2.src = productArr[i].secondPicture;
   price.innerHTML = productArr[i].price.toString();
 
   productDiv.appendChild(name);
   productDiv.appendChild(size);
   productDiv.appendChild(img);
+  productDiv.appendChild(img2);
   productDiv.appendChild(price);
+  productDiv.appendChild(btn);
   productContainer.appendChild(productDiv);
 
+  btn.className = "btnStyle";
   productContainer.className = "productContainerStyle";
+
+  btn.addEventListener("click", handleClick);
+}
 }
 
-var modal = document.getElementById("produktModal") as HTMLDivElement;
-
-var btn = document.getElementById("myBtn") as HTMLButtonElement;
+var modal = document.getElementById("productModal") as HTMLDivElement;
 
 var spanis = document.getElementsByClassName("disappear")[0] as HTMLSpanElement;
 
-btn.onclick = function () {
+function handleClick() {
   modal.style.display = "block";
 };
 
