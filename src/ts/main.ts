@@ -15,8 +15,8 @@ function addCardForm() {
 let productI = new Products(
   "Pälsjacka",
   "",
-  "../assets/image1.png",
-  "../assets/image11.png",
+  "image1.6ba3e079.png",
+  "image11.9b11cc4c.png",
   false,
   2500
 );
