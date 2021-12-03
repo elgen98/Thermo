@@ -24,8 +24,8 @@ let productI = new Products(
 let productII = new Products(
   "Tjock Dunjacka",
   "",
-  "../assets/image2.png",
-  "../assets/image22.png",
+  "image2.4f55778f.png",
+  "image22.f979d21b.png",
   false,
   3300
 );
@@ -33,8 +33,8 @@ let productII = new Products(
 let productIII = new Products(
   "Tunn Dunjacka",
   "",
-  "../assets/image3.png",
-  "../assets/image33.png",
+  "image3.e7559f55.png",
+  "image33.5f6dfb74.png",
   false,
   2300
 );
@@ -42,8 +42,8 @@ let productIII = new Products(
 let productIV = new Products(
   "Dunis",
   "",
-  "../assets/image4.png",
-  "../assets/image44.png",
+  "image4.8e6f679b.png",
+  "image44.6dc488c7.png",
   false,
   4000
 );
@@ -51,8 +51,8 @@ let productIV = new Products(
 let productV = new Products(
   "Silver Dunis",
   "",
-  "../assets/image5.png",
-  "../assets/image55",
+  "image5.f26372db.png",
+  "image55.35abb97f.png",
   false,
   3500
 );
@@ -60,8 +60,8 @@ let productV = new Products(
 let productVI = new Products(
   "Lång Dunster",
   "",
-  "./assets/image6.png",
-  "../assets/image66.png",
+  "image6.214487d0.png",
+  "image66.85ae833f.png",
   false,
   4300
 );
@@ -69,8 +69,8 @@ let productVI = new Products(
 let productVII = new Products(
   "Ökenräven",
   "",
-  "../assets/image7.png",
-  "../assets/image77.png",
+  "image7.b3b5c798.png",
+  "image77.7490008f.png",
   false,
   8000
 );
@@ -78,8 +78,8 @@ let productVII = new Products(
 let productVIII = new Products(
   "Skinande Dunis",
   "",
-  "../assets/image8.png",
-  "../assets/image88.png",
+  "image8.ea8d10e3.png",
+  "image88.1dadde8e.png",
   false,
   10000
 );
