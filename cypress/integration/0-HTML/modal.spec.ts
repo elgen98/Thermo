@@ -1,1 +1,3 @@
-describe("modal functionality test");
+describe("modal functionality test", () => {
+  cy.visit("/");
+});
