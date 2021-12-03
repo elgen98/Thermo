@@ -1,7 +1,8 @@
 import { Products } from "./Models/models";
 
 window.onload = function () {
-  document.getElementById("cardType").addEventListener("change", addCardForm);
+//   document.getElementById("cardType").addEventListener("change", addCardForm);
+  printProducts();
 };
 
 function addCardForm() {
@@ -59,7 +60,7 @@ let productV = new Products(
 let productVI = new Products(
   "Lång Dunster",
   "",
-  "../assets/image6.png",
+  "./assets/image6.png",
   "../assets/image66.png",
   false,
   4300
@@ -94,11 +95,15 @@ let productArr = [
   productVIII,
 ];
 
+
+function printProducts() {
 for (let i: number = 0; i < productArr.length; i++) {
   let name: HTMLHeadingElement = document.createElement("h2");
   let size: HTMLSpanElement = document.createElement("span");
   let img: HTMLImageElement = document.createElement("img");
+  let img2: HTMLImageElement = document.createElement("img");
   let price: HTMLSpanElement = document.createElement("span");
+  let btn: HTMLButtonElement = document.createElement("button");
 
   let productContainer: HTMLElement =
     document.getElementById("productContainer");
@@ -108,24 +113,29 @@ for (let i: number = 0; i < productArr.length; i++) {
   name.innerHTML = productArr[i].name;
   size.innerHTML = productArr[i].size;
   img.src = productArr[i].firstPicture;
+  img2.src = productArr[i].secondPicture;
   price.innerHTML = productArr[i].price.toString();
 
   productDiv.appendChild(name);
   productDiv.appendChild(size);
   productDiv.appendChild(img);
+  productDiv.appendChild(img2);
   productDiv.appendChild(price);
+  productDiv.appendChild(btn);
   productContainer.appendChild(productDiv);
 
+  btn.className = "btnStyle";
   productContainer.className = "productContainerStyle";
+
+  btn.addEventListener("click", handleClick);
+}
 }
 
 var modal = document.getElementById("produktModal") as HTMLDivElement;
 
-var btn = document.getElementById("myBtn") as HTMLButtonElement;
-
 var spanis = document.getElementsByClassName("disappear")[0] as HTMLSpanElement;
 
-btn.onclick = function () {
+function handleClick() {
   modal.style.display = "block";
 };
 
