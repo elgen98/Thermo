@@ -3,6 +3,7 @@ import { Products } from "./Models/models";
 window.onload = function () {
   //   document.getElementById("cardType").addEventListener("change", addCardForm);
   printProducts();
+  document.getElementById("cartBtn").addEventListener("click", printCart);
 };
 
 function addCardForm() {
@@ -95,6 +96,8 @@ let productArr = [
   productVIII,
 ];
 
+let cartList: Products[] = [];
+
 function printProducts() {
   for (let i: number = 0; i < productArr.length; i++) {
     let name: HTMLHeadingElement = document.createElement("h2");
@@ -105,7 +108,11 @@ function printProducts() {
     let btn: HTMLButtonElement = document.createElement("button");
     let addToCartBtn: HTMLButtonElement = document.createElement("button");
 
-    addToCartBtn.addEventListener("click", addToCartList);
+    addToCartBtn.addEventListener("click", () => {
+      productArr[i].cart = true;
+      cartList.push(productArr[i]);
+      console.log(cartList);
+    });
 
     let productContainer: HTMLElement =
       document.getElementById("productContainer");
@@ -135,7 +142,44 @@ function printProducts() {
   }
 }
 
-function addToCartList() {}
+function printCart() {
+  let cartContainer: HTMLDivElement = document.getElementById(
+    "cart-container"
+  ) as HTMLDivElement;
+  cartContainer.innerHTML = "";
+
+  for (let i: number = 0; i < cartList.length; i++) {
+    if (cartList[i].cart === true) {
+      let productDiv: HTMLDivElement = document.createElement("div");
+      let name: HTMLHeadingElement = document.createElement("h2");
+      let size: HTMLSpanElement = document.createElement("span");
+      let img: HTMLImageElement = document.createElement("img");
+      let img2: HTMLImageElement = document.createElement("img");
+      let price: HTMLSpanElement = document.createElement("span");
+
+      name.innerHTML = cartList[i].name;
+      size.innerHTML = cartList[i].size;
+      img.src = cartList[i].firstPicture;
+      img2.src = cartList[i].secondPicture;
+      price.innerHTML = cartList[i].price.toString();
+
+      productDiv.appendChild(name);
+      productDiv.appendChild(size);
+      productDiv.appendChild(img);
+      productDiv.appendChild(img2);
+      productDiv.appendChild(price);
+
+      cartContainer.appendChild(productDiv);
+    } else {
+      let emptyMsg: HTMLParagraphElement = document.createElement(
+        "p"
+      ) as HTMLParagraphElement;
+      emptyMsg.innerHTML = "Your cart is empty";
+      cartContainer.appendChild(emptyMsg);
+    }
+  }
+  handleClick();
+}
 
 var modal = document.getElementById("productModal") as HTMLDivElement;
 
