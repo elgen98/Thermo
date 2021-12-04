@@ -1,7 +1,7 @@
 import { Products } from "./Models/models";
 
 window.onload = function () {
-//   document.getElementById("cardType").addEventListener("change", addCardForm);
+  //   document.getElementById("cardType").addEventListener("change", addCardForm);
   printProducts();
 };
 
@@ -95,41 +95,47 @@ let productArr = [
   productVIII,
 ];
 
-
 function printProducts() {
-for (let i: number = 0; i < productArr.length; i++) {
-  let name: HTMLHeadingElement = document.createElement("h2");
-  let size: HTMLSpanElement = document.createElement("span");
-  let img: HTMLImageElement = document.createElement("img");
-  let img2: HTMLImageElement = document.createElement("img");
-  let price: HTMLSpanElement = document.createElement("span");
-  let btn: HTMLButtonElement = document.createElement("button");
+  for (let i: number = 0; i < productArr.length; i++) {
+    let name: HTMLHeadingElement = document.createElement("h2");
+    let size: HTMLSpanElement = document.createElement("span");
+    let img: HTMLImageElement = document.createElement("img");
+    let img2: HTMLImageElement = document.createElement("img");
+    let price: HTMLSpanElement = document.createElement("span");
+    let btn: HTMLButtonElement = document.createElement("button");
+    let addToCartBtn: HTMLButtonElement = document.createElement("button");
 
-  let productContainer: HTMLElement =
-    document.getElementById("productContainer");
+    addToCartBtn.addEventListener("click", addToCartList);
 
-  let productDiv: HTMLDivElement = document.createElement("div");
+    let productContainer: HTMLElement =
+      document.getElementById("productContainer");
 
-  name.innerHTML = productArr[i].name;
-  size.innerHTML = productArr[i].size;
-  img.src = productArr[i].firstPicture;
-  img2.src = productArr[i].secondPicture;
-  price.innerHTML = productArr[i].price.toString();
+    let productDiv: HTMLDivElement = document.createElement("div");
 
-  productDiv.appendChild(name);
-  productDiv.appendChild(size);
-  productDiv.appendChild(img);
-  productDiv.appendChild(img2);
-  productDiv.appendChild(price);
-  productDiv.appendChild(btn);
-  productContainer.appendChild(productDiv);
+    name.innerHTML = productArr[i].name;
+    size.innerHTML = productArr[i].size;
+    img.src = productArr[i].firstPicture;
+    img2.src = productArr[i].secondPicture;
+    price.innerHTML = productArr[i].price.toString();
+    addToCartBtn.innerHTML = "ADD TO CART";
 
-  btn.className = "btnStyle";
-  productContainer.className = "productContainerStyle";
+    productDiv.appendChild(name);
+    productDiv.appendChild(size);
+    productDiv.appendChild(img);
+    productDiv.appendChild(img2);
+    productDiv.appendChild(price);
+    productDiv.appendChild(btn);
+    productDiv.appendChild(addToCartBtn);
+    productContainer.appendChild(productDiv);
 
-  btn.addEventListener("click", handleClick);
+    btn.className = "btnStyle";
+    productContainer.className = "productContainerStyle";
+
+    btn.addEventListener("click", handleClick);
+  }
 }
-}
+
+function addToCartList() {}
 
 var modal = document.getElementById("productModal") as HTMLDivElement;
 
@@ -137,7 +143,7 @@ var spanis = document.getElementsByClassName("disappear")[0] as HTMLSpanElement;
 
 function handleClick() {
   modal.style.display = "block";
-};
+}
 
 spanis.onclick = function () {
   modal.style.display = "none";
