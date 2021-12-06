@@ -62,14 +62,22 @@ main {
     div {
       width: 45%;
       border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      img {
+        width: 100%;
+      }
       h2 {
         font-size: 1rem;
+        margin: 0px;
+        padding-top: 10px;
+        padding-left: 15px;
       }
       span {
-      }
-      img {
+        padding-left: 15px;
       }
       span {
+        padding-left: 15px;
       }
       .btnStyle {
         height: 40px;
@@ -89,7 +97,6 @@ main {
     }
   }
 }
-
 
 .modal {
   display: none;
