@@ -1,9 +1,8 @@
 import { Products } from "./Models/models";
 
 window.onload = function () {
-  document.getElementById("cardType").addEventListener("change", addCardForm);
-
   printProducts();
+  //document.getElementById("cardType").addEventListener("change", addCardForm);
   document.getElementById("cartBtn").addEventListener("click", printCart);
 };
 
@@ -147,12 +146,12 @@ function printProducts() {
     img.onmouseover = function () {
       img.style.display = "none";
       img2.style.display = "block";
-    }
+    };
 
     img2.onmouseout = function () {
       img.style.display = "block";
       img2.style.display = "none";
-    }
+    };
 
     btn.addEventListener("click", handleClick);
   }
@@ -169,14 +168,12 @@ function printCart() {
       let productDiv: HTMLDivElement = document.createElement("div");
       let name: HTMLHeadingElement = document.createElement("h2");
       let size: HTMLSpanElement = document.createElement("span");
-      let img: HTMLImageElement = document.createElement("img");
       let img2: HTMLImageElement = document.createElement("img");
       let price: HTMLSpanElement = document.createElement("span");
       let removeBtn: HTMLButtonElement = document.createElement("button");
 
       name.innerHTML = cartList[i].name;
       size.innerHTML = cartList[i].size;
-      img.src = cartList[i].firstPicture;
       img2.src = cartList[i].secondPicture;
       price.innerHTML = cartList[i].price.toString();
       removeBtn.innerHTML = "REMOVE";
@@ -193,7 +190,6 @@ function printCart() {
 
       productDiv.appendChild(name);
       productDiv.appendChild(size);
-      productDiv.appendChild(img);
       productDiv.appendChild(img2);
       productDiv.appendChild(price);
       productDiv.appendChild(removeBtn);
@@ -228,4 +224,3 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
-
