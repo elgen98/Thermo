@@ -2,6 +2,9 @@ import { Products } from "./Models/models";
 
 window.onload = function () {
   document.getElementById("cardType").addEventListener("change", addCardForm);
+  document.getElementById("submitBtn").addEventListener("click", function () {
+    document.getElementById("form").className = "submitted";
+  });
   printProducts();
   document.getElementById("cartBtn").addEventListener("click", printCart);
 };

@@ -49,6 +49,22 @@ html {
           text-align: center;
           font-size: 0.75rem;
         }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+          &:valid {
+            background: url("https://webdevtrick.com/wp-content/uploads/check-icon.svg");
+            background-repeat: no-repeat;
+            background-size: 10px;
+            background-position: 150px 4px;
+          }
+          form.submitted &:invalid {
+            background: url("https://webdevtrick.com/wp-content/uploads/xicon.svg");
+            background-repeat: no-repeat;
+            background-size: 10px;
+            background-position: 150px 4px;
+          }
+        }
       }
     }
   }
