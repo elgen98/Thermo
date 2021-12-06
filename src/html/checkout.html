@@ -20,33 +20,42 @@
     </header>
     <main>
       <div id="formContainer">
-        <form id="form" action="/action_page.php">
+        <form action="/action_page.php">
           <label
             >FIRST NAME
-            <input type="text" name="forName" placeholder=" " required
+            <input
+              type="text"
+              name="forName"
+              pattern="[a-öA-Ö]+"
+              title="Please enter a valid name"
+              required=""
           /></label>
           <label
             >LAST NAME
-            <input type="text" name="surName" placeholder=" " required
+            <input
+              type="text"
+              name="surName"
+              pattern="[a-öA-Ö]+"
+              title="Please enter a valid name"
+              required=""
           /></label>
-          <label
-            >E-MAIL <input type="email" name="eMail" placeholder=" " required
-          /></label>
-          <label
-            >ADDRESS <input type="text" name="address" placeholder=" " required
-          /></label>
+          <label>E-MAIL <input type="email" name="eMail" required /></label>
+          <label>ADDRESS <input type="text" name="address" required /></label>
           <label
             >ZIP-CODE
-            <input type="number" name="zipcode" placeholder=" " required
+            <input
+              type="number"
+              name="zipcode"
+              pattern="[0-9]{5}"
+              title="Please enter a valid zip-code"
+              required
           /></label>
-          <label
-            >CITY <input type="text" name="city" placeholder=" " required
-          /></label>
+          <label>CITY <input type="text" name="city" required /></label>
 
           <div id="cardContainer">
             <label
               >CARD
-              <select name="cardType" id="cardType" placeholder=" " required>
+              <select name="cardType" id="cardType" required>
                 <option disabled selected value>-- select an option --</option>
                 <option class="card" value="visa">VISA</option>
                 <option value="masterCard">MASTERCARD</option>
@@ -60,15 +69,21 @@
                 name="cardNumber"
                 inputmode="numeric"
                 autocomplete="cc-number"
-                placeholder=" "
+                pattern="[0-9]{16}"
+                title="Please enter a valid card number"
+                required=""
+            /></label>
+            <label class="cardInfoHidden"
+              >EXPIRATION DATE <input type="month" name="cardDate" required
+            /></label>
+            <label class="cardInfoHidden"
+              >CVV
+              <input
+                type="number"
+                name="cvv"
+                pattern="[0-9]{3}"
+                title="Please enter a valid CVV"
                 required
-            /></label>
-            <label class="cardInfoHidden"
-              >EXPIRATION DATE
-              <input type="month" name="cardDate" placeholder=" " required
-            /></label>
-            <label class="cardInfoHidden"
-              >CVV <input type="number" name="cvv" placeholder=" " required
             /></label>
           </div>
 
@@ -82,7 +97,7 @@
             <input type="checkbox" required
           /></label>
 
-          <input type="submit" id="submitBtn" value="CONFIRM ORDER" />
+          <input type="submit" value="CONFIRM ORDER" />
         </form>
       </div>
     </main>
