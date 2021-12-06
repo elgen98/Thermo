@@ -1,26 +1,26 @@
-export {Products}
+export { Products };
 
 class Products {
-    name: string;
-    size: string;
-    firstPicture: string;
-    secondPicture: string;
-    cart: boolean;
-    price: number;
+  firstPicture: string;
+  secondPicture: string;
+  name: string;
+  size: string;
+  price: number;
+  cart: boolean;
 
-    constructor(
-        name: string,
-        size: string,
-        firstPicture: string,
-        secondPicture: string,
-        cart: boolean,
-        price: number,
-        ){
-        this.name = name;
-        this.size = size;
-        this.firstPicture = firstPicture;
-        this.secondPicture = secondPicture;
-        this.cart = cart;
-        this.price = price;
-    }
+  constructor(
+    firstPicture: string,
+    secondPicture: string,
+    name: string,
+    size: string,
+    price: number,
+    cart: boolean
+  ) {
+    this.firstPicture = firstPicture;
+    this.secondPicture = secondPicture;
+    this.name = name;
+    this.size = size;
+    this.price = price;
+    this.cart = cart;
+  }
 }
