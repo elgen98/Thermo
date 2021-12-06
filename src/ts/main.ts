@@ -3,6 +3,7 @@ import { Products } from "./Models/models";
 window.onload = function () {
   //   document.getElementById("cardType").addEventListener("change", addCardForm);
   printProducts();
+  document.getElementById("cartBtn").addEventListener("click", printCart);
 };
 
 function addCardForm() {
@@ -95,32 +96,43 @@ let productArr = [
   productVIII,
 ];
 
+let cartList: Products[] = [];
+
 function printProducts() {
   for (let i: number = 0; i < productArr.length; i++) {
+    let name: HTMLHeadingElement = document.createElement("h2");
+    let size: HTMLSpanElement = document.createElement("span");
     let img: HTMLImageElement = document.createElement("img");
     let img2: HTMLImageElement = document.createElement("img");
-    let name: HTMLHeadingElement = document.createElement("h2");
     let price: HTMLSpanElement = document.createElement("span");
-    let size: HTMLSpanElement = document.createElement("span");
     let btn: HTMLButtonElement = document.createElement("button");
+    let addToCartBtn: HTMLButtonElement = document.createElement("button");
+
+    addToCartBtn.addEventListener("click", () => {
+      //productArr[i].cart = true;
+      cartList.push(productArr[i]);
+      console.log(cartList);
+    });
 
     let productContainer: HTMLElement =
       document.getElementById("productContainer");
 
     let productDiv: HTMLDivElement = document.createElement("div");
 
+    name.innerHTML = productArr[i].name;
+    size.innerHTML = productArr[i].size;
     img.src = productArr[i].firstPicture;
     img2.src = productArr[i].secondPicture;
-    name.innerHTML = productArr[i].name;
     price.innerHTML = productArr[i].price.toString();
-    size.innerHTML = productArr[i].size;
+    addToCartBtn.innerHTML = "ADD TO CART";
 
+    productDiv.appendChild(name);
+    productDiv.appendChild(size);
     productDiv.appendChild(img);
     productDiv.appendChild(img2);
-    productDiv.appendChild(name);
     productDiv.appendChild(price);
-    productDiv.appendChild(size);
     productDiv.appendChild(btn);
+    productDiv.appendChild(addToCartBtn);
     productContainer.appendChild(productDiv);
 
     btn.className = "btnStyle";
@@ -128,6 +140,59 @@ function printProducts() {
 
     btn.addEventListener("click", handleClick);
   }
+}
+
+function printCart() {
+  let cartContainer: HTMLDivElement = document.getElementById(
+    "cart-container"
+  ) as HTMLDivElement;
+  cartContainer.innerHTML = "";
+
+  if (cartList.length > 0) {
+    for (let i: number = 0; i < cartList.length; i++) {
+      let productDiv: HTMLDivElement = document.createElement("div");
+      let name: HTMLHeadingElement = document.createElement("h2");
+      let size: HTMLSpanElement = document.createElement("span");
+      let img: HTMLImageElement = document.createElement("img");
+      let img2: HTMLImageElement = document.createElement("img");
+      let price: HTMLSpanElement = document.createElement("span");
+      let removeBtn: HTMLButtonElement = document.createElement("button");
+
+      name.innerHTML = cartList[i].name;
+      size.innerHTML = cartList[i].size;
+      img.src = cartList[i].firstPicture;
+      img2.src = cartList[i].secondPicture;
+      price.innerHTML = cartList[i].price.toString();
+      removeBtn.innerHTML = "REMOVE";
+
+      removeBtn.addEventListener("click", () => {
+        cartList.splice(i, 1);
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+        printCart();
+      });
+
+      productDiv.appendChild(name);
+      productDiv.appendChild(size);
+      productDiv.appendChild(img);
+      productDiv.appendChild(img2);
+      productDiv.appendChild(price);
+      productDiv.appendChild(removeBtn);
+
+      cartContainer.appendChild(productDiv);
+    }
+  } else {
+    let emptyMsg: HTMLParagraphElement = document.createElement(
+      "p"
+    ) as HTMLParagraphElement;
+    emptyMsg.innerHTML = "Your cart is empty";
+    cartContainer.appendChild(emptyMsg);
+  }
+
+  handleClick();
 }
 
 var modal = document.getElementById("productModal") as HTMLDivElement;
