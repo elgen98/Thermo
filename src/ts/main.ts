@@ -109,7 +109,7 @@ function printProducts() {
     let addToCartBtn: HTMLButtonElement = document.createElement("button");
 
     addToCartBtn.addEventListener("click", () => {
-      productArr[i].cart = true;
+      //productArr[i].cart = true;
       cartList.push(productArr[i]);
       console.log(cartList);
     });
@@ -148,36 +148,50 @@ function printCart() {
   ) as HTMLDivElement;
   cartContainer.innerHTML = "";
 
-  for (let i: number = 0; i < cartList.length; i++) {
-    if (cartList[i].cart === true) {
+  if (cartList.length > 0) {
+    for (let i: number = 0; i < cartList.length; i++) {
       let productDiv: HTMLDivElement = document.createElement("div");
       let name: HTMLHeadingElement = document.createElement("h2");
       let size: HTMLSpanElement = document.createElement("span");
       let img: HTMLImageElement = document.createElement("img");
       let img2: HTMLImageElement = document.createElement("img");
       let price: HTMLSpanElement = document.createElement("span");
+      let removeBtn: HTMLButtonElement = document.createElement("button");
 
       name.innerHTML = cartList[i].name;
       size.innerHTML = cartList[i].size;
       img.src = cartList[i].firstPicture;
       img2.src = cartList[i].secondPicture;
       price.innerHTML = cartList[i].price.toString();
+      removeBtn.innerHTML = "REMOVE";
+
+      removeBtn.addEventListener("click", () => {
+        cartList.splice(i, 1);
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+        printCart();
+      });
 
       productDiv.appendChild(name);
       productDiv.appendChild(size);
       productDiv.appendChild(img);
       productDiv.appendChild(img2);
       productDiv.appendChild(price);
+      productDiv.appendChild(removeBtn);
 
       cartContainer.appendChild(productDiv);
-    } else {
-      let emptyMsg: HTMLParagraphElement = document.createElement(
-        "p"
-      ) as HTMLParagraphElement;
-      emptyMsg.innerHTML = "Your cart is empty";
-      cartContainer.appendChild(emptyMsg);
     }
+  } else {
+    let emptyMsg: HTMLParagraphElement = document.createElement(
+      "p"
+    ) as HTMLParagraphElement;
+    emptyMsg.innerHTML = "Your cart is empty";
+    cartContainer.appendChild(emptyMsg);
   }
+
   handleClick();
 }
 
