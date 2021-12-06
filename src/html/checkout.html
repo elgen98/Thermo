@@ -20,15 +20,35 @@
     </header>
     <main>
       <div id="formContainer">
-        <form action="/action_page.php">
+        <form>
           <label
-            >FIRST NAME <input type="text" name="forName" required
+            >FIRST NAME
+            <input
+              type="text"
+              name="forName"
+              pattern="[a-öA-Ö]+"
+              title="Please enter a valid name"
+              required=""
           /></label>
-          <label>LAST NAME <input type="text" name="surName" required /></label>
+          <label
+            >LAST NAME
+            <input
+              type="text"
+              name="surName"
+              pattern="[a-öA-Ö]+"
+              title="Please enter a valid name"
+              required=""
+          /></label>
           <label>E-MAIL <input type="email" name="eMail" required /></label>
           <label>ADDRESS <input type="text" name="address" required /></label>
           <label
-            >ZIP-CODE <input type="number" name="zipcode" required
+            >ZIP-CODE
+            <input
+              type="number"
+              name="zipcode"
+              pattern="[0-9]{5}"
+              title="Please enter a valid zip-code"
+              required
           /></label>
           <label>CITY <input type="text" name="city" required /></label>
 
@@ -49,13 +69,21 @@
                 name="cardNumber"
                 inputmode="numeric"
                 autocomplete="cc-number"
-                required
+                pattern="[0-9]{16}"
+                title="Please enter a valid card number"
+                required=""
             /></label>
             <label class="cardInfoHidden"
               >EXPIRATION DATE <input type="month" name="cardDate" required
             /></label>
             <label class="cardInfoHidden"
-              >CVV <input type="number" name="cvv" required
+              >CVV
+              <input
+                type="number"
+                name="cvv"
+                pattern="[0-9]{3}"
+                title="Please enter a valid CVV"
+                required
             /></label>
           </div>
 

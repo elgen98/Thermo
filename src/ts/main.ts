@@ -1,7 +1,8 @@
 import { Products } from "./Models/models";
 
 window.onload = function () {
-  //   document.getElementById("cardType").addEventListener("change", addCardForm);
+  document.getElementById("cardType").addEventListener("change", addCardForm);
+
   printProducts();
   document.getElementById("cartBtn").addEventListener("click", printCart);
 };
