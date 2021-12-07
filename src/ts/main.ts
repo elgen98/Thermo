@@ -2,16 +2,8 @@ import { Products } from "./Models/models";
 
 window.onload = function () {
   printProducts();
-  //document.getElementById("cardType").addEventListener("change", addCardForm);
   document.getElementById("cartBtn").addEventListener("click", printCart);
 };
-
-function addCardForm() {
-  let cardItems = document.getElementsByClassName("cardInfoHidden");
-  for (let i = cardItems.length - 1; i >= 0; --i) {
-    cardItems[i].className = "cardInfoShow";
-  }
-}
 
 let productI = new Products(
   "https://img01.ztat.net/article/spp-media-p1/975b832b5da135fa95459afac9e831dd/0497e1047c01452eabdaa5bf73f3ad42.jpg?imwidth=156",
