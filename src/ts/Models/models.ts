@@ -7,6 +7,7 @@ class Products {
   size: string;
   price: number;
   cart: boolean;
+  detailText: string;
 
   constructor(
     firstPicture: string,
@@ -14,7 +15,8 @@ class Products {
     name: string,
     size: string,
     price: number,
-    cart: boolean
+    cart: boolean,
+    detailText: string
   ) {
     this.firstPicture = firstPicture;
     this.secondPicture = secondPicture;
@@ -22,5 +24,6 @@ class Products {
     this.size = size;
     this.price = price;
     this.cart = cart;
+    this.detailText = detailText;
   }
 }

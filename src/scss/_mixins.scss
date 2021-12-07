@@ -22,7 +22,6 @@
       h1 {
         font-size: 3.8rem;
         letter-spacing: 18px;
-        padding-top: 70px;
       }
     }
     .aboutThermo {
@@ -84,16 +83,23 @@
         flex-wrap: wrap;
         gap: 20px;
         div {
-          width: 20%;
-          padding-left: 10px;
+          width: 280px;
+          img {
+          }
           h2 {
             font-size: 1rem;
           }
           span {
           }
-          img {
-          }
+
           span {
+          }
+          .btnDivStyle {
+            width: 270px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            gap: 5px;
           }
         }
       }
