@@ -117,7 +117,7 @@ function printProducts() {
     let productContainer: HTMLElement =
       document.getElementById("productContainer");
 
-    let productDiv: HTMLDivElement = document.createElement("div");
+    let productsDiv: HTMLDivElement = document.createElement("div");
 
     name.innerHTML = productArr[i].name;
     size.innerHTML = productArr[i].size;
@@ -126,20 +126,47 @@ function printProducts() {
     price.innerHTML = productArr[i].price.toString();
     addToCartBtn.innerHTML = "ADD TO CART";
 
-    productDiv.appendChild(name);
-    productDiv.appendChild(size);
-    productDiv.appendChild(img);
-    productDiv.appendChild(img2);
-    productDiv.appendChild(price);
-    productDiv.appendChild(btn);
-    productDiv.appendChild(addToCartBtn);
-    productContainer.appendChild(productDiv);
+    productsDiv.appendChild(name);
+    productsDiv.appendChild(size);
+    productsDiv.appendChild(img);
+    productsDiv.appendChild(img2);
+    productsDiv.appendChild(price);
+    productsDiv.appendChild(btn);
+    productsDiv.appendChild(addToCartBtn);
+    productContainer.appendChild(productsDiv);
 
     btn.className = "btnStyle";
     productContainer.className = "productContainerStyle";
 
-    btn.addEventListener("click", handleClick);
+    btn.addEventListener("click", () => {
+      detailClick(i);
+    });
   }
+}
+
+function detailClick(position) {
+  let name: HTMLHeadingElement = document.createElement("h2");
+  let size: HTMLSpanElement = document.createElement("span");
+  let img2: HTMLImageElement = document.createElement("img");
+  let price: HTMLSpanElement = document.createElement("span");
+  let detailDiv: HTMLDivElement = document.createElement("div");
+  let detailContainer: HTMLDivElement = document.getElementById(
+    "cart-container"
+  ) as HTMLDivElement;
+
+  detailContainer.innerHTML = "";
+  name.innerHTML = productArr[position].name;
+  size.innerHTML = productArr[position].size;
+  img2.src = productArr[position].secondPicture;
+  price.innerHTML = productArr[position].price.toString();
+
+  detailDiv.appendChild(name);
+  detailDiv.appendChild(size);
+  detailDiv.appendChild(img2);
+  detailDiv.appendChild(price);
+  detailContainer.appendChild(detailDiv);
+
+  handleClick();
 }
 
 function printCart() {
