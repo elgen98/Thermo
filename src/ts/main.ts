@@ -11,7 +11,8 @@ let productI = new Products(
   "Pälsjacka",
   "",
   2500,
-  false
+  2500,
+  1
 );
 
 let productII = new Products(
@@ -20,7 +21,8 @@ let productII = new Products(
   "Tjock Dunjacka",
   "",
   3300,
-  false
+  3300,
+  1
 );
 
 let productIII = new Products(
@@ -29,7 +31,8 @@ let productIII = new Products(
   "Tunn Dunjacka",
   "",
   2300,
-  false
+  2300,
+  1
 );
 
 let productIV = new Products(
@@ -38,7 +41,8 @@ let productIV = new Products(
   "Dunis",
   "",
   4000,
-  false
+  4000,
+  1
 );
 
 let productV = new Products(
@@ -47,7 +51,8 @@ let productV = new Products(
   "Silver Dunis",
   "",
   3500,
-  false
+  3500,
+  1
 );
 
 let productVI = new Products(
@@ -56,7 +61,8 @@ let productVI = new Products(
   "Dunväst",
   "",
   4300,
-  false
+  4300,
+  1
 );
 
 let productVII = new Products(
@@ -65,7 +71,8 @@ let productVII = new Products(
   "Ökenräven",
   "",
   8000,
-  false
+  8000,
+  1
 );
 
 let productVIII = new Products(
@@ -74,7 +81,8 @@ let productVIII = new Products(
   "Skinande Dunis",
   "",
   10000,
-  false
+  10000,
+  1
 );
 
 let productArr = [
@@ -102,7 +110,19 @@ function printProducts() {
 
     addToCartBtn.addEventListener("click", () => {
       //productArr[i].cart = true;
+      // if (productArr[i].name === productArr[i].name) {
+      // productArr[i].quantity += 1;
+      // cartList.push(productArr[i]);
+      // }
       cartList.push(productArr[i]);
+      //cartList[i].quantity += 1;
+      if (productArr[i].name == cartList[i + 1].name) {
+        cartList.pop();
+        cartList[i].quantity += 1;
+        calculatePrice(i);
+      }
+      //cartList[i].quantity += 1;
+      //calculatePrice(i);
       console.log(cartList);
     });
 
@@ -161,29 +181,48 @@ function printCart() {
       let name: HTMLHeadingElement = document.createElement("h2");
       let size: HTMLSpanElement = document.createElement("span");
       let img2: HTMLImageElement = document.createElement("img");
-      let price: HTMLSpanElement = document.createElement("span");
+      let totalPrice: HTMLSpanElement = document.createElement("span");
+      let quantityContainer: HTMLDivElement = document.createElement("div");
+      let quantity: HTMLSpanElement = document.createElement("span");
+      let plusBtn: HTMLButtonElement = document.createElement("button");
+      let minusBtn: HTMLButtonElement = document.createElement("button");
+
       let removeBtn: HTMLButtonElement = document.createElement("button");
+
+      plusBtn.addEventListener("click", () => {
+        addQuantity(i);
+        calculatePrice(i);
+        printCart();
+      });
+
+      minusBtn.addEventListener("click", () => {
+        subtractQuantity(i);
+        calculatePrice(i);
+        printCart();
+      });
 
       name.innerHTML = cartList[i].name;
       size.innerHTML = cartList[i].size;
       img2.src = cartList[i].secondPicture;
-      price.innerHTML = cartList[i].price.toString();
+      totalPrice.innerHTML =
+        "Total: " + cartList[i].totalPrice.toString() + "kr";
+      quantity.innerHTML = cartList[i].quantity.toString();
       removeBtn.innerHTML = "REMOVE";
+      plusBtn.innerHTML = "+";
+      minusBtn.innerHTML = "-";
 
       removeBtn.addEventListener("click", () => {
-        cartList.splice(i, 1);
-        window.onclick = function (event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        };
-        printCart();
+        removeCartItem(i);
       });
 
       productDiv.appendChild(name);
       productDiv.appendChild(size);
       productDiv.appendChild(img2);
-      productDiv.appendChild(price);
+      productDiv.appendChild(totalPrice);
+      quantityContainer.appendChild(minusBtn);
+      quantityContainer.appendChild(quantity);
+      quantityContainer.appendChild(plusBtn);
+      productDiv.appendChild(quantityContainer);
       productDiv.appendChild(removeBtn);
 
       cartContainer.appendChild(productDiv);
@@ -197,6 +236,36 @@ function printCart() {
   }
 
   handleClick();
+}
+
+function addQuantity(position) {
+  cartList[position].quantity += 1;
+  return cartList[position].quantity;
+}
+
+function subtractQuantity(position) {
+  cartList[position].quantity -= 1;
+  if (cartList[position].quantity === 0) {
+    cartList[position].quantity = 1;
+  } else return cartList[position].quantity;
+}
+
+function calculatePrice(position) {
+  cartList[position].totalPrice =
+    cartList[position].price * cartList[position].quantity;
+  return cartList[position].totalPrice;
+}
+
+function removeCartItem(position) {
+  cartList[position].quantity = 1;
+  calculatePrice(position);
+  cartList.splice(position, 1);
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+  printCart();
 }
 
 var modal = document.getElementById("productModal") as HTMLDivElement;
