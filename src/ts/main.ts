@@ -12,7 +12,8 @@ let productI = new Products(
   "",
   2500,
   2500,
-  1
+  1,
+  false
 );
 
 let productII = new Products(
@@ -22,7 +23,8 @@ let productII = new Products(
   "",
   3300,
   3300,
-  1
+  1,
+  false
 );
 
 let productIII = new Products(
@@ -32,7 +34,8 @@ let productIII = new Products(
   "",
   2300,
   2300,
-  1
+  1,
+  false
 );
 
 let productIV = new Products(
@@ -42,7 +45,8 @@ let productIV = new Products(
   "",
   4000,
   4000,
-  1
+  1,
+  false
 );
 
 let productV = new Products(
@@ -52,7 +56,8 @@ let productV = new Products(
   "",
   3500,
   3500,
-  1
+  1,
+  false
 );
 
 let productVI = new Products(
@@ -62,7 +67,8 @@ let productVI = new Products(
   "",
   4300,
   4300,
-  1
+  1,
+  false
 );
 
 let productVII = new Products(
@@ -72,7 +78,8 @@ let productVII = new Products(
   "",
   8000,
   8000,
-  1
+  1,
+  false
 );
 
 let productVIII = new Products(
@@ -82,7 +89,8 @@ let productVIII = new Products(
   "",
   10000,
   10000,
-  1
+  1,
+  false
 );
 
 let productArr = [
@@ -96,9 +104,13 @@ let productArr = [
   productVIII,
 ];
 
-let cartList: Products[] = [];
+//let productArr: Products[] = [];
 
 function printProducts() {
+  let productContainer: HTMLElement =
+    document.getElementById("productContainer");
+  productContainer.innerHTML = "";
+
   for (let i: number = 0; i < productArr.length; i++) {
     let name: HTMLHeadingElement = document.createElement("h2");
     let size: HTMLSpanElement = document.createElement("span");
@@ -109,25 +121,12 @@ function printProducts() {
     let addToCartBtn: HTMLButtonElement = document.createElement("button");
 
     addToCartBtn.addEventListener("click", () => {
-      //productArr[i].cart = true;
-      // if (productArr[i].name === productArr[i].name) {
-      // productArr[i].quantity += 1;
-      // cartList.push(productArr[i]);
-      // }
-      cartList.push(productArr[i]);
-      //cartList[i].quantity += 1;
-      if (productArr[i].name == cartList[i + 1].name) {
-        cartList.pop();
-        cartList[i].quantity += 1;
-        calculatePrice(i);
-      }
-      //cartList[i].quantity += 1;
-      //calculatePrice(i);
-      console.log(cartList);
-    });
+      productArr[i].cart = true;
+      addToCartBtn.addEventListener("click", printCart);
+      addToCartBtn.innerHTML = "✓ Go to cart";
 
-    let productContainer: HTMLElement =
-      document.getElementById("productContainer");
+      console.log(productArr);
+    });
 
     let productDiv: HTMLDivElement = document.createElement("div");
 
@@ -175,8 +174,8 @@ function printCart() {
   ) as HTMLDivElement;
   cartContainer.innerHTML = "";
 
-  if (cartList.length > 0) {
-    for (let i: number = 0; i < cartList.length; i++) {
+  for (let i: number = 0; i < productArr.length; i++) {
+    if (productArr[i].cart === true) {
       let productDiv: HTMLDivElement = document.createElement("div");
       let name: HTMLHeadingElement = document.createElement("h2");
       let size: HTMLSpanElement = document.createElement("span");
@@ -201,12 +200,12 @@ function printCart() {
         printCart();
       });
 
-      name.innerHTML = cartList[i].name;
-      size.innerHTML = cartList[i].size;
-      img2.src = cartList[i].secondPicture;
+      name.innerHTML = productArr[i].name;
+      size.innerHTML = productArr[i].size;
+      img2.src = productArr[i].secondPicture;
       totalPrice.innerHTML =
-        "Total: " + cartList[i].totalPrice.toString() + "kr";
-      quantity.innerHTML = cartList[i].quantity.toString();
+        "Total: " + productArr[i].totalPrice.toString() + "kr";
+      quantity.innerHTML = productArr[i].quantity.toString();
       removeBtn.innerHTML = "REMOVE";
       plusBtn.innerHTML = "+";
       minusBtn.innerHTML = "-";
@@ -226,45 +225,47 @@ function printCart() {
       productDiv.appendChild(removeBtn);
 
       cartContainer.appendChild(productDiv);
-    }
-  } else {
-    let emptyMsg: HTMLParagraphElement = document.createElement(
-      "p"
-    ) as HTMLParagraphElement;
-    emptyMsg.innerHTML = "Your cart is empty";
-    cartContainer.appendChild(emptyMsg);
+    } /*else {
+      let emptyMsg: HTMLParagraphElement = document.createElement(
+        "p"
+      ) as HTMLParagraphElement;
+      emptyMsg.innerHTML = "Your cart is empty";
+      cartContainer.appendChild(emptyMsg);
+    }*/
   }
 
   handleClick();
 }
 
 function addQuantity(position) {
-  cartList[position].quantity += 1;
-  return cartList[position].quantity;
+  productArr[position].quantity += 1;
+  return productArr[position].quantity;
 }
 
 function subtractQuantity(position) {
-  cartList[position].quantity -= 1;
-  if (cartList[position].quantity === 0) {
-    cartList[position].quantity = 1;
-  } else return cartList[position].quantity;
+  productArr[position].quantity -= 1;
+  if (productArr[position].quantity === 0) {
+    productArr[position].quantity = 1;
+  } else return productArr[position].quantity;
 }
 
 function calculatePrice(position) {
-  cartList[position].totalPrice =
-    cartList[position].price * cartList[position].quantity;
-  return cartList[position].totalPrice;
+  productArr[position].totalPrice =
+    productArr[position].price * productArr[position].quantity;
+  return productArr[position].totalPrice;
 }
 
 function removeCartItem(position) {
-  cartList[position].quantity = 1;
+  productArr[position].quantity = 1;
   calculatePrice(position);
-  cartList.splice(position, 1);
+  productArr[position].cart = false;
+
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
   };
+  printProducts();
   printCart();
 }
 
