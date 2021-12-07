@@ -39,15 +39,13 @@ header {
 }
 
 main {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
   .thermoTitle {
     padding: 0px;
-    margin: 0px;
-    height: 200px;
     letter-spacing: 10px;
     font-size: 40px;
     text-transform: uppercase;
@@ -60,38 +58,64 @@ main {
     flex-wrap: wrap;
     gap: 30px;
     div {
-      width: 45%;
-      border: 1px solid black;
+      width: 150px;
       display: flex;
       flex-direction: column;
+
       Img {
         width: 100%;
       }
       h2 {
-        font-size: 1rem;
+        font-size: 0.8rem;
         margin: 0px;
         padding-top: 10px;
         padding-left: 15px;
       }
       span {
         padding-left: 15px;
+        font-size: 0.8rem;
       }
       span {
         padding-left: 15px;
+        font-size: 0.8rem;
       }
-      .btnStyle {
-        height: 20px;
-        width: 20px;
-        font-size: 22.5px;
-        text-transform: uppercase;
-        color: white;
-        background-color: rgb(58, 66, 66);
-        border: 1px solid white;
-        border-radius: 50%;
-        cursor: pointer;
-        &:hover {
-          background-color: rgb(0, 221, 221);
-          transition: ease-in-out 0.2s;
+      .btnDivStyle {
+        width: 140px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 5px;
+        .btnStyle {
+          height: 22px;
+          width: 22px;
+          font-size: 0.8rem;
+          font-style: italic;
+          font-family: "Times New Roman", Times, serif;
+          color: white;
+          background-color: rgb(71, 71, 71);
+          border: 0.8px solid white;
+          border-radius: 50%;
+          cursor: pointer;
+          &:hover {
+            background-color: rgb(154, 163, 136);
+            transition: ease-in-out 0.2s;
+          }
+        }
+        .cartBtnStyle {
+          background-color: rgb(185, 184, 184);
+          color: white;
+          border-radius: 50%;
+          border: none;
+          padding: 0px;
+          margin: 0px;
+          height: 21px;
+          width: 21px;
+          font-size: 1.2rem;
+          cursor: pointer;
+          &:hover {
+            background-color: rgb(0, 0, 0);
+            transition: ease-in-out 0.2s;
+          }
         }
       }
     }
@@ -117,12 +141,10 @@ main {
   width: 62%;
   height: 550px;
   border: 1px solid #888;
-  justify-content: center;
   .disappear {
     color: #aaa;
     float: right;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 1rem;
     &:hover,
     &:focus {
       color: black;
