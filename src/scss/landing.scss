@@ -11,8 +11,10 @@ body {
   header {
     background-color: #ffffff;
     height: 50px;
+    display: flex;
     border-bottom: 1px solid lightgray;
     .navBar {
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -24,6 +26,21 @@ body {
         text-transform: uppercase;
         letter-spacing: 4px;
         text-decoration: none;
+        text-align: left;
+      }
+      #cartBtn {
+        margin-right: 15px;
+        padding-left: 1390px;
+        line-height: 1;
+        font-size: 0.75rem;
+        color: black;
+        text-align: right;
+        cursor: pointer;
+        position: absolute;
+        &:hover {
+          color:rgba(0, 0, 0, 0.8);
+          transition: 0.1s ease-in;
+        }
       }
       #headlines {
         height: 30px;
@@ -42,12 +59,6 @@ body {
           border-style: none;
           cursor: pointer;
           background-color: transparent;
-        }
-        #cart {
-          margin-right: 15px;
-          line-height: 1;
-          color: black;
-          font-size: 1rem;
         }
       }
     }
@@ -89,6 +100,55 @@ body {
         text-align: center;
         line-height: 25px;
       }
+    }
+  }
+
+  #productContainer {
+    display: none;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    width: 62%;
+    height: 550px;
+    border: 1px solid #888;
+    justify-content: center;
+    .disappear {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      &:hover,
+      &:focus {
+        color: black;
+        cursor: pointer;
+        text-decoration: none;
+      }
+    }
+    .Jacka {
+      letter-spacing: 3px;
+      font-size: 40px;
+      text-transform: uppercase;
+      margin-top: 50px;
+      position: absolute;
+    }
+    p {
+      position: absolute;
+      margin-top: 110px;
     }
   }
 
