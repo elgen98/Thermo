@@ -23,45 +23,96 @@ html {
     border-bottom: lightgrey 1px solid;
   }
   main {
-    height: 100%;
-    @extend %flex;
-
-    #formContainer {
-      @extend %flex;
+    @extend %formflex;
+    margin: 20px;
+    #checkoutDiv {
+      width: 360px;
       border: lightgrey 2px solid;
       border-radius: 25px;
-      form,
-      label {
+      margin: 30px;
+      h3 {
+        margin: 25px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+      #summaryTable {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        #cardContainer {
-          @extend %flex;
-          .cardInfoHidden {
-            display: none;
-          }
-          .cardInfoShow {
-            display: flex;
-          }
-        }
-        .checkboxInfo {
-          text-align: center;
-          font-size: 0.75rem;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="number"] {
-          &:valid {
-            background: url("https://webdevtrick.com/wp-content/uploads/check-icon.svg");
-            background-repeat: no-repeat;
-            background-size: 10px;
-            background-position: 150px 4px;
+        justify-content: center;
+        width: 350px;
+        table {
+          tr {
+            #products,
+            #qty,
+            #price {
+              color: grey;
+              text-transform: uppercase;
+              width: 100px;
+            }
           }
         }
       }
+      #totalDiv {
+        display: flex;
+        justify-content: center;
+        width: 350px;
+      }
+    }
+    #formContainer {
+      @extend %formflex;
+      width: 360px;
+      height: 670px;
+      border: lightgrey 2px solid;
+      border-radius: 25px;
+      margin: 30px;
+      #form {
+        margin: 25px;
+
+        label {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          font-size: 0.8rem;
+          margin-top: 5px;
+          letter-spacing: 1.5px;
+          #cardContainer {
+            @extend %formflex;
+            .cardInfoHidden {
+              display: none;
+            }
+            .cardInfoShow {
+              display: flex;
+            }
+          }
+          .checkboxInfo {
+            font-size: 0.5rem;
+          }
+          input[type="text"],
+          input[type="email"],
+          input[type="number"] {
+            &:valid {
+              background: url("https://webdevtrick.com/wp-content/uploads/check-icon.svg");
+              background-repeat: no-repeat;
+              background-size: 10px;
+              background-position: 150px 4px;
+            }
+          }
+        }
+        #confirmorderBtn {
+          border-style: none;
+          cursor: pointer;
+        }
+      }
+    }
+    @include mixins.modalstyle;
+    #checkout-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10rem;
     }
   }
+
   footer {
     @extend %flex;
     a {

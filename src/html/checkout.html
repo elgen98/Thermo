@@ -20,8 +20,29 @@
       </div>
     </header>
     <main>
+      <div id="checkoutDiv">
+        <h3>Summary</h3>
+        <div id="summaryTable">
+          <table>
+            <tr>
+              <th id="products">Product</th>
+              <th id="qty">Qty</th>
+              <th id="price">Price</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div id="totalDiv">
+          <h4 id="amount">Amount to pay</h4>
+          <p></p>
+        </div>
+      </div>
       <div id="formContainer">
-        <form>
+        <form id="form">
           <label
             >FIRST NAME
             <input
@@ -88,8 +109,6 @@
             /></label>
           </div>
 
-          
-
           <label class="checkboxInfo"
             >I want to recieve promotional material through e-mail including new
             items, special offers and updates regarding the THERMO brand
@@ -100,8 +119,17 @@
             <input type="checkbox" required
           /></label>
 
-          <input type="submit" value="CONFIRM ORDER" />
+          <input id="confirmorderBtn" type="submit" value="CONFIRM ORDER" />
         </form>
+      </div>
+      <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+          <span class="disappear">Leave window</span>
+          <div id="cart-container"></div>
+          <div id="checkout-content">
+            <i class="far fa-snowflake"></i>
+          </div>
+        </div>
       </div>
     </main>
     <footer>
