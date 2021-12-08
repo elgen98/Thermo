@@ -278,7 +278,6 @@ function printCart() {
       cartContainer.appendChild(emptyMsg);
     }*/
   }
-
   handleClick();
 }
 
@@ -314,9 +313,9 @@ function removeCartItem(position) {
   printCart();
 }
 
-var modal = document.getElementById("productModal") as HTMLDivElement;
+let modal = document.getElementById("productModal") as HTMLDivElement;
 
-var spanis = document.getElementsByClassName("disappear")[0] as HTMLSpanElement;
+let spanis = document.getElementsByClassName("disappear")[0] as HTMLSpanElement;
 
 function handleClick() {
   modal.style.display = "block";
