@@ -132,7 +132,8 @@ function printProducts() {
     addToCartBtn.addEventListener("click", () => {
       productArr[i].cart = true;
       addToCartBtn.addEventListener("click", printCart);
-      addToCartBtn.innerHTML = "✓ Go to cart";
+      addToCartBtn.innerHTML = "✓";
+      addToCartBtn.className = "inCart";
 
       console.log(productArr);
     });
@@ -249,11 +250,13 @@ function printCart() {
       size.innerHTML = productArr[i].size;
       img2.src = productArr[i].secondPicture;
       totalPrice.innerHTML =
-        "Total: " + productArr[i].totalPrice.toString() + "kr";
+        "Total: " + productArr[i].totalPrice.toString() + " £";
       quantity.innerHTML = productArr[i].quantity.toString();
-      removeBtn.innerHTML = "REMOVE";
+      removeBtn.innerHTML = "X";
+      removeBtn.className = "removeBtn";
       plusBtn.innerHTML = "+";
       minusBtn.innerHTML = "-";
+      quantityContainer.className = "quantityContainer";
 
       removeBtn.addEventListener("click", () => {
         removeCartItem(i);
@@ -266,8 +269,8 @@ function printCart() {
       quantityContainer.appendChild(minusBtn);
       quantityContainer.appendChild(quantity);
       quantityContainer.appendChild(plusBtn);
+      quantityContainer.appendChild(removeBtn);
       productDiv.appendChild(quantityContainer);
-      productDiv.appendChild(removeBtn);
 
       cartContainer.appendChild(productDiv);
     } /*else {

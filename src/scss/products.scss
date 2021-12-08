@@ -117,6 +117,22 @@ main {
             transition: ease-in-out 0.2s;
           }
         }
+        .inCart {
+          background-color: green;
+          color: white;
+          border-radius: 50%;
+          border: none;
+          padding: 0px;
+          margin: 0px;
+          height: 21px;
+          width: 21px;
+          font-size: 1rem;
+          cursor: pointer;
+          &:hover {
+            background-color: rgb(0, 0, 0);
+            transition: ease-in-out 0.2s;
+          }
+        }
       }
     }
   }
@@ -151,6 +167,22 @@ main {
       cursor: pointer;
       text-decoration: none;
     }
+  }
+  .quantityContainer > button {
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(185, 184, 184);
+    margin: 1px;
+    padding: 0px;
+    margin: 0px;
+    height: 21px;
+    width: 21px;
+    font-size: 1rem;
+  }
+  .quantityContainer > .removeBtn {
+    background-color: red;
+    font-size: 0.7rem;
+    margin-left: 5px;
   }
   .Jacka {
     letter-spacing: 3px;
