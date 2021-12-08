@@ -6,6 +6,8 @@ class Products {
   name: string;
   size: string;
   price: number;
+  totalPrice: number;
+  quantity: number;
   cart: boolean;
   detailText: string;
 
@@ -15,6 +17,8 @@ class Products {
     name: string,
     size: string,
     price: number,
+    totalPrice: number,
+    quantity: number,
     cart: boolean,
     detailText: string
   ) {
@@ -23,6 +27,8 @@ class Products {
     this.name = name;
     this.size = size;
     this.price = price;
+    this.totalPrice = totalPrice;
+    this.quantity = quantity;
     this.cart = cart;
     this.detailText = detailText;
   }

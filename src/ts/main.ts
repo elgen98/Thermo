@@ -11,6 +11,8 @@ let productI = new Products(
   "Anthony jacket thermo down",
   "",
   2500,
+  2500,
+  1,
   false,
   "Anthony is a statement jacket cut from a thick down quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
 );
@@ -21,6 +23,8 @@ let productII = new Products(
   "Sebastian jacket down",
   "",
   3300,
+  3300,
+  1,
   false,
   "Sebastian is a statement jacket made from down. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
 );
@@ -31,6 +35,8 @@ let productIII = new Products(
   "Ali jacket down",
   "",
   2300,
+  2300,
+  1,
   false,
   "Ali is a statement jacket made from down quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
 );
@@ -41,6 +47,8 @@ let productIV = new Products(
   "Herbert thermo jacket",
   "",
   4000,
+  4000,
+  1,
   false,
   "Herbert is a jacket made from quality down. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
 );
@@ -51,6 +59,8 @@ let productV = new Products(
   "Helin jacket synthetic",
   "",
   3500,
+  3500,
+  1,
   false,
   "Helin is a statement jacket cut from a wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
 );
@@ -61,6 +71,8 @@ let productVI = new Products(
   "Ella vest down",
   "",
   4300,
+  4300,
+  1,
   false,
   "Ella is a down vest cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
 );
@@ -71,6 +83,8 @@ let productVII = new Products(
   "Shima jacket faux fur",
   "",
   8000,
+  8000,
+  1,
   false,
   "Shima is a statement jacket cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
 );
@@ -81,6 +95,8 @@ let productVIII = new Products(
   "Hannah jacket down",
   "",
   10000,
+  10000,
+  1,
   false,
   "Jaqueline is a statement jacket cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
 );
@@ -96,9 +112,13 @@ let productArr = [
   productVIII,
 ];
 
-let cartList: Products[] = [];
+//let productArr: Products[] = [];
 
 function printProducts() {
+  let productContainer: HTMLElement =
+    document.getElementById("productContainer");
+  productContainer.innerHTML = "";
+
   for (let i: number = 0; i < productArr.length; i++) {
     let name: HTMLHeadingElement = document.createElement("h2");
     let size: HTMLSpanElement = document.createElement("span");
@@ -110,13 +130,12 @@ function printProducts() {
     let addToCartBtn: HTMLButtonElement = document.createElement("button");
 
     addToCartBtn.addEventListener("click", () => {
-      //productArr[i].cart = true;
-      cartList.push(productArr[i]);
-      console.log(cartList);
-    });
+      productArr[i].cart = true;
+      addToCartBtn.addEventListener("click", printCart);
+      addToCartBtn.innerHTML = "✓ Go to cart";
 
-    let productContainer: HTMLElement =
-      document.getElementById("productContainer");
+      console.log(productArr);
+    });
 
     let productsDiv: HTMLDivElement = document.createElement("div");
 
@@ -200,48 +219,99 @@ function printCart() {
   ) as HTMLDivElement;
   cartContainer.innerHTML = "";
 
-  if (cartList.length > 0) {
-    for (let i: number = 0; i < cartList.length; i++) {
+  for (let i: number = 0; i < productArr.length; i++) {
+    if (productArr[i].cart === true) {
       let productDiv: HTMLDivElement = document.createElement("div");
       let name: HTMLHeadingElement = document.createElement("h2");
       let size: HTMLSpanElement = document.createElement("span");
       let img2: HTMLImageElement = document.createElement("img");
-      let price: HTMLSpanElement = document.createElement("span");
+      let totalPrice: HTMLSpanElement = document.createElement("span");
+      let quantityContainer: HTMLDivElement = document.createElement("div");
+      let quantity: HTMLSpanElement = document.createElement("span");
+      let plusBtn: HTMLButtonElement = document.createElement("button");
+      let minusBtn: HTMLButtonElement = document.createElement("button");
+
       let removeBtn: HTMLButtonElement = document.createElement("button");
 
-      name.innerHTML = cartList[i].name;
-      size.innerHTML = cartList[i].size;
-      img2.src = cartList[i].secondPicture;
-      price.innerHTML = cartList[i].price.toString();
+      plusBtn.addEventListener("click", () => {
+        addQuantity(i);
+        calculatePrice(i);
+        printCart();
+      });
+
+      minusBtn.addEventListener("click", () => {
+        subtractQuantity(i);
+        calculatePrice(i);
+        printCart();
+      });
+
+      name.innerHTML = productArr[i].name;
+      size.innerHTML = productArr[i].size;
+      img2.src = productArr[i].secondPicture;
+      totalPrice.innerHTML =
+        "Total: " + productArr[i].totalPrice.toString() + "kr";
+      quantity.innerHTML = productArr[i].quantity.toString();
       removeBtn.innerHTML = "REMOVE";
+      plusBtn.innerHTML = "+";
+      minusBtn.innerHTML = "-";
 
       removeBtn.addEventListener("click", () => {
-        cartList.splice(i, 1);
-        window.onclick = function (event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        };
-        printCart();
+        removeCartItem(i);
       });
 
       productDiv.appendChild(name);
       productDiv.appendChild(size);
       productDiv.appendChild(img2);
-      productDiv.appendChild(price);
+      productDiv.appendChild(totalPrice);
+      quantityContainer.appendChild(minusBtn);
+      quantityContainer.appendChild(quantity);
+      quantityContainer.appendChild(plusBtn);
+      productDiv.appendChild(quantityContainer);
       productDiv.appendChild(removeBtn);
 
       cartContainer.appendChild(productDiv);
-    }
-  } else {
-    let emptyMsg: HTMLParagraphElement = document.createElement(
-      "p"
-    ) as HTMLParagraphElement;
-    emptyMsg.innerHTML = "Your cart is empty";
-    cartContainer.appendChild(emptyMsg);
+    } /*else {
+      let emptyMsg: HTMLParagraphElement = document.createElement(
+        "p"
+      ) as HTMLParagraphElement;
+      emptyMsg.innerHTML = "Your cart is empty";
+      cartContainer.appendChild(emptyMsg);
+    }*/
   }
 
   handleClick();
+}
+
+function addQuantity(position) {
+  productArr[position].quantity += 1;
+  return productArr[position].quantity;
+}
+
+function subtractQuantity(position) {
+  productArr[position].quantity -= 1;
+  if (productArr[position].quantity === 0) {
+    productArr[position].quantity = 1;
+  } else return productArr[position].quantity;
+}
+
+function calculatePrice(position) {
+  productArr[position].totalPrice =
+    productArr[position].price * productArr[position].quantity;
+  return productArr[position].totalPrice;
+}
+
+function removeCartItem(position) {
+  productArr[position].quantity = 1;
+  calculatePrice(position);
+  productArr[position].cart = false;
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+  printProducts();
+  printCart();
 }
 
 var modal = document.getElementById("productModal") as HTMLDivElement;
