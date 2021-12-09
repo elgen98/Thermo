@@ -3,6 +3,7 @@ import { Products } from "./Models/models";
 window.onload = function () {
   printProducts();
   document.getElementById("cartBtn").addEventListener("click", printCart);
+  fetchData();
 };
 
 let productI = new Products(
@@ -111,8 +112,6 @@ let productArr = [
   productVII,
   productVIII,
 ];
-
-//let productArr: Products[] = [];
 
 function printProducts() {
   let productContainer: HTMLElement =
@@ -273,13 +272,14 @@ function printCart() {
       productDiv.appendChild(quantityContainer);
 
       cartContainer.appendChild(productDiv);
-    } /*else {
-      let emptyMsg: HTMLParagraphElement = document.createElement(
-        "p"
-      ) as HTMLParagraphElement;
-      emptyMsg.innerHTML = "Your cart is empty";
-      cartContainer.appendChild(emptyMsg);
-    }*/
+    }
+  }
+  if (cartContainer.innerHTML == "") {
+    let emptyMsg: HTMLParagraphElement = document.createElement(
+      "p"
+    ) as HTMLParagraphElement;
+    emptyMsg.innerHTML = "Your cart is empty";
+    cartContainer.appendChild(emptyMsg);
   }
 
   handleClick();
@@ -315,6 +315,26 @@ function removeCartItem(position) {
   };
   printProducts();
   printCart();
+}
+
+function fetchData() {
+  fetch("https://dark-sky.p.rapidapi.com/59.3293,18.0686?units=auto&lang=en", {
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "dark-sky.p.rapidapi.com",
+      "x-rapidapi-key": "24a44dd15emsh4566a472b62617ap1e4e9fjsn6119876c45be",
+    },
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data.currently.temperature);
+      return;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 var modal = document.getElementById("productModal") as HTMLDivElement;
