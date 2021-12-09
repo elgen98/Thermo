@@ -280,14 +280,20 @@ function printCart() {
     emptyMsg.innerHTML = "Your cart is empty";
     cartContainer.appendChild(emptyMsg);
   } else {
+    let continueShopping: HTMLButtonElement = document.createElement("button");
     let goToCheckOut: HTMLButtonElement = document.createElement("button");
     let checkoutLink: HTMLAnchorElement = document.createElement("a");
 
     goToCheckOut.innerHTML = "Go to Checkout";
     checkoutLink.href = "./checkout.html";
+    continueShopping.innerHTML = "Continue Shopping";
+    continueShopping.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
 
     checkoutLink.appendChild(goToCheckOut);
     cartContainer.appendChild(checkoutLink);
+    cartContainer.appendChild(continueShopping);
   }
 
   handleClick();
