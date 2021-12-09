@@ -114,6 +114,11 @@ let productArr = [
 
 //let productArr: Products[] = [];
 
+//skapar en funktion som lagrar produkterna
+function toLocalStorage(productArr) {
+  localStorage.setItem("product", JSON.stringify(productArr));
+}
+
 function printProducts() {
   let productContainer: HTMLElement =
     document.getElementById("productContainer");
@@ -133,8 +138,6 @@ function printProducts() {
       productArr[i].cart = true;
       addToCartBtn.addEventListener("click", printCart);
       addToCartBtn.innerHTML = "✓ Go to cart";
-
-      console.log(productArr);
     });
 
     let productsDiv: HTMLDivElement = document.createElement("div");
@@ -237,12 +240,14 @@ function printCart() {
         addQuantity(i);
         calculatePrice(i);
         printCart();
+        toLocalStorage(productArr);
       });
 
       minusBtn.addEventListener("click", () => {
         subtractQuantity(i);
         calculatePrice(i);
         printCart();
+        toLocalStorage(productArr);
       });
 
       name.innerHTML = productArr[i].name;
@@ -270,6 +275,8 @@ function printCart() {
       productDiv.appendChild(removeBtn);
 
       cartContainer.appendChild(productDiv);
+
+      toLocalStorage(productArr);
     } /*else {
       let emptyMsg: HTMLParagraphElement = document.createElement(
         "p"

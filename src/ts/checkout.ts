@@ -18,6 +18,18 @@ function confirm() {
   showModal();
 }
 
+function printsummary() {
+  let product = document.getElementById("products") as HTMLTableColElement;
+  let qty = document.getElementById("qty") as HTMLTableColElement;
+  let price = document.getElementById("price") as HTMLTableColElement;
+}
+
+//skapar en funktion som hämtar lagrade produktera
+function fromLocalStorage() {
+  let retrievedProducts: string = localStorage.getItem(product);
+  JSON.parse(retrievedProducts);
+}
+
 let modal = document.getElementById("checkoutModal") as HTMLDivElement;
 
 let spanis = document.getElementsByClassName("disappear")[0] as HTMLSpanElement;
