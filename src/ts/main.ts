@@ -3,7 +3,7 @@ import { Products } from "./Models/models";
 window.onload = function () {
   printProducts();
   document.getElementById("cartBtn").addEventListener("click", printCart);
-  fetchData();
+  fetchAndPrintData();
 };
 
 let productI = new Products(
@@ -230,7 +230,6 @@ function printCart() {
       let quantity: HTMLSpanElement = document.createElement("span");
       let plusBtn: HTMLButtonElement = document.createElement("button");
       let minusBtn: HTMLButtonElement = document.createElement("button");
-
       let removeBtn: HTMLButtonElement = document.createElement("button");
 
       plusBtn.addEventListener("click", () => {
@@ -280,6 +279,15 @@ function printCart() {
     ) as HTMLParagraphElement;
     emptyMsg.innerHTML = "Your cart is empty";
     cartContainer.appendChild(emptyMsg);
+  } else {
+    let goToCheckOut: HTMLButtonElement = document.createElement("button");
+    let checkoutLink: HTMLAnchorElement = document.createElement("a");
+
+    goToCheckOut.innerHTML = "Go to Checkout";
+    checkoutLink.href = "./checkout.html";
+
+    checkoutLink.appendChild(goToCheckOut);
+    cartContainer.appendChild(checkoutLink);
   }
 
   handleClick();
@@ -317,7 +325,7 @@ function removeCartItem(position) {
   printCart();
 }
 
-function fetchData() {
+function fetchAndPrintData() {
   fetch("https://dark-sky.p.rapidapi.com/59.3293,18.0686?units=auto&lang=en", {
     method: "GET",
     headers: {
@@ -330,7 +338,11 @@ function fetchData() {
     })
     .then(function (data) {
       console.log(data.currently.temperature);
-      return;
+
+      let temp: HTMLHeadingElement = document.getElementById(
+        "temp"
+      ) as HTMLHeadingElement;
+      temp.innerHTML = "Todays forecast  " + data.currently.temperature + " °C";
     })
     .catch((err) => {
       console.error(err);
