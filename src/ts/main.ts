@@ -280,6 +280,7 @@ function printCart() {
     emptyMsg.innerHTML = "Your cart is empty";
     cartContainer.appendChild(emptyMsg);
   } else {
+    let cartBtnContainer: HTMLDivElement = document.createElement("div");
     let continueShopping: HTMLButtonElement = document.createElement("button");
     let goToCheckOut: HTMLButtonElement = document.createElement("button");
     let checkoutLink: HTMLAnchorElement = document.createElement("a");
@@ -290,10 +291,12 @@ function printCart() {
     continueShopping.addEventListener("click", () => {
       modal.style.display = "none";
     });
+    cartBtnContainer.id = "cartBtns";
 
     checkoutLink.appendChild(goToCheckOut);
-    cartContainer.appendChild(checkoutLink);
-    cartContainer.appendChild(continueShopping);
+    cartBtnContainer.appendChild(checkoutLink);
+    cartBtnContainer.appendChild(continueShopping);
+    cartContainer.appendChild(cartBtnContainer);
   }
 
   handleClick();

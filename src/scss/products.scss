@@ -195,6 +195,17 @@ main {
     position: absolute;
     margin-top: 110px;
   }
+  #cartBtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    button {
+      border: 1px white solid;
+      border-radius: 5px;
+      background-color: lightblue;
+      color: white;
+    }
+  }
 }
 
 footer {
