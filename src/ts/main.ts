@@ -113,6 +113,13 @@ let productArr = [
   productVIII,
 ];
 
+//let productArr: Products[] = [];
+
+//skapar en funktion som lagrar produkterna
+function toLocalStorage(productArr) {
+  localStorage.setItem("product", JSON.stringify(productArr));
+}
+
 function printProducts() {
   let productContainer: HTMLElement =
     document.getElementById("productContainer");
@@ -236,12 +243,14 @@ function printCart() {
         addQuantity(i);
         calculatePrice(i);
         printCart();
+        toLocalStorage(productArr);
       });
 
       minusBtn.addEventListener("click", () => {
         subtractQuantity(i);
         calculatePrice(i);
         printCart();
+        toLocalStorage(productArr);
       });
 
       name.innerHTML = productArr[i].name;
@@ -297,6 +306,15 @@ function printCart() {
     cartBtnContainer.appendChild(checkoutLink);
     cartBtnContainer.appendChild(continueShopping);
     cartContainer.appendChild(cartBtnContainer);
+
+    toLocalStorage(productArr);
+    /*else {
+      let emptyMsg: HTMLParagraphElement = document.createElement(
+        "p"
+      ) as HTMLParagraphElement;
+      emptyMsg.innerHTML = "Your cart is empty";
+      cartContainer.appendChild(emptyMsg);
+    }*/
   }
   handleClick();
 }

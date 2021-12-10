@@ -12,6 +12,16 @@
   align-items: center;
 }
 
+@mixin cartBtnStyle {
+  border-style: none;
+  margin-right: 15px;
+  line-height: 1;
+  color: black;
+  font-size: 1rem;
+  text-align: right;
+  cursor: pointer;
+}
+
 @mixin modalstyle {
   .modal {
     display: none;
@@ -24,35 +34,25 @@
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
-  }
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    width: 62%;
-    min-height: 550px;
-    border: 1px solid #888;
-    .disappear {
-      color: #aaa;
-      float: right;
-      font-size: 1rem;
-      &:hover,
-      &:focus {
-        color: black;
-        cursor: pointer;
-        text-decoration: none;
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      width: 62%;
+      min-height: 550px;
+      border: 1px solid #888;
+      .disappear {
+        color: #aaa;
+        float: right;
+        font-size: 1rem;
+        &:hover,
+        &:focus {
+          color: black;
+          cursor: pointer;
+          text-decoration: none;
+        }
       }
-    }
-    .Jacka {
-      letter-spacing: 3px;
-      font-size: 40px;
-      text-transform: uppercase;
-      margin-top: 50px;
-      position: absolute;
-    }
-    p {
-      position: absolute;
-      margin-top: 110px;
     }
   }
 }
@@ -61,9 +61,7 @@
   body {
     header {
       .navBar {
-        padding-left: 70px;
         #headlines {
-          padding-right: 70px;
         }
       }
     }
@@ -74,6 +72,9 @@
       h1 {
         font-size: 3.8rem;
         letter-spacing: 18px;
+      }
+      p {
+        width: 480px;
       }
     }
     .aboutThermo {
@@ -93,6 +94,7 @@
     }
 
     footer {
+      height: 200px;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;

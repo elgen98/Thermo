@@ -28,13 +28,7 @@ header {
       text-decoration: none;
       text-align: left;
     }
-    #cart {
-      margin-right: 15px;
-      line-height: 1;
-      color: black;
-      font-size: 1rem;
-      text-align: right;
-    }
+    @include mixins.cartBtnStyle;
   }
 }
 
