@@ -3,6 +3,7 @@ import { Products } from "./Models/models";
 window.onload = function () {
   printProducts();
   document.getElementById("cartBtn").addEventListener("click", printCart);
+  fetchAndPrintData();
 };
 
 let productI = new Products(
@@ -112,8 +113,6 @@ let productArr = [
   productVIII,
 ];
 
-//let productArr: Products[] = [];
-
 function printProducts() {
   let productContainer: HTMLElement =
     document.getElementById("productContainer");
@@ -132,7 +131,8 @@ function printProducts() {
     addToCartBtn.addEventListener("click", () => {
       productArr[i].cart = true;
       addToCartBtn.addEventListener("click", printCart);
-      addToCartBtn.innerHTML = "✓ Go to cart";
+      addToCartBtn.innerHTML = "✓";
+      addToCartBtn.className = "inCart";
 
       console.log(productArr);
     });
@@ -230,7 +230,6 @@ function printCart() {
       let quantity: HTMLSpanElement = document.createElement("span");
       let plusBtn: HTMLButtonElement = document.createElement("button");
       let minusBtn: HTMLButtonElement = document.createElement("button");
-
       let removeBtn: HTMLButtonElement = document.createElement("button");
 
       plusBtn.addEventListener("click", () => {
@@ -249,11 +248,13 @@ function printCart() {
       size.innerHTML = productArr[i].size;
       img2.src = productArr[i].secondPicture;
       totalPrice.innerHTML =
-        "Total: " + productArr[i].totalPrice.toString() + "kr";
+        "Total: " + productArr[i].totalPrice.toString() + " £";
       quantity.innerHTML = productArr[i].quantity.toString();
-      removeBtn.innerHTML = "REMOVE";
+      removeBtn.innerHTML = "X";
+      removeBtn.className = "removeBtn";
       plusBtn.innerHTML = "+";
       minusBtn.innerHTML = "-";
+      quantityContainer.className = "quantityContainer";
 
       removeBtn.addEventListener("click", () => {
         removeCartItem(i);
@@ -266,17 +267,36 @@ function printCart() {
       quantityContainer.appendChild(minusBtn);
       quantityContainer.appendChild(quantity);
       quantityContainer.appendChild(plusBtn);
+      quantityContainer.appendChild(removeBtn);
       productDiv.appendChild(quantityContainer);
-      productDiv.appendChild(removeBtn);
 
       cartContainer.appendChild(productDiv);
-    } /*else {
-      let emptyMsg: HTMLParagraphElement = document.createElement(
-        "p"
-      ) as HTMLParagraphElement;
-      emptyMsg.innerHTML = "Your cart is empty";
-      cartContainer.appendChild(emptyMsg);
-    }*/
+    }
+  }
+  if (cartContainer.innerHTML == "") {
+    let emptyMsg: HTMLParagraphElement = document.createElement(
+      "p"
+    ) as HTMLParagraphElement;
+    emptyMsg.innerHTML = "Your cart is empty";
+    cartContainer.appendChild(emptyMsg);
+  } else {
+    let cartBtnContainer: HTMLDivElement = document.createElement("div");
+    let continueShopping: HTMLButtonElement = document.createElement("button");
+    let goToCheckOut: HTMLButtonElement = document.createElement("button");
+    let checkoutLink: HTMLAnchorElement = document.createElement("a");
+
+    goToCheckOut.innerHTML = "Go to Checkout";
+    checkoutLink.href = "./checkout.html";
+    continueShopping.innerHTML = "Continue Shopping";
+    continueShopping.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+    cartBtnContainer.id = "cartBtns";
+
+    checkoutLink.appendChild(goToCheckOut);
+    cartBtnContainer.appendChild(checkoutLink);
+    cartBtnContainer.appendChild(continueShopping);
+    cartContainer.appendChild(cartBtnContainer);
   }
   handleClick();
 }
@@ -313,7 +333,31 @@ function removeCartItem(position) {
   printCart();
 }
 
-let modal = document.getElementById("productModal") as HTMLDivElement;
+function fetchAndPrintData() {
+  fetch("https://dark-sky.p.rapidapi.com/59.3293,18.0686?units=auto&lang=en", {
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "dark-sky.p.rapidapi.com",
+      "x-rapidapi-key": "24a44dd15emsh4566a472b62617ap1e4e9fjsn6119876c45be",
+    },
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data.currently.temperature);
+
+      let temp: HTMLHeadingElement = document.getElementById(
+        "temp"
+      ) as HTMLHeadingElement;
+      temp.innerHTML = "Todays forecast  " + data.currently.temperature + " °C";
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+var modal = document.getElementById("productModal") as HTMLDivElement;
 
 let spanis = document.getElementsByClassName("disappear")[0] as HTMLSpanElement;
 
