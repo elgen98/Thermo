@@ -135,15 +135,6 @@ function printProducts() {
     let infoBtn: HTMLButtonElement = document.createElement("button");
     let addToCartBtn: HTMLButtonElement = document.createElement("button");
 
-    addToCartBtn.addEventListener("click", () => {
-      productArr[i].cart = true;
-      addToCartBtn.addEventListener("click", printCart);
-      addToCartBtn.innerHTML = "✓";
-      addToCartBtn.className = "inCart";
-
-      console.log(productArr);
-    });
-
     let productsDiv: HTMLDivElement = document.createElement("div");
 
     img.src = productArr[i].firstPicture;
@@ -172,6 +163,19 @@ function printProducts() {
     addToCartBtn.className = "cartBtnStyle";
     img.className = "firstImg";
     img2.className = "secondImg";
+
+    if (productArr[i].cart === true) {
+      addToCartBtn.innerHTML = "✓";
+      addToCartBtn.className = "inCart";
+      addToCartBtn.addEventListener("click", printCart);
+    } else {
+      addToCartBtn.addEventListener("click", () => {
+        productArr[i].cart = true;
+        addToCartBtn.addEventListener("click", printCart);
+        addToCartBtn.innerHTML = "✓";
+        addToCartBtn.className = "inCart";
+      });
+    }
 
     img.style.display = "block";
     img2.style.display = "none";
