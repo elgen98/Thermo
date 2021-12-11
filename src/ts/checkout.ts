@@ -1,6 +1,7 @@
 window.onload = function () {
   document.getElementById("cardType").addEventListener("change", addCardForm);
   document.getElementById("confirmorderBtn").addEventListener("click", confirm);
+  printsummary();
 };
 
 function addCardForm() {
@@ -18,16 +19,44 @@ function confirm() {
   showModal();
 }
 
+let retrievedProducts = JSON.parse(localStorage.getItem("product"));
+console.log(retrievedProducts);
 function printsummary() {
-  let product = document.getElementById("products") as HTMLTableColElement;
-  let qty = document.getElementById("qty") as HTMLTableColElement;
-  let price = document.getElementById("price") as HTMLTableColElement;
+  for (let i: number = 0; i < retrievedProducts.length; i++) {
+    if (retrievedProducts[i].cart === true) {
+      let summaryDiv = document.getElementById("summaryDiv") as HTMLDivElement;
+      let prodname = document.getElementById("namediv") as HTMLDivElement;
+      let qty = document.getElementById("qtydiv") as HTMLDivElement;
+      let price = document.getElementById("pricediv") as HTMLDivElement;
+      let size = document.getElementById("sizediv") as HTMLDivElement;
+
+      prodname.innerHTML = retrievedProducts[i].name;
+      qty.innerHTML = retrievedProducts[i].quantity;
+      price.innerHTML = retrievedProducts[i].price;
+      size.innerHTML = retrievedProducts[i].size;
+
+      summaryDiv.appendChild(prodname);
+      summaryDiv.appendChild(qty);
+      summaryDiv.appendChild(price);
+      summaryDiv.appendChild(size);
+
+      console.log(retrievedProducts[i].name);
+    }
+  }
+  printTotal();
 }
 
-//skapar en funktion som hämtar lagrade produktera
-function fromLocalStorage() {
-  let retrievedProducts: string = localStorage.getItem(product);
-  JSON.parse(retrievedProducts);
+function printTotal() {
+  let amountDiv = document.getElementById("amountDiv") as HTMLDivElement;
+  for (let i: number = 0; i < retrievedProducts.length; i++) {
+    if (retrievedProducts[i].cart === true) {
+      let totalAmount = retrievedProducts[i].totalPrice;
+
+      amountDiv.innerHTML = totalAmount.toString();
+      console.log(totalAmount.toString());
+      console.log(retrievedProducts[i]);
+    }
+  }
 }
 
 let modal = document.getElementById("checkoutModal") as HTMLDivElement;
