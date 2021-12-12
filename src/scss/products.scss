@@ -141,6 +141,7 @@ main {
   width: 62%;
   height: 550px;
   border: 1px solid #888;
+  overflow: scroll;
   .disappear {
     color: #aaa;
     float: right;
@@ -163,8 +164,41 @@ main {
     position: absolute;
     margin-top: 110px;
   }
+  .plusBtnStyle,
+  .minusBtnStyle {
+    height: 30px;
+    width: 30px;
+    font-style: italic;
+    font-family: "Times New Roman", Times, serif;
+    color: white;
+    background-color: rgb(71, 71, 71);
+    border: 0.8px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12.5px;
+    text-align: center;
+    &:hover {
+      background-color: rgb(154, 163, 136);
+      transition: ease-in-out 0.2s;
+    }
+  }
+  .removeBtnStyle {
+    height: 22px;
+    width: 22px;
+    font-style: italic;
+    font-family: "Times New Roman", Times, serif;
+    color: white;
+    background-color: rgb(185, 184, 184);
+    border: 0.8px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      background-color: rgb(235, 12, 12);
+      transition: ease-in-out 0.2s;
+    }
+  }
 }
-
 footer {
   @extend %flex;
   a {
