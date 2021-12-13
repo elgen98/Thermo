@@ -10,6 +10,7 @@ class Products {
   quantity: number;
   cart: boolean;
   detailText: string;
+  color: string;
 
   constructor(
     firstPicture: string,
@@ -20,7 +21,8 @@ class Products {
     totalPrice: number,
     quantity: number,
     cart: boolean,
-    detailText: string
+    detailText: string,
+    color: string
   ) {
     this.firstPicture = firstPicture;
     this.secondPicture = secondPicture;
@@ -31,5 +33,6 @@ class Products {
     this.quantity = quantity;
     this.cart = cart;
     this.detailText = detailText;
+    this.color = color;
   }
 }
