@@ -162,12 +162,16 @@ function printProducts() {
     sizeS.addEventListener("click", () => {
       productArr[i].size = "S";
       sizeS.className = "selectedSize";
+      sizeM.className = "";
+      sizeL.className = "";
     });
 
     sizeM.innerHTML = "M";
     sizeM.addEventListener("click", function () {
       productArr[i].size = "M";
       sizeM.className = "selectedSize";
+      sizeS.className = "";
+      sizeL.className = "";
       console.log(productArr);
     });
 
@@ -175,6 +179,8 @@ function printProducts() {
     sizeL.addEventListener("click", () => {
       productArr[i].size = "L";
       sizeL.className = "selectedSize";
+      sizeS.className = "";
+      sizeM.className = "";
     });
 
     img.src = productArr[i].firstPicture;
