@@ -135,8 +135,6 @@ function printProducts() {
 
   for (let i: number = 0; i < productArr.length; i++) {
     let name: HTMLHeadingElement = document.createElement("h2");
-    //let size: HTMLSelectElement = document.createElement("select");
-    //let selectSize: HTMLOptionElement = document.createElement("option");
     let sizeContainer: HTMLDivElement = document.createElement("div");
     let sizeS: HTMLButtonElement = document.createElement("button");
     let sizeM: HTMLButtonElement = document.createElement("button");
@@ -154,9 +152,7 @@ function printProducts() {
     img2.src = productArr[i].secondPicture;
     name.innerHTML = productArr[i].name;
     sizeContainer.className = "sizeContainer";
-    /*selectSize.innerHTML = "Select size";
-    selectSize.disabled = true;
-    selectSize.selected = true;*/
+    sizeContainer.innerText = "Size";
 
     sizeS.innerHTML = "S";
     sizeS.addEventListener("click", () => {
@@ -167,7 +163,7 @@ function printProducts() {
     });
 
     sizeM.innerHTML = "M";
-    sizeM.addEventListener("click", function () {
+    sizeM.addEventListener("click", () => {
       productArr[i].size = "M";
       sizeM.className = "selectedSize";
       sizeS.className = "";
@@ -192,12 +188,11 @@ function printProducts() {
     productsDiv.appendChild(img);
     productsDiv.appendChild(img2);
     productsDiv.appendChild(name);
-    //size.appendChild(selectSize);
+    productsDiv.appendChild(price);
     sizeContainer.appendChild(sizeS);
     sizeContainer.appendChild(sizeM);
     sizeContainer.appendChild(sizeL);
     productsDiv.appendChild(sizeContainer);
-    productsDiv.appendChild(price);
     btnDiv.appendChild(infoBtn);
     btnDiv.appendChild(addToCartBtn);
     productsDiv.appendChild(btnDiv);
@@ -283,6 +278,7 @@ function printCart() {
   for (let i: number = 0; i < productArr.length; i++) {
     if (productArr[i].cart === true && productArr[i].size !== "") {
       let productDiv: HTMLDivElement = document.createElement("div");
+      let productDetails: HTMLSpanElement = document.createElement("span");
       let name: HTMLHeadingElement = document.createElement("h2");
       let size: HTMLSpanElement = document.createElement("span");
       let img2: HTMLImageElement = document.createElement("img");
@@ -308,7 +304,7 @@ function printCart() {
       });
 
       name.innerHTML = productArr[i].name;
-      size.innerHTML = productArr[i].size;
+      size.innerHTML = "Size: " + productArr[i].size;
       img2.src = productArr[i].secondPicture;
       totalPrice.innerHTML =
         "Total: " + productArr[i].totalPrice.toString() + " £";
@@ -318,15 +314,17 @@ function printCart() {
       plusBtn.innerHTML = "+";
       minusBtn.innerHTML = "-";
       quantityContainer.className = "quantityContainer";
+      productDetails.className = "productSpec";
 
       removeBtn.addEventListener("click", () => {
         removeCartItem(i);
       });
 
       productDiv.appendChild(name);
-      productDiv.appendChild(size);
       productDiv.appendChild(img2);
-      productDiv.appendChild(totalPrice);
+      productDetails.appendChild(size);
+      productDetails.appendChild(totalPrice);
+      productDiv.appendChild(productDetails);
       quantityContainer.appendChild(minusBtn);
       quantityContainer.appendChild(quantity);
       quantityContainer.appendChild(plusBtn);

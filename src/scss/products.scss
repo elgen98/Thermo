@@ -78,9 +78,13 @@ main {
         flex-direction: row;
         gap: 2px;
         button {
+          font-size: 0.75rem;
           height: 25px;
           width: 25px;
           border-radius: 50%;
+          border: none;
+          background-color: rgb(185, 184, 184);
+          cursor: pointer;
         }
         .selectedSize {
           background-color: blue;
@@ -174,6 +178,10 @@ main {
     background-color: rgb(13, 147, 192);
     color: white;
   }
+}
+.productSpec {
+  display: flex;
+  flex-direction: column;
 }
 
 footer {
