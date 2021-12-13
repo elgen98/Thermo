@@ -77,10 +77,11 @@ main {
         display: flex;
         flex-direction: row;
         gap: 2px;
+        font-size: 0.8rem;
+        padding-left: 15px;
         button {
-          font-size: 0.75rem;
-          height: 25px;
-          width: 25px;
+          height: 22px;
+          width: 22px;
           border-radius: 50%;
           border: none;
           background-color: rgb(185, 184, 184);

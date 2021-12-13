@@ -136,9 +136,13 @@ function printProducts() {
   for (let i: number = 0; i < productArr.length; i++) {
     let name: HTMLHeadingElement = document.createElement("h2");
     let sizeContainer: HTMLDivElement = document.createElement("div");
+    let colorContainer: HTMLDivElement = document.createElement("div");
     let sizeS: HTMLButtonElement = document.createElement("button");
     let sizeM: HTMLButtonElement = document.createElement("button");
     let sizeL: HTMLButtonElement = document.createElement("button");
+    let colorBlack: HTMLButtonElement = document.createElement("button");
+    let colorSilver: HTMLButtonElement = document.createElement("button");
+    let colorGreen: HTMLButtonElement = document.createElement("button");
     let img: HTMLImageElement = document.createElement("img");
     let img2: HTMLImageElement = document.createElement("img");
     let price: HTMLSpanElement = document.createElement("span");
@@ -153,6 +157,8 @@ function printProducts() {
     name.innerHTML = productArr[i].name;
     sizeContainer.className = "sizeContainer";
     sizeContainer.innerText = "Size";
+    colorContainer.className = "colorContainer";
+    colorContainer.innerText = "Color";
 
     sizeS.innerHTML = "S";
     sizeS.addEventListener("click", () => {
@@ -179,6 +185,27 @@ function printProducts() {
       sizeM.className = "";
     });
 
+    colorBlack.addEventListener("click", () => {
+      productArr[i].color = "black";
+      colorBlack.className = "selectedColor";
+      colorSilver.className = "";
+      colorGreen.className = "";
+    });
+
+    colorSilver.addEventListener("click", () => {
+      productArr[i].color = "silver";
+      colorSilver.className = "selectedColor";
+      colorBlack.className = "";
+      colorGreen.className = "";
+    });
+
+    colorGreen.addEventListener("click", () => {
+      productArr[i].color = "green";
+      colorGreen.className = "selectedColor";
+      colorBlack.className = "";
+      colorSilver.className = "";
+    });
+
     img.src = productArr[i].firstPicture;
     img2.src = productArr[i].secondPicture;
     price.innerHTML = productArr[i].price.toString() + " £";
@@ -193,6 +220,10 @@ function printProducts() {
     sizeContainer.appendChild(sizeM);
     sizeContainer.appendChild(sizeL);
     productsDiv.appendChild(sizeContainer);
+    colorContainer.appendChild(colorBlack);
+    colorContainer.appendChild(colorSilver);
+    colorContainer.appendChild(colorGreen);
+    productsDiv.appendChild(colorContainer);
     btnDiv.appendChild(infoBtn);
     btnDiv.appendChild(addToCartBtn);
     productsDiv.appendChild(btnDiv);
