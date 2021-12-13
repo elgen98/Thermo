@@ -124,6 +124,20 @@ function printProducts() {
   let productContainer: HTMLElement =
     document.getElementById("productContainer");
   productContainer.innerHTML = "";
+  let cartQuantity: number = 0;
+  let cartQuanDiv: HTMLDivElement = document.createElement("div");
+  
+  cartQuanDiv.style.backgroundColor = "Orange";
+  cartQuanDiv.style.color = "white";
+  cartQuanDiv.style.borderRadius = "50%";
+  cartQuanDiv.style.width = "15px";
+  cartQuanDiv.style.height = "15px";
+  cartQuanDiv.style.display = "none";
+  cartQuanDiv.style.textAlign = "center";
+  cartQuanDiv.style.fontWeight = "bold";
+  cartQuanDiv.style.fontSize = "12.5px";
+  cartQuanDiv.style.justifyContent = "center";
+
 
   for (let i: number = 0; i < productArr.length; i++) {
     let name: HTMLHeadingElement = document.createElement("h2");
@@ -134,9 +148,10 @@ function printProducts() {
     let btnDiv: HTMLDivElement = document.createElement("div");
     let infoBtn: HTMLButtonElement = document.createElement("button");
     let addToCartBtn: HTMLButtonElement = document.createElement("button");
-
     let productsDiv: HTMLDivElement = document.createElement("div");
 
+    let cartBtn = document.getElementById("cartBtn");
+    
     img.src = productArr[i].firstPicture;
     img2.src = productArr[i].secondPicture;
     name.innerHTML = productArr[i].name;
@@ -156,6 +171,7 @@ function printProducts() {
     btnDiv.appendChild(addToCartBtn);
     productsDiv.appendChild(btnDiv);
     productContainer.appendChild(productsDiv);
+    cartBtn.appendChild(cartQuanDiv);
 
     productContainer.className = "productContainerStyle";
     btnDiv.className = "btnDivStyle";
@@ -174,8 +190,13 @@ function printProducts() {
         addToCartBtn.addEventListener("click", printCart);
         addToCartBtn.innerHTML = "✓";
         addToCartBtn.className = "inCart";
+        cartQuantity++;
+        cartQuanDiv.innerHTML = "";
+        cartQuanDiv.style.display = "block";
+        cartQuanDiv.innerHTML = cartQuantity.toString();
       });
     }
+  
 
     img.style.display = "block";
     img2.style.display = "none";
@@ -194,6 +215,7 @@ function printProducts() {
       detailClick(i);
     });
   }
+  
 }
 
 function detailClick(position) {

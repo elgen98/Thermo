@@ -32,6 +32,15 @@ header {
   }
 }
 
+#cartbtn {
+  position: absolute;
+  .cartQuanStyle {
+    position: absolute;
+    color: orange;
+    font-size: large;
+  }
+}
+
 main {
   display: flex;
   flex-direction: column;
