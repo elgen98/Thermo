@@ -15,7 +15,8 @@ let productI = new Products(
   2500,
   1,
   false,
-  "Anthony is a statement jacket cut from a thick down quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
+  "Anthony is a statement jacket cut from a thick down quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
+  "black"
 );
 
 let productII = new Products(
@@ -27,7 +28,8 @@ let productII = new Products(
   3300,
   1,
   false,
-  "Sebastian is a statement jacket made from down. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
+  "Sebastian is a statement jacket made from down. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
+  "black"
 );
 
 let productIII = new Products(
@@ -39,7 +41,8 @@ let productIII = new Products(
   2300,
   1,
   false,
-  "Ali is a statement jacket made from down quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
+  "Ali is a statement jacket made from down quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
+  "black"
 );
 
 let productIV = new Products(
@@ -51,7 +54,8 @@ let productIV = new Products(
   4000,
   1,
   false,
-  "Herbert is a jacket made from quality down. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
+  "Herbert is a jacket made from quality down. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
+  "black"
 );
 
 let productV = new Products(
@@ -63,7 +67,8 @@ let productV = new Products(
   3500,
   1,
   false,
-  "Helin is a statement jacket cut from a wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
+  "Helin is a statement jacket cut from a wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
+  "silver"
 );
 
 let productVI = new Products(
@@ -75,7 +80,8 @@ let productVI = new Products(
   4300,
   1,
   false,
-  "Ella is a down vest cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
+  "Ella is a down vest cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
+  "black"
 );
 
 let productVII = new Products(
@@ -87,7 +93,8 @@ let productVII = new Products(
   8000,
   1,
   false,
-  "Shima is a statement jacket cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
+  "Shima is a statement jacket cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
+  "black"
 );
 
 let productVIII = new Products(
@@ -99,7 +106,8 @@ let productVIII = new Products(
   10000,
   1,
   false,
-  "Jaqueline is a statement jacket cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater."
+  "Jaqueline is a statement jacket cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
+  "black"
 );
 
 let productArr = [
@@ -127,7 +135,12 @@ function printProducts() {
 
   for (let i: number = 0; i < productArr.length; i++) {
     let name: HTMLHeadingElement = document.createElement("h2");
-    let size: HTMLSpanElement = document.createElement("span");
+    //let size: HTMLSelectElement = document.createElement("select");
+    //let selectSize: HTMLOptionElement = document.createElement("option");
+    let sizeContainer: HTMLDivElement = document.createElement("div");
+    let sizeS: HTMLButtonElement = document.createElement("button");
+    let sizeM: HTMLButtonElement = document.createElement("button");
+    let sizeL: HTMLButtonElement = document.createElement("button");
     let img: HTMLImageElement = document.createElement("img");
     let img2: HTMLImageElement = document.createElement("img");
     let price: HTMLSpanElement = document.createElement("span");
@@ -140,7 +153,30 @@ function printProducts() {
     img.src = productArr[i].firstPicture;
     img2.src = productArr[i].secondPicture;
     name.innerHTML = productArr[i].name;
-    size.innerHTML = productArr[i].size;
+    sizeContainer.className = "sizeContainer";
+    /*selectSize.innerHTML = "Select size";
+    selectSize.disabled = true;
+    selectSize.selected = true;*/
+
+    sizeS.innerHTML = "S";
+    sizeS.addEventListener("click", () => {
+      productArr[i].size = "S";
+      sizeS.className = "selectedSize";
+    });
+
+    sizeM.innerHTML = "M";
+    sizeM.addEventListener("click", function () {
+      productArr[i].size = "M";
+      sizeM.className = "selectedSize";
+      console.log(productArr);
+    });
+
+    sizeL.innerHTML = "L";
+    sizeL.addEventListener("click", () => {
+      productArr[i].size = "L";
+      sizeL.className = "selectedSize";
+    });
+
     img.src = productArr[i].firstPicture;
     img2.src = productArr[i].secondPicture;
     price.innerHTML = productArr[i].price.toString() + " £";
@@ -150,7 +186,11 @@ function printProducts() {
     productsDiv.appendChild(img);
     productsDiv.appendChild(img2);
     productsDiv.appendChild(name);
-    productsDiv.appendChild(size);
+    //size.appendChild(selectSize);
+    sizeContainer.appendChild(sizeS);
+    sizeContainer.appendChild(sizeM);
+    sizeContainer.appendChild(sizeL);
+    productsDiv.appendChild(sizeContainer);
     productsDiv.appendChild(price);
     btnDiv.appendChild(infoBtn);
     btnDiv.appendChild(addToCartBtn);
@@ -170,10 +210,14 @@ function printProducts() {
       addToCartBtn.addEventListener("click", printCart);
     } else {
       addToCartBtn.addEventListener("click", () => {
-        productArr[i].cart = true;
-        addToCartBtn.addEventListener("click", printCart);
-        addToCartBtn.innerHTML = "✓";
-        addToCartBtn.className = "inCart";
+        if (productArr[i].size !== "") {
+          productArr[i].cart = true;
+          addToCartBtn.addEventListener("click", printCart);
+          addToCartBtn.innerHTML = "✓";
+          addToCartBtn.className = "inCart";
+        } else {
+          alert("please select size");
+        }
       });
     }
 
@@ -231,7 +275,7 @@ function printCart() {
   cartContainer.innerHTML = "";
 
   for (let i: number = 0; i < productArr.length; i++) {
-    if (productArr[i].cart === true) {
+    if (productArr[i].cart === true && productArr[i].size !== "") {
       let productDiv: HTMLDivElement = document.createElement("div");
       let name: HTMLHeadingElement = document.createElement("h2");
       let size: HTMLSpanElement = document.createElement("span");

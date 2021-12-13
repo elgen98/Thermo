@@ -73,6 +73,20 @@ main {
         padding-left: 15px;
         font-size: 0.8rem;
       }
+      .sizeContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 2px;
+        button {
+          height: 25px;
+          width: 25px;
+          border-radius: 50%;
+        }
+        .selectedSize {
+          background-color: blue;
+          color: white;
+        }
+      }
       .btnDivStyle {
         width: 140px;
         display: flex;
