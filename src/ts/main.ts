@@ -457,7 +457,10 @@ function fetchAndPrintData() {
       let temp: HTMLHeadingElement = document.getElementById(
         "temp"
       ) as HTMLHeadingElement;
-      temp.innerHTML = "Todays forecast  " + data.currently.temperature + " °C";
+      temp.innerHTML =
+        "Current temperature:  " +
+        Math.round(data.currently.temperature) +
+        " °C";
     })
     .catch((err) => {
       console.error(err);
