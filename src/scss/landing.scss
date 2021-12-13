@@ -18,6 +18,7 @@ body {
       justify-content: space-between;
       align-items: center;
       height: 50px;
+      width: 100%;
       padding-left: 25px;
       .brandName {
         color: black;
@@ -33,20 +34,19 @@ body {
         padding-right: 10px;
         margin: 0px;
         display: flex;
-        justify-content: center;
         align-items: center;
         border-bottom: none;
-
-        @include mixins.cartBtnStyle;
-
+        gap: 40px;
         .aboutBtn {
           text-decoration: none;
           color: black;
-          padding-right: 40px;
           text-transform: uppercase;
           border-style: none;
           cursor: pointer;
           background-color: transparent;
+        }
+        #cartBtn {
+          @include mixins.cartBtnStyle;
         }
       }
     }
@@ -91,39 +91,7 @@ body {
       display: none;
     }
 
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgb(0, 0, 0);
-      background-color: rgba(0, 0, 0, 0.4);
-      .modal-content {
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
-        width: 62%;
-        height: 550px;
-        border: 1px solid #888;
-        justify-content: center;
-        .disappear {
-          color: #aaa;
-          float: right;
-          font-size: 28px;
-          font-weight: bold;
-          &:hover,
-          &:focus {
-            color: black;
-            cursor: pointer;
-            text-decoration: none;
-          }
-        }
-      }
-    }
+    @include mixins.modalstyle;
   }
   .aboutThermo {
     height: 100vh;

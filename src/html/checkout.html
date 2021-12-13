@@ -21,23 +21,19 @@
     <main>
       <div id="checkoutDiv">
         <h3>Summary</h3>
-        <div id="summaryTable">
-          <table>
-            <tr>
-              <th id="products">Product</th>
-              <th id="qty">Qty</th>
-              <th id="price">Price</th>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+        <div id="summaryDiv">
+          <table id="table">
+            <tr class="summaryHead">
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>Size</th>
             </tr>
           </table>
         </div>
         <div id="totalDiv">
-          <h4 id="amount">Amount to pay</h4>
-          <p></p>
+          <h4>Amount to pay</h4>
+          <div id="amountDiv"></div>
         </div>
       </div>
       <div id="formContainer">
@@ -123,10 +119,22 @@
       </div>
       <div id="checkoutModal" class="modal">
         <div class="modal-content">
-          <span class="disappear">Leave window</span>
-          <div id="cart-container"></div>
+          <span class="startpage">To start</span>
           <div id="checkout-content">
-            <i class="far fa-snowflake"></i>
+            <h2>Thank you for your order</h2>
+            <div class="textDiv">
+              <p>
+                Thank you for ordering from Thermo. Your item will be sent by
+                express post on nearest upcoming weekday. If you want to follow
+                your order on it's way to you, use the below id-number
+              </p>
+              <p>
+                We hope you enjoy you product! If you have any questions about
+                your order or if you wish to fill for a return, contact us on
+                Instagram. nostrum reiciendis!
+              </p>
+              <p>797bH3576F</p>
+            </div>
           </div>
         </div>
       </div>

@@ -14,12 +14,65 @@
 
 @mixin cartBtnStyle {
   border-style: none;
+  background-color: transparent;
   margin-right: 15px;
   line-height: 1;
   color: black;
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-align: right;
   cursor: pointer;
+}
+
+@mixin checkoutModal {
+  #checkoutModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .modal-content {
+      text-align: center;
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      width: 45%;
+      height: 320px;
+      border: 1px solid #888;
+      .startpage {
+        color: #aaa;
+        float: right;
+        font-size: 1rem;
+        &:hover,
+        &:focus {
+          color: black;
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+
+      #checkout-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h2 {
+          text-transform: uppercase;
+          padding-top: 10px;
+          font-size: 1rem;
+          letter-spacing: 1px;
+        }
+        .textDiv {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
 }
 
 @mixin modalstyle {
@@ -40,7 +93,6 @@
       margin: 15% auto;
       padding: 20px;
       width: 62%;
-      min-height: 550px;
       border: 1px solid #888;
       .disappear {
         color: #aaa;
@@ -120,6 +172,19 @@
       }
       #formContainer {
         width: 600px;
+      }
+      #checkoutModal {
+        .modal-content {
+          height: 400px;
+          #checkout-content {
+            h2 {
+              font-size: 1.6rem;
+            }
+            .textDiv {
+              font-size: 1rem;
+            }
+          }
+        }
       }
     }
     footer {

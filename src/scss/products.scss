@@ -28,7 +28,9 @@ header {
       text-decoration: none;
       text-align: left;
     }
-    @include mixins.cartBtnStyle;
+    #cartBtn {
+      @include mixins.cartBtnStyle;
+    }
   }
 }
 
