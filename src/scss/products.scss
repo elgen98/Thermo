@@ -73,7 +73,8 @@ main {
         padding-left: 15px;
         font-size: 0.8rem;
       }
-      .sizeContainer {
+      .sizeContainer,
+      .colorContainer {
         display: flex;
         flex-direction: row;
         gap: 2px;
@@ -87,9 +88,24 @@ main {
           background-color: rgb(185, 184, 184);
           cursor: pointer;
         }
+        .blackBtn {
+          background-color: black;
+        }
+        .silverBtn {
+          background-color: silver;
+        }
+        .greenBtn {
+          background-color: green;
+        }
         .selectedSize {
           background-color: blue;
           color: white;
+        }
+        #selectedColor {
+          border: black 2px solid;
+        }
+        #selectedColorBlack {
+          border: blue 2px solid;
         }
       }
       .btnDivStyle {
