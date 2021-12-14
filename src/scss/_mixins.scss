@@ -8,8 +8,7 @@
 %formflex {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
 }
 
 @mixin cartBtnStyle {
@@ -45,14 +44,17 @@
       height: 320px;
       border: 1px solid #888;
       .startpage {
-        color: #aaa;
-        float: right;
-        font-size: 1rem;
-        &:hover,
-        &:focus {
-          color: black;
-          cursor: pointer;
+        a {
           text-decoration: none;
+          color: #aaa;
+          float: right;
+          font-size: 1.2rem;
+          &:hover,
+          &:focus {
+            color: black;
+            cursor: pointer;
+            text-decoration: none;
+          }
         }
       }
 
@@ -168,7 +170,11 @@
       flex-direction: row;
       gap: 30px;
       #checkoutDiv {
-        height: 670px;
+        height: 585px;
+      }
+      #summaryDiv {
+        #table {
+        }
       }
       #formContainer {
         width: 600px;

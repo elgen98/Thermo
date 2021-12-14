@@ -23,12 +23,11 @@ html {
     border-bottom: lightgrey 1px solid;
   }
   main {
-    @extend %formflex;
+    @extend %flex;
     margin: 20px;
     #checkoutDiv {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       width: 360px;
       border: lightgrey 2px solid;
       border-radius: 25px;
@@ -43,31 +42,14 @@ html {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        width: 350px;
+        width: 100%;
         #table {
-          .summaryHead {
-            display: flex;
-            justify-content: stretch;
-            th {
-              width: 25%;
-              padding: 0px;
-              margin: 0px;
-              text-align: left;
-            }
-            tr {
-              width: 25%;
-              text-align: left;
-              td {
-                width: 25%;
-                font-size: 0.7rem;
-                padding: 0px;
-                margin: 0px;
-                text-align: left;
-              }
-            }
-          }
+          margin: 10px;
+          text-align: left;
+          font-size: 0.9rem;
         }
       }
+
       #totalDiv {
         display: flex;
         flex-direction: column;
@@ -80,13 +62,12 @@ html {
     #formContainer {
       @extend %formflex;
       width: 360px;
-      height: 670px;
+
       border: lightgrey 2px solid;
       border-radius: 25px;
       margin: 30px;
       #form {
         margin: 25px;
-
         label {
           display: flex;
           flex-direction: column;
@@ -94,29 +75,35 @@ html {
           font-size: 0.8rem;
           margin-top: 5px;
           letter-spacing: 1.5px;
-          #cardContainer {
-            @extend %formflex;
-            .cardInfoHidden {
-              display: none;
-            }
-            .cardInfoShow {
-              display: flex;
-            }
+        }
+        #cardContainer {
+          @extend %formflex;
+          label {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            letter-spacing: 1.5px;
           }
-          .checkboxInfo {
-            font-size: 0.5rem;
-          }
-          input[type="text"],
-          input[type="email"],
-          input[type="number"] {
-            &:valid {
-              background: url("https://webdevtrick.com/wp-content/uploads/check-icon.svg");
-              background-repeat: no-repeat;
-              background-size: 10px;
-              background-position: 150px 4px;
-            }
+          .cardInfoHidden {
+            display: none;
           }
         }
+        .checkboxInfo {
+          font-size: 0.7rem;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+          &:valid {
+            background: url("https://webdevtrick.com/wp-content/uploads/check-icon.svg");
+            background-repeat: no-repeat;
+            background-size: 10px;
+            background-position: 150px 4px;
+          }
+        }
+
         #confirmorderBtn {
           border-style: none;
           cursor: pointer;

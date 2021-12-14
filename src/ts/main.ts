@@ -1,8 +1,9 @@
 import { Products } from "./Models/models";
 
 window.onload = function () {
-  printProducts();
   document.getElementById("cartBtn").addEventListener("click", printCart);
+  checkLocalStorage();
+  printProducts();
   //fetchAndPrintData();
 };
 
@@ -110,21 +111,25 @@ let productVIII = new Products(
   "black"
 );
 
-let productArr = [
-  productI,
-  productII,
-  productIII,
-  productIV,
-  productV,
-  productVI,
-  productVII,
-  productVIII,
-];
+let productArr = [];
 
+function checkLocalStorage() {
+  productArr = JSON.parse(localStorage.getItem("product")) || [
+    productI,
+    productII,
+    productIII,
+    productIV,
+    productV,
+    productVI,
+    productVII,
+    productVIII,
+  ];
+  console.log(productArr);
+}
 //let productArr: Products[] = [];
 
 //skapar en funktion som lagrar produkterna
-function toLocalStorage(productArr) {
+function toLocalStorage(productArr: Products[]) {
   localStorage.setItem("product", JSON.stringify(productArr));
 }
 
@@ -245,14 +250,11 @@ function printProducts() {
       addToCartBtn.addEventListener("click", printCart);
     } else {
       addToCartBtn.addEventListener("click", () => {
-        if (productArr[i].size !== "") {
-          productArr[i].cart = true;
-          addToCartBtn.addEventListener("click", printCart);
-          addToCartBtn.innerHTML = "✓";
-          addToCartBtn.className = "inCart";
-        } else {
-          alert("please select size");
-        }
+        productArr[i].cart = true;
+        toLocalStorage(productArr);
+        addToCartBtn.addEventListener("click", printCart);
+        addToCartBtn.innerHTML = "✓";
+        addToCartBtn.className = "inCart";
       });
     }
 
@@ -396,7 +398,6 @@ function printCart() {
     cartBtnContainer.appendChild(continueShopping);
     cartContainer.appendChild(cartBtnContainer);
 
-    toLocalStorage(productArr);
     /*else {
       let emptyMsg: HTMLParagraphElement = document.createElement(
         "p"
@@ -440,32 +441,29 @@ function removeCartItem(position) {
   printCart();
 }
 
-function fetchAndPrintData() {
-  fetch("https://dark-sky.p.rapidapi.com/59.3293,18.0686?units=auto&lang=en", {
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "dark-sky.p.rapidapi.com",
-      "x-rapidapi-key": "24a44dd15emsh4566a472b62617ap1e4e9fjsn6119876c45be",
-    },
-  })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data.currently.temperature);
+// function fetchAndPrintData() {
+//   fetch("https://dark-sky.p.rapidapi.com/59.3293,18.0686?units=auto&lang=en", {
+//     method: "GET",
+//     headers: {
+//       "x-rapidapi-host": "dark-sky.p.rapidapi.com",
+//       "x-rapidapi-key": "24a44dd15emsh4566a472b62617ap1e4e9fjsn6119876c45be",
+//     },
+//   })
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data.currently.temperature);
 
-      let temp: HTMLHeadingElement = document.getElementById(
-        "temp"
-      ) as HTMLHeadingElement;
-      temp.innerHTML =
-        "Current temperature:  " +
-        Math.round(data.currently.temperature) +
-        " °C";
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-}
+//       let temp: HTMLHeadingElement = document.getElementById(
+//         "temp"
+//       ) as HTMLHeadingElement;
+//       temp.innerHTML = "Todays forecast  " + data.currently.temperature + " °C";
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+// }
 
 var modal = document.getElementById("productModal") as HTMLDivElement;
 
