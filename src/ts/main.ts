@@ -258,7 +258,6 @@ function printProducts() {
         addToCartBtn.addEventListener("click", printCart);
         addToCartBtn.innerHTML = "✓";
         addToCartBtn.className = "inCart";
-        printProducts();
       } else {
         alert("Please select a size!");
       }
