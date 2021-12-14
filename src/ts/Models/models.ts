@@ -8,7 +8,6 @@ class Products {
   price: number;
   totalPrice: number;
   quantity: number;
-  cart: boolean;
   detailText: string;
   color: string;
 
@@ -20,7 +19,6 @@ class Products {
     price: number,
     totalPrice: number,
     quantity: number,
-    cart: boolean,
     detailText: string,
     color: string
   ) {
@@ -31,7 +29,6 @@ class Products {
     this.price = price;
     this.totalPrice = totalPrice;
     this.quantity = quantity;
-    this.cart = cart;
     this.detailText = detailText;
     this.color = color;
   }
