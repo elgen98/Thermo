@@ -3,7 +3,7 @@ import { Products } from "./Models/models";
 window.onload = function () {
   printProducts();
   document.getElementById("cartBtn").addEventListener("click", printCart);
-  fetchAndPrintData();
+  //fetchAndPrintData();
 };
 
 let productI = new Products(
