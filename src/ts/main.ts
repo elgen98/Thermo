@@ -14,7 +14,6 @@ let productI = new Products(
   2500,
   2500,
   1,
-  false,
   "Anthony is a statement jacket cut from a thick down quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -27,7 +26,6 @@ let productII = new Products(
   3300,
   3300,
   1,
-  false,
   "Sebastian is a statement jacket made from down. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -40,7 +38,6 @@ let productIII = new Products(
   2300,
   2300,
   1,
-  false,
   "Ali is a statement jacket made from down quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -53,7 +50,6 @@ let productIV = new Products(
   4000,
   4000,
   1,
-  false,
   "Herbert is a jacket made from quality down. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -66,7 +62,6 @@ let productV = new Products(
   3500,
   3500,
   1,
-  false,
   "Helin is a statement jacket cut from a wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "silver"
 );
@@ -79,7 +74,6 @@ let productVI = new Products(
   4300,
   4300,
   1,
-  false,
   "Ella is a down vest cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -92,7 +86,6 @@ let productVII = new Products(
   8000,
   8000,
   1,
-  false,
   "Shima is a statement jacket cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -105,7 +98,6 @@ let productVIII = new Products(
   10000,
   10000,
   1,
-  false,
   "Jaqueline is a statement jacket cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
