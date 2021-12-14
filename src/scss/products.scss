@@ -75,6 +75,41 @@ main {
         padding-left: 15px;
         font-size: 0.8rem;
       }
+      .sizeContainer,
+      .colorContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 2px;
+        font-size: 0.8rem;
+        padding-left: 15px;
+        button {
+          height: 22px;
+          width: 22px;
+          border-radius: 50%;
+          border: none;
+          background-color: rgb(185, 184, 184);
+          cursor: pointer;
+        }
+        .blackBtn {
+          background-color: black;
+        }
+        .silverBtn {
+          background-color: silver;
+        }
+        .greenBtn {
+          background-color: green;
+        }
+        .selectedSize {
+          background-color: blue;
+          color: white;
+        }
+        #selectedColor {
+          border: black 2px solid;
+        }
+        #selectedColorBlack {
+          border: blue 2px solid;
+        }
+      }
       .btnDivStyle {
         width: 140px;
         display: flex;
@@ -162,6 +197,10 @@ main {
     background-color: rgb(13, 147, 192);
     color: white;
   }
+}
+.productSpec {
+  display: flex;
+  flex-direction: column;
 }
 
 footer {
