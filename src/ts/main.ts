@@ -239,9 +239,7 @@ function printProducts() {
     img2.className = "secondImg";
 
     for (let j = 0; j < cartArr.length; j++) {
-      cartQuantity++;
       if (productArr[i].name === cartArr[j].name) {
-        //addToCartBtn.removeEventListener("click", addToCart);
         addToCartBtn.addEventListener("click", printCart);
         addToCartBtn.innerHTML = "✓";
         addToCartBtn.className = "inCart";
@@ -251,10 +249,16 @@ function printProducts() {
     addToCartBtn.addEventListener("click", function addToCart() {
       if (productArr[i].size !== "") {
         cartArr.push(productArr[i]);
+        cartQuantity++;
+        console.log(cartQuantity);
+        cartQuanDiv.innerHTML = "";
+        cartQuanDiv.style.display = "block";
+        cartQuanDiv.innerHTML = cartQuantity.toString();
         addToCartBtn.removeEventListener("click", addToCart);
         addToCartBtn.addEventListener("click", printCart);
         addToCartBtn.innerHTML = "✓";
         addToCartBtn.className = "inCart";
+        printProducts();
       } else {
         alert("Please select a size!");
       }
