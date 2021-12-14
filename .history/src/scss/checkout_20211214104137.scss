@@ -1,0 +1,129 @@
+@use "mixins";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+body,
+html {
+  font-size: 12pt;
+  height: 100%;
+  margin: auto 0;
+  font-family: "Roboto", sans-serif;
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10px;
+    .brandName {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 4px;
+      padding-left: 15px;
+    }
+    height: 50px;
+    border-bottom: lightgrey 1px solid;
+  }
+  main {
+    @extend %flex;
+    margin: 20px;
+    #checkoutDiv {
+      display: flex;
+      flex-direction: column;
+      width: 360px;
+      border: lightgrey 2px solid;
+      border-radius: 25px;
+      margin: 30px;
+      h3 {
+        margin: 25px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+      #summaryDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 100%;
+        #table {
+          margin: 10px;
+          text-align: left;
+          font-size: 0.9rem;
+        }
+      }
+
+      #totalDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 30px;
+      }
+    }
+    #formContainer {
+      @extend %formflex;
+      width: 360px;
+      height: 670px;
+      border: lightgrey 2px solid;
+      border-radius: 25px;
+      margin: 30px;
+      #form {
+        margin: 25px;
+        label {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          font-size: 0.8rem;
+          margin-top: 5px;
+          letter-spacing: 1.5px;
+        }
+        #cardContainer {
+          @extend %formflex;
+          label {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            letter-spacing: 1.5px;
+          }
+          .cardInfoHidden {
+            display: none;
+          }
+        }
+        .checkboxInfo {
+          font-size: 0.7rem;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+          &:valid {
+            background: url("https://webdevtrick.com/wp-content/uploads/check-icon.svg");
+            background-repeat: no-repeat;
+            background-size: 10px;
+            background-position: 150px 4px;
+          }
+        }
+
+        #confirmorderBtn {
+          border-style: none;
+          cursor: pointer;
+        }
+      }
+    }
+    @include mixins.checkoutModal;
+  }
+
+  footer {
+    @extend %flex;
+    a {
+      color: black;
+      text-decoration: none;
+    }
+    height: 150px;
+    border-top: lightgrey 1px solid;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  @include mixins.mediaCheckout;
+}

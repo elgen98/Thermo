@@ -8,8 +8,7 @@
 %formflex {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
 }
 
 @mixin cartBtnStyle {
@@ -171,7 +170,7 @@
       flex-direction: row;
       gap: 30px;
       #checkoutDiv {
-        height: 670px;
+        height: 585px;
       }
       #summaryDiv {
         #table {
