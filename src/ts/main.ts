@@ -3,7 +3,7 @@ import { Products } from "./Models/models";
 window.onload = function () {
   printProducts();
   document.getElementById("cartBtn").addEventListener("click", printCart);
-  fetchAndPrintData();
+  // fetchAndPrintData();
 };
 
 let productI = new Products(
@@ -120,23 +120,16 @@ function toLocalStorage(productArr) {
   localStorage.setItem("product", JSON.stringify(productArr));
 }
 
+let cartQuanDiv: HTMLDivElement = document.createElement("div");
+cartQuanDiv.className = "cartQuanStyle";
+let cartQuantity: number = 0;
+
+
+
 function printProducts() {
   let productContainer: HTMLElement =
     document.getElementById("productContainer");
   productContainer.innerHTML = "";
-  let cartQuantity: number = 0;
-  let cartQuanDiv: HTMLDivElement = document.createElement("div");
-  
-  cartQuanDiv.style.backgroundColor = "Orange";
-  cartQuanDiv.style.color = "white";
-  cartQuanDiv.style.borderRadius = "50%";
-  cartQuanDiv.style.width = "15px";
-  cartQuanDiv.style.height = "15px";
-  cartQuanDiv.style.display = "none";
-  cartQuanDiv.style.textAlign = "center";
-  cartQuanDiv.style.fontWeight = "bold";
-  cartQuanDiv.style.fontSize = "12.5px";
-  cartQuanDiv.style.justifyContent = "center";
 
 
   for (let i: number = 0; i < productArr.length; i++) {
@@ -195,6 +188,9 @@ function printProducts() {
         cartQuanDiv.style.display = "block";
         cartQuanDiv.innerHTML = cartQuantity.toString();
       });
+      if (cartQuantity === 0) {
+        cartQuanDiv.style.display = "none";
+      }
     }
   
 
@@ -366,6 +362,11 @@ function calculatePrice(position) {
 function removeCartItem(position) {
   productArr[position].quantity = 1;
   calculatePrice(position);
+  cartQuantity--;
+  console.log(cartQuantity);
+  cartQuanDiv.innerHTML = "";
+  cartQuanDiv.style.display = "block";
+  cartQuanDiv.innerHTML = cartQuantity.toString();
   productArr[position].cart = false;
 
   window.onclick = function (event) {
@@ -373,11 +374,12 @@ function removeCartItem(position) {
       modal.style.display = "none";
     }
   };
+  
   printProducts();
   printCart();
 }
 
-function fetchAndPrintData() {
+/*function fetchAndPrintData() {
   fetch("https://dark-sky.p.rapidapi.com/59.3293,18.0686?units=auto&lang=en", {
     method: "GET",
     headers: {
@@ -399,7 +401,7 @@ function fetchAndPrintData() {
     .catch((err) => {
       console.error(err);
     });
-}
+} */
 
 var modal = document.getElementById("productModal") as HTMLDivElement;
 
