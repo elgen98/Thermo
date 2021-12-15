@@ -389,8 +389,18 @@ function printCart() {
     let emptyMsg: HTMLParagraphElement = document.createElement(
       "p"
     ) as HTMLParagraphElement;
+    let sadSmiley: HTMLSpanElement = document.createElement(
+      "span"
+    ) as HTMLSpanElement;
+
     emptyMsg.innerHTML = "Your cart is empty";
+    sadSmiley.innerHTML = '<i class="far fa-frown"></i>';
+
+    emptyMsg.className = "emptyMsgStyle";
+    sadSmiley.className = "smileyStyle";
+
     cartContainer.appendChild(emptyMsg);
+    cartContainer.appendChild(sadSmiley);
   } else {
     let cartBtnContainer: HTMLDivElement = document.createElement("div");
     let continueShopping: HTMLButtonElement = document.createElement("button");

@@ -237,3 +237,15 @@ footer {
 @media screen and (min-width: 768px) {
   @include mixins.mediaProducts;
 }
+
+.emptyMsgStyle,
+.smileyStyle {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  transform: translate(0px, 100px);
+}
