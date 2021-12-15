@@ -116,18 +116,35 @@ let productArr = [
 
 let cartArr = [];
 
-function toLocalStorage(productArr) {
-  localStorage.setItem("product", JSON.stringify(productArr));
-}
-
 let cartQuanDiv: HTMLDivElement = document.createElement("div");
 cartQuanDiv.className = "cartQuanStyle";
-let cartQuantity: number = 0;
+let cartQuantity: number;
+
+//skapar en funktion som hämtar lagrade produkter
+function checkLocalStorage() {
+  cartArr = JSON.parse(localStorage.getItem("product")) || [];
+  cartQuantity = JSON.parse(localStorage.getItem("cartQuantity")) || 0;
+}
+
+//skapar en funktion som lagrar produkterna
+function toLocalStorage(cartArr, cartQuantity) {
+  localStorage.setItem("product", JSON.stringify(cartArr));
+  localStorage.setItem("cartQuantity", JSON.stringify(cartQuantity));
+}
 
 function printProducts() {
   let productContainer: HTMLElement =
     document.getElementById("productContainer");
   productContainer.innerHTML = "";
+
+  if (cartQuantity === 0) {
+    cartQuanDiv.innerHTML = "";
+    cartQuanDiv.style.display = "none";
+  } else {
+    cartQuanDiv.innerHTML = "";
+    cartQuanDiv.style.display = "block";
+    cartQuanDiv.innerHTML = cartQuantity.toString();
+  }
 
   for (let i: number = 0; i < productArr.length; i++) {
     let name: HTMLHeadingElement = document.createElement("h2");
@@ -252,6 +269,7 @@ function printProducts() {
         cartArr.push(productArr[i]);
 
         cartQuantity++;
+        // console.log(cartQuantity);
         cartQuanDiv.innerHTML = "";
         cartQuanDiv.style.display = "block";
         cartQuanDiv.innerHTML = cartQuantity.toString();
@@ -260,6 +278,7 @@ function printProducts() {
         addToCartBtn.addEventListener("click", printCart);
         addToCartBtn.innerHTML = "✓";
         addToCartBtn.className = "inCart";
+        toLocalStorage(cartArr, cartQuantity);
       } else {
         alert("Please select a size!");
       }
@@ -315,7 +334,6 @@ function printCart() {
     "cart-container"
   ) as HTMLDivElement;
   cartContainer.innerHTML = "";
-
   for (let i: number = 0; i < cartArr.length; i++) {
     let productDiv: HTMLDivElement = document.createElement("div");
     let productDetails: HTMLSpanElement = document.createElement("span");
@@ -334,14 +352,14 @@ function printCart() {
       addQuantity(i);
       calculatePrice(i);
       printCart();
-      toLocalStorage(productArr);
+      toLocalStorage(cartArr, cartQuantity);
     });
 
     minusBtn.addEventListener("click", () => {
       subtractQuantity(i);
       calculatePrice(i);
       printCart();
-      toLocalStorage(productArr);
+      toLocalStorage(cartArr, cartQuantity);
     });
 
     name.innerHTML = cartArr[i].name;
@@ -402,7 +420,7 @@ function printCart() {
     cartBtnContainer.appendChild(continueShopping);
     cartContainer.appendChild(cartBtnContainer);
 
-    toLocalStorage(productArr);
+    toLocalStorage(cartArr, cartQuantity);
   }
   handleClick();
 }
