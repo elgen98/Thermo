@@ -116,10 +116,7 @@ let productArr = [
 
 let cartArr = [];
 
-//let productArr: Products[] = [];
-
-//skapar en funktion som lagrar produkterna
-function toLocalStorage(productArr: Products[]) {
+function toLocalStorage(productArr) {
   localStorage.setItem("product", JSON.stringify(productArr));
 }
 
@@ -149,7 +146,6 @@ function printProducts() {
     let infoBtn: HTMLButtonElement = document.createElement("button");
     let addToCartBtn: HTMLButtonElement = document.createElement("button");
     let productsDiv: HTMLDivElement = document.createElement("div");
-
     let cartBtn = document.getElementById("cartBtn");
 
     img.src = productArr[i].firstPicture;
@@ -210,7 +206,7 @@ function printProducts() {
 
     img.src = productArr[i].firstPicture;
     img2.src = productArr[i].secondPicture;
-    price.innerHTML = productArr[i].price.toString() + " £";
+    price.innerHTML = productArr[i].price.toString() + " kr";
     addToCartBtn.innerHTML = "+";
     infoBtn.innerHTML = "i";
 
@@ -218,17 +214,21 @@ function printProducts() {
     productsDiv.appendChild(img2);
     productsDiv.appendChild(name);
     productsDiv.appendChild(price);
+
     sizeContainer.appendChild(sizeS);
     sizeContainer.appendChild(sizeM);
     sizeContainer.appendChild(sizeL);
     productsDiv.appendChild(sizeContainer);
+
     colorContainer.appendChild(colorBlack);
     colorContainer.appendChild(colorSilver);
     colorContainer.appendChild(colorGreen);
     productsDiv.appendChild(colorContainer);
+
     btnDiv.appendChild(infoBtn);
     btnDiv.appendChild(addToCartBtn);
     productsDiv.appendChild(btnDiv);
+
     productContainer.appendChild(productsDiv);
     cartBtn.appendChild(cartQuanDiv);
 
@@ -250,11 +250,12 @@ function printProducts() {
     addToCartBtn.addEventListener("click", function addToCart() {
       if (productArr[i].size !== "") {
         cartArr.push(productArr[i]);
+
         cartQuantity++;
-        console.log(cartQuantity);
         cartQuanDiv.innerHTML = "";
         cartQuanDiv.style.display = "block";
         cartQuanDiv.innerHTML = cartQuantity.toString();
+
         addToCartBtn.removeEventListener("click", addToCart);
         addToCartBtn.addEventListener("click", printCart);
         addToCartBtn.innerHTML = "✓";
@@ -362,10 +363,12 @@ function printCart() {
 
     productDiv.appendChild(name);
     productDiv.appendChild(img2);
+
     productDetails.appendChild(size);
     productDetails.appendChild(color);
     productDetails.appendChild(totalPrice);
     productDiv.appendChild(productDetails);
+
     quantityContainer.appendChild(minusBtn);
     quantityContainer.appendChild(quantity);
     quantityContainer.appendChild(plusBtn);
@@ -425,11 +428,13 @@ function calculatePrice(position) {
 function removeCartItem(position) {
   cartArr[position].quantity = 1;
   calculatePrice(position);
+
   cartQuantity--;
   console.log(cartQuantity);
   cartQuanDiv.innerHTML = "";
   cartQuanDiv.style.display = "block";
   cartQuanDiv.innerHTML = cartQuantity.toString();
+
   cartArr.splice(position, 1);
 
   window.onclick = function (event) {
@@ -441,7 +446,7 @@ function removeCartItem(position) {
   printProducts();
 }
 
-/*function fetchAndPrintData() {
+function fetchAndPrintData() {
   fetch("https://dark-sky.p.rapidapi.com/59.3293,18.0686?units=auto&lang=en", {
     method: "GET",
     headers: {
@@ -464,11 +469,11 @@ function removeCartItem(position) {
         " °C";
     })
     .catch((err) => {
-      console.error(err);
+      alert("Error message: " + err);
     });
-} */
+}
 
-var modal = document.getElementById("productModal") as HTMLDivElement;
+let modal = document.getElementById("productModal") as HTMLDivElement;
 
 let spanis = document.getElementsByClassName("disappear")[0] as HTMLSpanElement;
 
