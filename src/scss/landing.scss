@@ -69,21 +69,24 @@ body {
     }
     p {
       font-size: 1.1rem;
-      background-color: rgba(224, 221, 221, 0.418);
+      background-color: rgba(255, 255, 255, 0.637);
       width: 320px;
       text-align: center;
     }
     .startShop {
+      border-radius: 5px;
+      padding: 7px;
       font-size: 0.8rem;
       text-decoration: none;
       color: black;
-      background-color: rgba(224, 221, 221, 0.418);
+      background-color: white;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
       &:hover {
-        background-color: white;
+        background-color: rgb(0, 0, 0);
+        color: white;
       }
     }
 

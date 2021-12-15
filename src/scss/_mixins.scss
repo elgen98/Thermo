@@ -115,7 +115,11 @@
   body {
     header {
       .navBar {
+        .brandName {
+          padding-left: 30px;
+        }
         #headlines {
+          padding-right: 35px;
         }
       }
     }
@@ -161,7 +165,7 @@
   body {
     header {
       .brandName {
-        padding-left: 30px;
+        padding-left: 45px;
       }
     }
     main {
