@@ -15,7 +15,6 @@ let productI = new Products(
   2500,
   2500,
   1,
-  false,
   "Anthony is a statement jacket cut from a thick down quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -28,7 +27,6 @@ let productII = new Products(
   3300,
   3300,
   1,
-  false,
   "Sebastian is a statement jacket made from down. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -41,7 +39,6 @@ let productIII = new Products(
   2300,
   2300,
   1,
-  false,
   "Ali is a statement jacket made from down quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -54,7 +51,6 @@ let productIV = new Products(
   4000,
   4000,
   1,
-  false,
   "Herbert is a jacket made from quality down. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -67,7 +63,6 @@ let productV = new Products(
   3500,
   3500,
   1,
-  false,
   "Helin is a statement jacket cut from a wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "silver"
 );
@@ -80,7 +75,6 @@ let productVI = new Products(
   4300,
   4300,
   1,
-  false,
   "Ella is a down vest cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -93,7 +87,6 @@ let productVII = new Products(
   8000,
   8000,
   1,
-  false,
   "Shima is a statement jacket cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
@@ -106,32 +99,33 @@ let productVIII = new Products(
   10000,
   10000,
   1,
-  false,
   "Jaqueline is a statement jacket cut from a thin wool quality. The jacket has an oversized shape - inspired by the traditional aviator style, with a high collar and buckle detailing. The jacket has a hidden button closure and an oversized diagonal pocket in front. Style with Rose pants and a chunky sweater.",
   "black"
 );
 
-let productArr = [];
+let productArr = [
+  productI,
+  productII,
+  productIII,
+  productIV,
+  productV,
+  productVI,
+  productVII,
+  productVIII,
+];
 
-function checkLocalStorage() {
-  productArr = JSON.parse(localStorage.getItem("product")) || [
-    productI,
-    productII,
-    productIII,
-    productIV,
-    productV,
-    productVI,
-    productVII,
-    productVIII,
-  ];
-  console.log(productArr);
-}
+let cartArr = [];
+
 //let productArr: Products[] = [];
 
 //skapar en funktion som lagrar produkterna
 function toLocalStorage(productArr: Products[]) {
   localStorage.setItem("product", JSON.stringify(productArr));
 }
+
+let cartQuanDiv: HTMLDivElement = document.createElement("div");
+cartQuanDiv.className = "cartQuanStyle";
+let cartQuantity: number = 0;
 
 function printProducts() {
   let productContainer: HTMLElement =
@@ -154,8 +148,9 @@ function printProducts() {
     let btnDiv: HTMLDivElement = document.createElement("div");
     let infoBtn: HTMLButtonElement = document.createElement("button");
     let addToCartBtn: HTMLButtonElement = document.createElement("button");
-
     let productsDiv: HTMLDivElement = document.createElement("div");
+
+    let cartBtn = document.getElementById("cartBtn");
 
     img.src = productArr[i].firstPicture;
     img2.src = productArr[i].secondPicture;
@@ -182,7 +177,6 @@ function printProducts() {
       sizeM.className = "selectedSize";
       sizeS.className = "";
       sizeL.className = "";
-      console.log(productArr);
     });
 
     sizeL.innerHTML = "L";
@@ -236,6 +230,7 @@ function printProducts() {
     btnDiv.appendChild(addToCartBtn);
     productsDiv.appendChild(btnDiv);
     productContainer.appendChild(productsDiv);
+    cartBtn.appendChild(cartQuanDiv);
 
     productContainer.className = "productContainerStyle";
     btnDiv.className = "btnDivStyle";
@@ -244,19 +239,30 @@ function printProducts() {
     img.className = "firstImg";
     img2.className = "secondImg";
 
-    if (productArr[i].cart === true) {
-      addToCartBtn.innerHTML = "✓";
-      addToCartBtn.className = "inCart";
-      addToCartBtn.addEventListener("click", printCart);
-    } else {
-      addToCartBtn.addEventListener("click", () => {
-        productArr[i].cart = true;
-        toLocalStorage(productArr);
+    for (let j = 0; j < cartArr.length; j++) {
+      if (productArr[i].name === cartArr[j].name) {
         addToCartBtn.addEventListener("click", printCart);
         addToCartBtn.innerHTML = "✓";
         addToCartBtn.className = "inCart";
-      });
+      }
     }
+
+    addToCartBtn.addEventListener("click", function addToCart() {
+      if (productArr[i].size !== "") {
+        cartArr.push(productArr[i]);
+        cartQuantity++;
+        console.log(cartQuantity);
+        cartQuanDiv.innerHTML = "";
+        cartQuanDiv.style.display = "block";
+        cartQuanDiv.innerHTML = cartQuantity.toString();
+        addToCartBtn.removeEventListener("click", addToCart);
+        addToCartBtn.addEventListener("click", printCart);
+        addToCartBtn.innerHTML = "✓";
+        addToCartBtn.className = "inCart";
+      } else {
+        alert("Please select a size!");
+      }
+    });
 
     img.style.display = "block";
     img2.style.display = "none";
@@ -279,7 +285,6 @@ function printProducts() {
 
 function detailClick(position) {
   let name: HTMLHeadingElement = document.createElement("h2");
-  let size: HTMLSpanElement = document.createElement("span");
   let img2: HTMLImageElement = document.createElement("img");
   let price: HTMLSpanElement = document.createElement("p");
   let infotext: HTMLSpanElement = document.createElement("span");
@@ -290,14 +295,12 @@ function detailClick(position) {
 
   detailContainer.innerHTML = "";
   name.innerHTML = productArr[position].name;
-  size.innerHTML = productArr[position].size;
   img2.src = productArr[position].secondPicture;
   infotext.innerHTML = productArr[position].detailText;
   price.innerHTML = productArr[position].price.toString() + " £";
 
   detailDiv.appendChild(img2);
   detailDiv.appendChild(name);
-  detailDiv.appendChild(size);
   detailDiv.appendChild(price);
   detailDiv.appendChild(infotext);
   detailContainer.appendChild(detailDiv);
@@ -306,72 +309,70 @@ function detailClick(position) {
 }
 
 function printCart() {
+  console.log(cartArr);
   let cartContainer: HTMLDivElement = document.getElementById(
     "cart-container"
   ) as HTMLDivElement;
   cartContainer.innerHTML = "";
 
-  for (let i: number = 0; i < productArr.length; i++) {
-    if (productArr[i].cart === true && productArr[i].size !== "") {
-      let productDiv: HTMLDivElement = document.createElement("div");
-      let productDetails: HTMLSpanElement = document.createElement("span");
-      let name: HTMLHeadingElement = document.createElement("h2");
-      let size: HTMLSpanElement = document.createElement("span");
-      let color: HTMLSpanElement = document.createElement("span");
-      let img2: HTMLImageElement = document.createElement("img");
-      let totalPrice: HTMLSpanElement = document.createElement("span");
-      let quantityContainer: HTMLDivElement = document.createElement("div");
-      let quantity: HTMLSpanElement = document.createElement("span");
-      let plusBtn: HTMLButtonElement = document.createElement("button");
-      let minusBtn: HTMLButtonElement = document.createElement("button");
-      let removeBtn: HTMLButtonElement = document.createElement("button");
+  for (let i: number = 0; i < cartArr.length; i++) {
+    let productDiv: HTMLDivElement = document.createElement("div");
+    let productDetails: HTMLSpanElement = document.createElement("span");
+    let name: HTMLHeadingElement = document.createElement("h2");
+    let size: HTMLSpanElement = document.createElement("span");
+    let color: HTMLSpanElement = document.createElement("span");
+    let img2: HTMLImageElement = document.createElement("img");
+    let totalPrice: HTMLSpanElement = document.createElement("span");
+    let quantityContainer: HTMLDivElement = document.createElement("div");
+    let quantity: HTMLSpanElement = document.createElement("span");
+    let plusBtn: HTMLButtonElement = document.createElement("button");
+    let minusBtn: HTMLButtonElement = document.createElement("button");
+    let removeBtn: HTMLButtonElement = document.createElement("button");
 
-      plusBtn.addEventListener("click", () => {
-        addQuantity(i);
-        calculatePrice(i);
-        printCart();
-        toLocalStorage(productArr);
-      });
+    plusBtn.addEventListener("click", () => {
+      addQuantity(i);
+      calculatePrice(i);
+      printCart();
+      toLocalStorage(productArr);
+    });
 
-      minusBtn.addEventListener("click", () => {
-        subtractQuantity(i);
-        calculatePrice(i);
-        printCart();
-        toLocalStorage(productArr);
-      });
+    minusBtn.addEventListener("click", () => {
+      subtractQuantity(i);
+      calculatePrice(i);
+      printCart();
+      toLocalStorage(productArr);
+    });
 
-      name.innerHTML = productArr[i].name;
-      size.innerHTML = "Size: " + productArr[i].size;
-      color.innerHTML = "Color: " + productArr[i].color;
-      img2.src = productArr[i].secondPicture;
-      totalPrice.innerHTML =
-        "Total: " + productArr[i].totalPrice.toString() + " £";
-      quantity.innerHTML = productArr[i].quantity.toString();
-      removeBtn.innerHTML = "X";
-      removeBtn.className = "removeBtn";
-      plusBtn.innerHTML = "+";
-      minusBtn.innerHTML = "-";
-      quantityContainer.className = "quantityContainer";
-      productDetails.className = "productSpec";
+    name.innerHTML = cartArr[i].name;
+    size.innerHTML = "Size: " + cartArr[i].size;
+    color.innerHTML = "Color: " + cartArr[i].color;
+    img2.src = cartArr[i].secondPicture;
+    totalPrice.innerHTML = "Total: " + cartArr[i].totalPrice.toString() + " £";
+    quantity.innerHTML = cartArr[i].quantity.toString();
+    removeBtn.innerHTML = "X";
+    removeBtn.className = "removeBtn";
+    plusBtn.innerHTML = "+";
+    minusBtn.innerHTML = "-";
+    quantityContainer.className = "quantityContainer";
+    productDetails.className = "productSpec";
 
-      removeBtn.addEventListener("click", () => {
-        removeCartItem(i);
-      });
+    removeBtn.addEventListener("click", () => {
+      removeCartItem(i);
+    });
 
-      productDiv.appendChild(name);
-      productDiv.appendChild(img2);
-      productDetails.appendChild(size);
-      productDetails.appendChild(color);
-      productDetails.appendChild(totalPrice);
-      productDiv.appendChild(productDetails);
-      quantityContainer.appendChild(minusBtn);
-      quantityContainer.appendChild(quantity);
-      quantityContainer.appendChild(plusBtn);
-      quantityContainer.appendChild(removeBtn);
-      productDiv.appendChild(quantityContainer);
+    productDiv.appendChild(name);
+    productDiv.appendChild(img2);
+    productDetails.appendChild(size);
+    productDetails.appendChild(color);
+    productDetails.appendChild(totalPrice);
+    productDiv.appendChild(productDetails);
+    quantityContainer.appendChild(minusBtn);
+    quantityContainer.appendChild(quantity);
+    quantityContainer.appendChild(plusBtn);
+    quantityContainer.appendChild(removeBtn);
+    productDiv.appendChild(quantityContainer);
 
-      cartContainer.appendChild(productDiv);
-    }
+    cartContainer.appendChild(productDiv);
   }
   if (cartContainer.innerHTML == "") {
     let emptyMsg: HTMLParagraphElement = document.createElement(
@@ -398,72 +399,74 @@ function printCart() {
     cartBtnContainer.appendChild(continueShopping);
     cartContainer.appendChild(cartBtnContainer);
 
-    /*else {
-      let emptyMsg: HTMLParagraphElement = document.createElement(
-        "p"
-      ) as HTMLParagraphElement;
-      emptyMsg.innerHTML = "Your cart is empty";
-      cartContainer.appendChild(emptyMsg);
-    }*/
+    toLocalStorage(productArr);
   }
   handleClick();
 }
 
 function addQuantity(position) {
-  productArr[position].quantity += 1;
-  return productArr[position].quantity;
+  cartArr[position].quantity += 1;
+  return cartArr[position].quantity;
 }
 
 function subtractQuantity(position) {
-  productArr[position].quantity -= 1;
-  if (productArr[position].quantity === 0) {
-    productArr[position].quantity = 1;
-  } else return productArr[position].quantity;
+  cartArr[position].quantity -= 1;
+  if (cartArr[position].quantity === 0) {
+    cartArr[position].quantity = 1;
+  } else return cartArr[position].quantity;
 }
 
 function calculatePrice(position) {
-  productArr[position].totalPrice =
-    productArr[position].price * productArr[position].quantity;
-  return productArr[position].totalPrice;
+  cartArr[position].totalPrice =
+    cartArr[position].price * cartArr[position].quantity;
+  return cartArr[position].totalPrice;
 }
 
 function removeCartItem(position) {
-  productArr[position].quantity = 1;
+  cartArr[position].quantity = 1;
   calculatePrice(position);
-  productArr[position].cart = false;
+  cartQuantity--;
+  console.log(cartQuantity);
+  cartQuanDiv.innerHTML = "";
+  cartQuanDiv.style.display = "block";
+  cartQuanDiv.innerHTML = cartQuantity.toString();
+  cartArr.splice(position, 1);
 
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
   };
-  printProducts();
   printCart();
+  printProducts();
 }
 
-// function fetchAndPrintData() {
-//   fetch("https://dark-sky.p.rapidapi.com/59.3293,18.0686?units=auto&lang=en", {
-//     method: "GET",
-//     headers: {
-//       "x-rapidapi-host": "dark-sky.p.rapidapi.com",
-//       "x-rapidapi-key": "24a44dd15emsh4566a472b62617ap1e4e9fjsn6119876c45be",
-//     },
-//   })
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data.currently.temperature);
+/*function fetchAndPrintData() {
+  fetch("https://dark-sky.p.rapidapi.com/59.3293,18.0686?units=auto&lang=en", {
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "dark-sky.p.rapidapi.com",
+      "x-rapidapi-key": "24a44dd15emsh4566a472b62617ap1e4e9fjsn6119876c45be",
+    },
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data.currently.temperature);
 
-//       let temp: HTMLHeadingElement = document.getElementById(
-//         "temp"
-//       ) as HTMLHeadingElement;
-//       temp.innerHTML = "Todays forecast  " + data.currently.temperature + " °C";
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//     });
-// }
+      let temp: HTMLHeadingElement = document.getElementById(
+        "temp"
+      ) as HTMLHeadingElement;
+      temp.innerHTML =
+        "Current temperature:  " +
+        Math.round(data.currently.temperature) +
+        " °C";
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+} */
 
 var modal = document.getElementById("productModal") as HTMLDivElement;
 

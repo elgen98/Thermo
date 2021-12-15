@@ -20,6 +20,21 @@ header {
     align-items: center;
     height: 50px;
     padding-left: 25px;
+    #cartBtn {
+      .cartQuanStyle {
+        background-color: orange;
+        color: white;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12.5px;
+        justify-content: center;
+        transform: translate(22px, -30px);
+        position: absolute;
+      }
+    }
     .brandName {
       color: black;
       font-weight: bold;
@@ -31,6 +46,15 @@ header {
     #cartBtn {
       @include mixins.cartBtnStyle;
     }
+  }
+}
+
+#cartbtn {
+  position: absolute;
+  .cartQuanStyle {
+    position: absolute;
+    color: orange;
+    font-size: large;
   }
 }
 
