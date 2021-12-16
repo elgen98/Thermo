@@ -256,14 +256,6 @@ function printProducts() {
     img.className = "firstImg";
     img2.className = "secondImg";
 
-    for (let j = 0; j < cartArr.length; j++) {
-      if (productArr[i].name === cartArr[j].name) {
-        addToCartBtn.addEventListener("click", printCart);
-        addToCartBtn.innerHTML = "✓";
-        addToCartBtn.className = "inCart";
-      }
-    }
-
     addToCartBtn.addEventListener("click", function addToCart() {
       if (productArr[i].size !== "") {
         cartArr.push(productArr[i]);
@@ -280,6 +272,14 @@ function printProducts() {
         toLocalStorage(cartArr, cartQuantity);
       }
     });
+
+    for (let j = 0; j < cartArr.length; j++) {
+      if (productArr[i].name === cartArr[j].name) {
+        addToCartBtn.addEventListener("click", printCart);
+        addToCartBtn.innerHTML = "✓";
+        addToCartBtn.className = "inCart";
+      }
+    }
 
     img.style.display = "block";
     img2.style.display = "none";
