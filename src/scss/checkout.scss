@@ -3,7 +3,7 @@
 body,
 html {
   font-size: 12pt;
-  height: 100%;
+  width: 100%;
   margin: auto 0;
   font-family: "Roboto", sans-serif;
   header {
@@ -60,14 +60,20 @@ html {
         #summaryDiv {
           text-align: center;
           display: flex;
-          flex-direction: column;
-          justify-content: space-evenly;
-          width: 100%;
+          justify-content: center;
+          width: 360px;
 
           #table {
             margin: 10px;
             text-align: left;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            tbody {
+              .editBtn {
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+              }
+            }
           }
         }
 
