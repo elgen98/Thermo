@@ -1,8 +1,8 @@
 describe("modal functionality test", () => {
   it("get modal", () => {
-    cy.visit("/");
+    cy.visit("/" + "html/products.html");
 
-    cy.get("button#cartBtn").click();
+    cy.get("#cartBtn > .fas").click();
 
     cy.get("div#productModal").should("be.visible");
   });
