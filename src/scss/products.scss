@@ -228,7 +228,8 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  transform: translate(0px, 100px);
+  transform: translate(0px, 50px);
+  bottom: 100px;
   button {
     border: 1px white solid;
     border-radius: 5px;
@@ -245,6 +246,7 @@ main {
 .productSpec {
   display: grid;
   transform: translate(370px, 420px);
+  width: 20%;
 }
 
 .quantityContainer {
@@ -255,6 +257,7 @@ main {
     text-transform: uppercase;
     .softDisplay {
       transform: translate(0px, 100px);
+      width: 100%;
       .minusBtn {
         transform: translate(-10px, 0px);
       }
@@ -354,4 +357,85 @@ footer {
 }
 @media screen and (min-width: 768px) {
   @include mixins.mediaProducts;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    width: 72%;
+    min-height: 550px;
+    border: 1px solid #888;
+    overflow:auto;
+    .disappear {
+      color: #aaa;
+      float: right;
+      font-size: 1rem;
+      &:hover,
+      &:focus {
+        color: black;
+        cursor: pointer;
+        text-decoration: none;
+      }
+    }
+  }
+  .quantityContainer,
+  .productSpec {
+    display: flex;
+    flex-direction: column;
+    .qtyDisplay {
+      transform: translate(0px, 0px);
+      text-transform: uppercase;
+      .softDisplay {
+        transform: translate(210px, 100px);
+        width: 50%;
+        .minusBtn {
+          transform: translate(-10px, 0px);
+        }
+        .plusBtn {
+          transform: translate(10px, 0px);
+        }
+        .removeBtn {
+          transform: translate(10px, 7px);
+        }
+      }
+      p {
+        transform: translate(0px, 10px);
+      }
+    }
+    .priceDisplay {
+      transform: translate(220px, 100px);
+      text-transform: uppercase;
+      width: 40%;
+      p {
+        display: none;
+      }
+    }
+    .productDisplay {
+      transform: translate(0px, 0px);
+      text-transform: uppercase;
+      img {
+        width: 50%;
+        height: 50%;
+      }
+      h2 {
+        font-size: 15px;
+      }
+      p {
+        transform: translate(-2.5px, 0px);
+      }
+    }
+    p {
+      display: none;
+    }
+  }
+  .productSpec {
+    transform: translate(200px, 380px);
+    width: 30%;
+  }
+  #cartBtns {
+    bottom: 100px;
+    transform: translate(0px, 0px);
+  }
 }
