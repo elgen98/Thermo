@@ -23,61 +23,71 @@ html {
     border-bottom: lightgrey 1px solid;
   }
   main {
-    @extend %flex;
-    margin: 20px;
-    #checkoutDiv {
-      display: flex;
-      flex-direction: column;
-      width: 360px;
-      border: lightgrey 2px solid;
-      border-radius: 25px;
-      margin: 30px;
-      h3 {
-        margin: 25px;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-      }
-      #summaryDiv {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        width: 100%;
-        #table {
-          margin: 10px;
-          text-align: left;
-          font-size: 0.9rem;
-        }
-      }
-
-      #totalDiv {
+    #maincontainer {
+      @extend %flex;
+      margin: 20px;
+      .emptyDiv {
+        height: 400px;
+        width: 300px;
+        border: lightgrey 2px solid;
+        border-radius: 25px;
+        margin: 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        margin-bottom: 30px;
+        #moreBtnStyle {
+          text-transform: uppercase;
+          font-weight: bold;
+          margin: 20px;
+          border: none;
+          cursor: pointer;
+        }
       }
-    }
-    #formContainer {
-      @extend %formflex;
-      width: 360px;
-
-      border: lightgrey 2px solid;
-      border-radius: 25px;
-      margin: 30px;
-      #form {
-        margin: 25px;
-        label {
+      #checkoutDiv {
+        display: flex;
+        flex-direction: column;
+        width: 360px;
+        border: lightgrey 2px solid;
+        border-radius: 25px;
+        margin: 30px;
+        h3 {
+          margin: 25px;
+          text-align: center;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+        }
+        #summaryDiv {
+          text-align: center;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          font-size: 0.8rem;
-          margin-top: 5px;
-          letter-spacing: 1.5px;
+          justify-content: space-evenly;
+          width: 100%;
+
+          #table {
+            margin: 10px;
+            text-align: left;
+            font-size: 0.9rem;
+          }
         }
-        #cardContainer {
-          @extend %formflex;
+
+        #totalDiv {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          margin-bottom: 30px;
+        }
+      }
+      #formContainer {
+        @extend %formflex;
+        width: 360px;
+        border: lightgrey 2px solid;
+        border-radius: 25px;
+        margin: 30px;
+        #form {
+          margin: 25px;
           label {
             display: flex;
             flex-direction: column;
@@ -86,41 +96,96 @@ html {
             margin-top: 5px;
             letter-spacing: 1.5px;
           }
-          .cardInfoHidden {
-            display: none;
+          #cardContainer {
+            @extend %formflex;
+            label {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              font-size: 0.8rem;
+              margin-top: 5px;
+              letter-spacing: 1.5px;
+            }
+            .cardInfoHidden {
+              display: none;
+            }
           }
-        }
-        .checkboxInfo {
-          font-size: 0.7rem;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="number"] {
-          &:valid {
-            background: url("https://webdevtrick.com/wp-content/uploads/check-icon.svg");
-            background-repeat: no-repeat;
-            background-size: 10px;
-            background-position: 150px 4px;
+          .checkboxInfo {
+            font-size: 0.7rem;
           }
-        }
+          input[type="text"],
+          input[type="email"],
+          input[type="number"] {
+            &:valid {
+              background: url("https://webdevtrick.com/wp-content/uploads/check-icon.svg");
+              background-repeat: no-repeat;
+              background-size: 10px;
+              background-position: 150px 4px;
+            }
+          }
 
-        #confirmorderBtn {
-          border-style: none;
-          cursor: pointer;
+          #confirmorderBtn {
+            border-style: none;
+            cursor: pointer;
+          }
         }
       }
+      @include mixins.checkoutModal;
     }
-    @include mixins.checkoutModal;
   }
 
   footer {
-    @extend %flex;
-    a {
-      color: black;
-      text-decoration: none;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid lightgray;
+    #footerInfo {
+      width: 450px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h4 {
+        padding-top: 40px;
+        padding-bottom: 10px;
+        margin: 0px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+      p {
+        padding: 0px;
+        margin: 0px;
+        font-size: 0.9rem;
+        text-align: center;
+        list-style: none;
+        a {
+          text-decoration: none;
+          color: black;
+          &:hover {
+            font-weight: bold;
+          }
+        }
+      }
     }
-    height: 150px;
-    border-top: lightgrey 1px solid;
+    #footerIcons {
+      padding-top: 60px;
+      padding-bottom: 60px;
+      width: 450px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      a {
+        padding-top: 10px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+      }
+    }
   }
 }
 
