@@ -166,7 +166,9 @@ function printProducts() {
     let cartBtn = document.getElementById("cartBtn");
 
     img.src = productArr[i].firstPicture;
+    img.alt = productArr[i].name;
     img2.src = productArr[i].secondPicture;
+    img2.alt = productArr[i].name;
     name.innerHTML = productArr[i].name;
     sizeContainer.className = "sizeContainer";
     sizeContainer.innerText = "Size";
@@ -314,7 +316,7 @@ function detailClick(position) {
   name.innerHTML = productArr[position].name;
   img2.src = productArr[position].secondPicture;
   infotext.innerHTML = productArr[position].detailText;
-  price.innerHTML = productArr[position].price.toString() + " £";
+  price.innerHTML = productArr[position].price.toString() + " kr";
 
   detailDiv.appendChild(img2);
   detailDiv.appendChild(name);
@@ -363,7 +365,7 @@ function printCart() {
     size.innerHTML = "Size: " + cartArr[i].size;
     color.innerHTML = "Color: " + cartArr[i].color;
     img2.src = cartArr[i].secondPicture;
-    totalPrice.innerHTML = "Total: " + cartArr[i].totalPrice.toString() + " £";
+    totalPrice.innerHTML = "Total: " + cartArr[i].totalPrice.toString() + " kr";
     quantity.innerHTML = cartArr[i].quantity.toString();
     removeBtn.innerHTML = "X";
     removeBtn.className = "removeBtn";
