@@ -53,7 +53,7 @@ body {
     flex-direction: column;
     #mainHeroImg {
       background: url("../assets/heroimgMobile.jpg") no-repeat;
-      background-size: 100%;
+      background-size: cover;
       height: 100vh;
       display: flex;
       flex-direction: column;

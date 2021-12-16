@@ -230,10 +230,11 @@ main {
   justify-content: space-between;
   transform: translate(0px, 100px);
   button {
+    height: 50px;
     border: 1px white solid;
     border-radius: 5px;
-    background-color: rgba(245, 222, 179, 0.151);
-    color: rgba(0, 0, 0, 0.514);
+    background-color: lightgreen;
+    color: black;
     &:hover {
       background-color: rgba(245, 222, 179, 0.479);
       cursor: pointer;
@@ -297,7 +298,6 @@ main {
     font-weight: bold;
   }
 }
-
 
 footer {
   height: 600px;

@@ -97,7 +97,7 @@
       width: 72%;
       min-height: 550px;
       border: 1px solid #888;
-      overflow:scroll;
+      overflow: scroll;
       .disappear {
         color: #aaa;
         float: right;
@@ -287,15 +287,8 @@
         gap: 20px;
         div {
           width: 280px;
-          img {
-          }
           h2 {
             font-size: 1rem;
-          }
-          span {
-          }
-
-          span {
           }
           .btnDivStyle {
             width: 270px;
