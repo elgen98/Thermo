@@ -390,6 +390,7 @@ footer {
       .softDisplay {
         transform: translate(210px, 100px);
         width: 50%;
+        z-index: 1;
         .minusBtn {
           transform: translate(-10px, 0px);
         }
@@ -415,9 +416,10 @@ footer {
     .productDisplay {
       transform: translate(0px, 0px);
       text-transform: uppercase;
+      width: 50%;
       img {
-        width: 50%;
-        height: 50%;
+        width: 75%;
+        height: 75%;
       }
       h2 {
         font-size: 15px;
@@ -431,7 +433,7 @@ footer {
     }
   }
   .productSpec {
-    transform: translate(200px, 380px);
+    transform: translate(150px, 300px);
     width: 30%;
   }
   #cartBtns {
