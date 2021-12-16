@@ -92,10 +92,12 @@
 
     .modal-content {
       background-color: #fefefe;
-      margin: 15% auto;
+      margin: 5% auto;
       padding: 20px;
-      width: 62%;
+      width: 72%;
+      min-height: 550px;
       border: 1px solid #888;
+      overflow:scroll;
       .disappear {
         color: #aaa;
         float: right;
@@ -105,6 +107,19 @@
           color: black;
           cursor: pointer;
           text-decoration: none;
+        }
+      }
+      .emptyDivStyle {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        transform: translate(0px, 100px);
+        .smileyStyle {
+          font-size: 5rem;
         }
       }
     }

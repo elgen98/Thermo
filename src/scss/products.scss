@@ -195,37 +195,109 @@ main {
 
 @include mixins.modalstyle;
 
-.quantityContainer > button {
+.softDisplay > button {
   border-radius: 50%;
   border: none;
-  background-color: rgb(185, 184, 184);
+  background-color: rgb(247, 247, 247);
   margin: 1px;
   padding: 0px;
   margin: 0px;
-  height: 21px;
-  width: 21px;
+  height: 30px;
+  width: 30px;
   font-size: 1rem;
+  box-shadow: 0.5px 0.5px 5px;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(194, 194, 194);
+    transition: 0.3s ease;
+  }
 }
-.quantityContainer > .removeBtn {
-  background-color: red;
-  font-size: 0.7rem;
+.softDisplay > .removeBtn {
+  background-color: white;
+  font-size: 2rem;
   margin-left: 5px;
+  box-shadow: none;
+  &:hover {
+    color: red;
+    cursor: pointer;
+    transition: 0.3s ease;
+    background-color: white;
+  }
 }
 #cartBtns {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  transform: translate(0px, 100px);
   button {
     border: 1px white solid;
     border-radius: 5px;
-    background-color: rgb(13, 147, 192);
-    color: white;
+    background-color: rgba(245, 222, 179, 0.151);
+    color: rgba(0, 0, 0, 0.514);
+    &:hover {
+      background-color: rgba(245, 222, 179, 0.479);
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
   }
 }
+
 .productSpec {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  transform: translate(370px, 420px);
 }
+
+.quantityContainer {
+  display: flex;
+  flex-direction: row;
+  .qtyDisplay {
+    transform: translate(300px, 5px);
+    text-transform: uppercase;
+    .softDisplay {
+      transform: translate(0px, 100px);
+      .minusBtn {
+        transform: translate(-10px, 0px);
+      }
+      .plusBtn {
+        transform: translate(10px, 0px);
+      }
+      .removeBtn {
+        transform: translate(15px, 7px);
+      }
+    }
+    p {
+      transform: translate(0px, 10px);
+    }
+  }
+  .priceDisplay {
+    transform: translate(750px, 100px);
+    text-transform: uppercase;
+    p {
+      transform: translate(0px, -85px);
+    }
+  }
+  .productDisplay {
+    transform: translate(-150px, 12.5px);
+    text-transform: uppercase;
+    img {
+      width: 75%;
+      height: 75%;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    p {
+      transform: translate(-2.5px, 0px);
+    }
+  }
+  p {
+    font-size: 1.5rem;
+    transform: translate(35px, 0px);
+    color: rgb(158, 158, 144);
+    font-weight: bold;
+  }
+}
+
 
 footer {
   height: 600px;
