@@ -231,10 +231,11 @@ main {
   transform: translate(0px, 50px);
   bottom: 100px;
   button {
+    height: 50px;
     border: 1px white solid;
     border-radius: 5px;
-    background-color: rgba(245, 222, 179, 0.151);
-    color: rgba(0, 0, 0, 0.514);
+    background-color: lightgreen;
+    color: black;
     &:hover {
       background-color: rgba(245, 222, 179, 0.479);
       cursor: pointer;
@@ -301,7 +302,6 @@ main {
   }
 }
 
-
 footer {
   height: 600px;
   display: flex;
@@ -358,6 +358,7 @@ footer {
 @media screen and (min-width: 768px) {
   @include mixins.mediaProducts;
 }
+<<<<<<< HEAD
 
 @media screen and (max-width: 768px) {
   .modal-content {
@@ -439,3 +440,5 @@ footer {
     transform: translate(0px, 0px);
   }
 }
+=======
+>>>>>>> 36fd9fca28857a79c5e3f961f6e383d2e9fa76ca

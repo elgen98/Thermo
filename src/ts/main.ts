@@ -3,8 +3,8 @@ import { Products } from "./Models/models";
 window.onload = function () {
   document.getElementById("cartBtn").addEventListener("click", printCart);
   checkLocalStorage();
+  fetchAndPrintData();
   printProducts();
-  //fetchAndPrintData();
 };
 
 let productI = new Products(
@@ -335,82 +335,82 @@ function printCart() {
   cartContainer.innerHTML = "";
 
   for (let i: number = 0; i < cartArr.length; i++) {
-      let productDiv: HTMLDivElement = document.createElement("div");
-      let productDetails: HTMLSpanElement = document.createElement("span");
-      let name: HTMLHeadingElement = document.createElement("h2");
-      let size: HTMLSpanElement = document.createElement("span");
-      let color: HTMLSpanElement = document.createElement("span");
-      let img2: HTMLImageElement = document.createElement("img");
-      let totalPrice: HTMLSpanElement = document.createElement("span");
-      let quantityContainer: HTMLDivElement = document.createElement("div");
-      let quantity: HTMLSpanElement = document.createElement("span");
-      let plusBtn: HTMLButtonElement = document.createElement("button");
-      let minusBtn: HTMLButtonElement = document.createElement("button");
-      let removeBtn: HTMLButtonElement = document.createElement("button");
+    let productDiv: HTMLDivElement = document.createElement("div");
+    let productDetails: HTMLSpanElement = document.createElement("span");
+    let name: HTMLHeadingElement = document.createElement("h2");
+    let size: HTMLSpanElement = document.createElement("span");
+    let color: HTMLSpanElement = document.createElement("span");
+    let img2: HTMLImageElement = document.createElement("img");
+    let totalPrice: HTMLSpanElement = document.createElement("span");
+    let quantityContainer: HTMLDivElement = document.createElement("div");
+    let quantity: HTMLSpanElement = document.createElement("span");
+    let plusBtn: HTMLButtonElement = document.createElement("button");
+    let minusBtn: HTMLButtonElement = document.createElement("button");
+    let removeBtn: HTMLButtonElement = document.createElement("button");
 
-      let qtyDisplay: HTMLDivElement = document.createElement("div");
-      let productDisplay: HTMLDivElement = document.createElement("div");
-      let priceDisplay: HTMLDivElement = document.createElement("div");
-      let softDisplay: HTMLDivElement = document.createElement("div");
+    let qtyDisplay: HTMLDivElement = document.createElement("div");
+    let productDisplay: HTMLDivElement = document.createElement("div");
+    let priceDisplay: HTMLDivElement = document.createElement("div");
+    let softDisplay: HTMLDivElement = document.createElement("div");
 
-      plusBtn.addEventListener("click", () => {
-        addQuantity(i);
-        calculatePrice(i);
-        printCart();
-        toLocalStorage(productArr, cartQuantity);
-      });
+    plusBtn.addEventListener("click", () => {
+      addQuantity(i);
+      calculatePrice(i);
+      printCart();
+      toLocalStorage(productArr, cartQuantity);
+    });
 
-      minusBtn.addEventListener("click", () => {
-        subtractQuantity(i);
-        calculatePrice(i);
-        printCart();
-        toLocalStorage(productArr, cartQuantity);
-      });
+    minusBtn.addEventListener("click", () => {
+      subtractQuantity(i);
+      calculatePrice(i);
+      printCart();
+      toLocalStorage(productArr, cartQuantity);
+    });
 
-      name.innerHTML = cartArr[i].name;
-      size.innerHTML = "Size: " + cartArr[i].size;
-      color.innerHTML = "Color: " + cartArr[i].color;
-      img2.src = cartArr[i].secondPicture;
-      totalPrice.innerHTML =
-        "<p>Total: </p>" + cartArr[i].totalPrice.toString() + " kr";
-      quantity.innerHTML = cartArr[i].quantity.toString();
-      removeBtn.innerHTML = '<i class="fas fa-times"></i>';
-      removeBtn.className = "removeBtn";
-      plusBtn.innerHTML = '<i class="fas fa-plus"></i>';
-      minusBtn.innerHTML = '<i class="fas fa-minus"></i>';
-      qtyDisplay.innerHTML = '<p>qty</p>';
-      productDisplay.innerHTML = "<p>product</p>";
-      quantityContainer.className = "quantityContainer";
-      productDetails.className = "productSpec";
-      qtyDisplay.className = "qtyDisplay";
-      priceDisplay.className = "priceDisplay";
-      productDisplay.className = "productDisplay";
-      softDisplay.className = "softDisplay";
-      minusBtn.className = "minusBtn";
-      plusBtn.className = "plusBtn";
+    name.innerHTML = cartArr[i].name;
+    size.innerHTML = "Size: " + cartArr[i].size;
+    color.innerHTML = "Color: " + cartArr[i].color;
+    img2.src = cartArr[i].secondPicture;
+    totalPrice.innerHTML =
+      "<p>Total: </p>" + cartArr[i].totalPrice.toString() + " kr";
+    quantity.innerHTML = cartArr[i].quantity.toString();
+    removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+    removeBtn.className = "removeBtn";
+    plusBtn.innerHTML = '<i class="fas fa-plus"></i>';
+    minusBtn.innerHTML = '<i class="fas fa-minus"></i>';
+    qtyDisplay.innerHTML = "<p>qty</p>";
+    productDisplay.innerHTML = "<p>product</p>";
+    quantityContainer.className = "quantityContainer";
+    productDetails.className = "productSpec";
+    qtyDisplay.className = "qtyDisplay";
+    priceDisplay.className = "priceDisplay";
+    productDisplay.className = "productDisplay";
+    softDisplay.className = "softDisplay";
+    minusBtn.className = "minusBtn";
+    plusBtn.className = "plusBtn";
 
-      removeBtn.addEventListener("click", () => {
-        removeCartItem(i);
-      });
+    removeBtn.addEventListener("click", () => {
+      removeCartItem(i);
+    });
 
-      productDisplay.appendChild(name);
-      productDisplay.appendChild(img2);
-      productDetails.appendChild(size);
-      productDetails.appendChild(color);
-      priceDisplay.appendChild(totalPrice);
-      productDiv.appendChild(productDetails);
-      softDisplay.appendChild(minusBtn);
-      softDisplay.appendChild(quantity);
-      softDisplay.appendChild(plusBtn);
-      softDisplay.appendChild(removeBtn);
-      productDiv.appendChild(quantityContainer);
+    productDisplay.appendChild(name);
+    productDisplay.appendChild(img2);
+    productDetails.appendChild(size);
+    productDetails.appendChild(color);
+    priceDisplay.appendChild(totalPrice);
+    productDiv.appendChild(productDetails);
+    softDisplay.appendChild(minusBtn);
+    softDisplay.appendChild(quantity);
+    softDisplay.appendChild(plusBtn);
+    softDisplay.appendChild(removeBtn);
+    productDiv.appendChild(quantityContainer);
 
-      cartContainer.appendChild(productDiv);
-      
-      quantityContainer.appendChild(priceDisplay);
-      quantityContainer.appendChild(qtyDisplay);
-      quantityContainer.appendChild(productDisplay);
-      qtyDisplay.appendChild(softDisplay);
+    cartContainer.appendChild(productDiv);
+
+    quantityContainer.appendChild(priceDisplay);
+    quantityContainer.appendChild(qtyDisplay);
+    quantityContainer.appendChild(productDisplay);
+    qtyDisplay.appendChild(softDisplay);
   }
   if (cartContainer.innerHTML == "") {
     let emptyDiv: HTMLDivElement = document.createElement(
@@ -520,7 +520,7 @@ function fetchAndPrintData() {
         " °C";
     })
     .catch((err) => {
-      alert("Error message: " + err);
+      console.error(err);
     });
 }
 
