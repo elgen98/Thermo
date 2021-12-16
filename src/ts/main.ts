@@ -338,6 +338,11 @@ function printCart() {
       let minusBtn: HTMLButtonElement = document.createElement("button");
       let removeBtn: HTMLButtonElement = document.createElement("button");
 
+      let qtyDisplay: HTMLDivElement = document.createElement("div");
+      let productDisplay: HTMLDivElement = document.createElement("div");
+      let priceDisplay: HTMLDivElement = document.createElement("div");
+      let softDisplay: HTMLDivElement = document.createElement("div");
+
       plusBtn.addEventListener("click", () => {
         addQuantity(i);
         calculatePrice(i);
@@ -357,35 +362,51 @@ function printCart() {
       color.innerHTML = "Color: " + productArr[i].color;
       img2.src = productArr[i].secondPicture;
       totalPrice.innerHTML =
-        "Total: " + productArr[i].totalPrice.toString() + " £";
+        "<p>Total: </p>" + productArr[i].totalPrice.toString() + " £";
       quantity.innerHTML = productArr[i].quantity.toString();
-      removeBtn.innerHTML = "X";
+      removeBtn.innerHTML = '<i class="fas fa-times"></i>';
       removeBtn.className = "removeBtn";
-      plusBtn.innerHTML = "+";
-      minusBtn.innerHTML = "-";
+      plusBtn.innerHTML = '<i class="fas fa-plus"></i>';
+      minusBtn.innerHTML = '<i class="fas fa-minus"></i>';
+      qtyDisplay.innerHTML = '<p>qty</p>';
+      productDisplay.innerHTML = "<p>product</p>";
       quantityContainer.className = "quantityContainer";
       productDetails.className = "productSpec";
+      qtyDisplay.className = "qtyDisplay";
+      priceDisplay.className = "priceDisplay";
+      productDisplay.className = "productDisplay";
+      softDisplay.className = "softDisplay";
+      minusBtn.className = "minusBtn";
+      plusBtn.className = "plusBtn";
 
       removeBtn.addEventListener("click", () => {
         removeCartItem(i);
       });
 
-      productDiv.appendChild(name);
-      productDiv.appendChild(img2);
+      productDisplay.appendChild(name);
+      productDisplay.appendChild(img2);
       productDetails.appendChild(size);
       productDetails.appendChild(color);
-      productDetails.appendChild(totalPrice);
+      priceDisplay.appendChild(totalPrice);
       productDiv.appendChild(productDetails);
-      quantityContainer.appendChild(minusBtn);
-      quantityContainer.appendChild(quantity);
-      quantityContainer.appendChild(plusBtn);
-      quantityContainer.appendChild(removeBtn);
+      softDisplay.appendChild(minusBtn);
+      softDisplay.appendChild(quantity);
+      softDisplay.appendChild(plusBtn);
+      softDisplay.appendChild(removeBtn);
       productDiv.appendChild(quantityContainer);
 
       cartContainer.appendChild(productDiv);
+      
+      quantityContainer.appendChild(priceDisplay);
+      quantityContainer.appendChild(qtyDisplay);
+      quantityContainer.appendChild(productDisplay);
+      qtyDisplay.appendChild(softDisplay);
     }
   }
   if (cartContainer.innerHTML == "") {
+    let emptyDiv: HTMLDivElement = document.createElement(
+      "div"
+    ) as HTMLDivElement;
     let emptyMsg: HTMLParagraphElement = document.createElement(
       "p"
     ) as HTMLParagraphElement;
@@ -396,11 +417,13 @@ function printCart() {
     emptyMsg.innerHTML = "Your cart is empty";
     sadSmiley.innerHTML = '<i class="far fa-frown"></i>';
 
+    emptyDiv.className = "emptyDivStyle";
     emptyMsg.className = "emptyMsgStyle";
     sadSmiley.className = "smileyStyle";
 
-    cartContainer.appendChild(emptyMsg);
-    cartContainer.appendChild(sadSmiley);
+    cartContainer.appendChild(emptyDiv);
+    emptyDiv.appendChild(emptyMsg);
+    emptyDiv.appendChild(sadSmiley);
   } else {
     let cartBtnContainer: HTMLDivElement = document.createElement("div");
     let continueShopping: HTMLButtonElement = document.createElement("button");
