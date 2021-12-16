@@ -154,7 +154,7 @@
       .aboutThermo {
         height: 100vh;
         .textContainer {
-          width: 900px;
+          width: 800px;
           h4 {
             font-size: 1.6rem;
           }
@@ -210,9 +210,17 @@
         gap: 30px;
         #checkoutDiv {
           height: 585px;
-        }
-        #summaryDiv {
-          #table {
+          width: 400px;
+
+          #summaryDiv {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            width: 400px;
+            #table {
+              width: 380px;
+              padding-left: 10px;
+            }
           }
         }
         #formContainer {
