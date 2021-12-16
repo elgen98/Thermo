@@ -1,7 +1,9 @@
 describe("modal functionality test", () => {
-  cy.visit("/");
+  it("get modal", () => {
+    cy.visit("/");
 
-  cy.get("button.btnStyle").click();
+    cy.get("button#cartBtn").click();
 
-  cy.get("div#productModal").should("be.visible");
+    cy.get("div#productModal").should("be.visible");
+  });
 });

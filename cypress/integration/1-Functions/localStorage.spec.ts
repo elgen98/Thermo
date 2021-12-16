@@ -6,6 +6,8 @@ describe("CartList works as intended", () => {
 
     cy.get(":nth-child(2) > .btnDivStyle > .cartBtnStyle").click();
 
+    cy.reload();
+
     cy.get("#cartBtn > .fas").click();
 
     expect("#cartContainer > div").to.exist;
