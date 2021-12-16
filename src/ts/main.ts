@@ -137,8 +137,8 @@ function printProducts() {
     document.getElementById("productContainer");
   productContainer.innerHTML = "";
 
-  if (cartQuantity === 0) {
-    cartQuanDiv.innerHTML = "";
+  if (cartQuantity < 1) {
+    cartQuantity = 0;
     cartQuanDiv.style.display = "none";
   } else {
     cartQuanDiv.innerHTML = "";
@@ -256,20 +256,11 @@ function printProducts() {
     img.className = "firstImg";
     img2.className = "secondImg";
 
-    for (let j = 0; j < cartArr.length; j++) {
-      if (productArr[i].name === cartArr[j].name) {
-        addToCartBtn.addEventListener("click", printCart);
-        addToCartBtn.innerHTML = "✓";
-        addToCartBtn.className = "inCart";
-      }
-    }
-
     addToCartBtn.addEventListener("click", function addToCart() {
       if (productArr[i].size !== "") {
         cartArr.push(productArr[i]);
 
         cartQuantity++;
-        // console.log(cartQuantity);
         cartQuanDiv.innerHTML = "";
         cartQuanDiv.style.display = "block";
         cartQuanDiv.innerHTML = cartQuantity.toString();
@@ -279,10 +270,16 @@ function printProducts() {
         addToCartBtn.innerHTML = "✓";
         addToCartBtn.className = "inCart";
         toLocalStorage(cartArr, cartQuantity);
-      } else {
-        alert("Please select a size!");
       }
     });
+
+    for (let j = 0; j < cartArr.length; j++) {
+      if (productArr[i].name === cartArr[j].name) {
+        addToCartBtn.addEventListener("click", printCart);
+        addToCartBtn.innerHTML = "✓";
+        addToCartBtn.className = "inCart";
+      }
+    }
 
     img.style.display = "block";
     img2.style.display = "none";
@@ -454,6 +451,7 @@ function removeCartItem(position) {
   cartQuanDiv.innerHTML = cartQuantity.toString();
 
   cartArr.splice(position, 1);
+  toLocalStorage(cartArr, cartQuantity);
 
   window.onclick = function (event) {
     if (event.target == modal) {

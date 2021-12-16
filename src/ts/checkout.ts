@@ -50,8 +50,8 @@ function printsummary() {
     //lägger till innehåll i celler från arrayn
     cell1.innerHTML += productsInCart[i].name;
     cell2.innerHTML += productsInCart[i].quantity;
-    cell3.appendChild(plusBtn);
     cell3.appendChild(minusBtn);
+    cell3.appendChild(plusBtn);
     cell4.innerHTML += productsInCart[i].size;
     cell5.innerHTML += productsInCart[i].price + " £";
   }
