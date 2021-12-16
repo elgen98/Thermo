@@ -2,10 +2,12 @@ describe("CartList works as intended", () => {
   it("should add to cart", () => {
     cy.visit("/" + "/html/products.html");
 
-    cy.get("button.addToCart").click();
+    cy.get(":nth-child(2) > .sizeContainer > :nth-child(2)").click();
 
-    cy.get("button#cartBtn").click();
+    cy.get(":nth-child(2) > .btnDivStyle > .cartBtnStyle").click();
 
-    cy.get("ul").should("have.length", 1);
+    cy.get("#cartBtn > .fas").click();
+
+    expect("#cartContainer > div").to.exist;
   });
 });
