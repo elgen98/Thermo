@@ -1,0 +1,148 @@
+@use "mixins";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+body,
+html {
+  font-size: 12pt;
+  width: 100%;
+  margin: auto 0;
+  font-family: "Roboto", sans-serif;
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10px;
+    .brandName {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 4px;
+      padding-left: 15px;
+    }
+    height: 50px;
+    border-bottom: lightgrey 1px solid;
+  }
+  main {
+    #maincontainer {
+      @extend %flex;
+      margin: 20px;
+      .emptyDiv {
+        height: 400px;
+        width: 300px;
+        border: lightgrey 2px solid;
+        border-radius: 25px;
+        margin: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        #moreBtnStyle {
+          text-transform: uppercase;
+          font-weight: bold;
+          margin: 20px;
+          border: none;
+          cursor: pointer;
+        }
+      }
+      #checkoutDiv {
+        display: flex;
+        flex-direction: column;
+        width: 360px;
+        border: lightgrey 2px solid;
+        border-radius: 25px;
+        margin: 30px;
+        h3 {
+          margin: 25px;
+          text-align: center;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+        }
+        #summaryDiv {
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          width: 360px;
+
+          #table {
+            margin: 10px;
+            text-align: left;
+            font-size: 0.8rem;
+            tbody {
+              .editBtn {
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+        #totalDiv {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          margin-bottom: 30px;
+        }
+      }
+      #formContainer {
+        @extend %formflex;
+        width: 360px;
+        border: lightgrey 2px solid;
+        border-radius: 25px;
+        margin: 30px;
+        #form {
+          margin: 25px;
+          label {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            letter-spacing: 1.5px;
+          }
+          #cardContainer {
+            @extend %formflex;
+            label {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              font-size: 0.8rem;
+              margin-top: 5px;
+              letter-spacing: 1.5px;
+            }
+            .cardInfoHidden {
+              display: none;
+            }
+          }
+          .checkboxInfo {
+            font-size: 0.7rem;
+          }
+          input[type="text"],
+          input[type="email"],
+          input[type="number"] {
+            &:valid {
+              background: url("https://webdevtrick.com/wp-content/uploads/check-icon.svg");
+              background-repeat: no-repeat;
+              background-size: 10px;
+              background-position: 98% 4px;
+            }
+          }
+
+          #confirmorderBtn {
+            border-style: none;
+            cursor: pointer;
+          }
+        }
+      }
+      @include mixins.checkoutModal;
+    }
+  }
+
+  @include mixins.footerMobile;
+}
+
+@media screen and (min-width: 768px) {
+  @include mixins.mediaCheckout;
+}

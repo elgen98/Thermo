@@ -1,0 +1,145 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap%22";
+html footer,
+body footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html,
+body {
+  font-size: 12pt;
+  font-family: Roboto;
+  margin: 0px auto;
+  width: 100%;
+}
+html header,
+body header {
+  background-color: #ffffff;
+  height: 50px;
+  border-bottom: 1px solid #b9b7b7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+}
+html header .brandName,
+body header .brandName {
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
+  padding-left: 15px;
+}
+html header #headlines,
+body header #headlines {
+  height: 30px;
+  padding: 0px;
+  padding-right: 10px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  border-bottom: none;
+}
+html header #headlines button,
+body header #headlines button {
+  padding-right: 40px;
+  text-transform: uppercase;
+  border-style: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+html header #headlines a,
+html header #headlines i,
+body header #headlines a,
+body header #headlines i {
+  color: black;
+  font-size: 1.5rem;
+}
+html main,
+body main {
+  background-color: #ffffff;
+  height: 500px;
+}
+html main h1,
+body main h1 {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 14px;
+  padding-top: 50px;
+}
+html .aboutThermo,
+body .aboutThermo {
+  height: 300px;
+  border-bottom: 1px solid #b9b7b7;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+html .aboutThermo .textContainer,
+body .aboutThermo .textContainer {
+  width: 450px;
+}
+html .aboutThermo .textContainer h4,
+body .aboutThermo .textContainer h4 {
+  text-align: center;
+  text-transform: uppercase;
+}
+html .aboutThermo .textContainer p,
+body .aboutThermo .textContainer p {
+  font-size: 0.9rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  line-height: 25px;
+}
+html footer,
+body footer {
+  height: 150px;
+  border-top: lightgrey 1px solid;
+}
+html footer a,
+body footer a {
+  color: black;
+  text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  body header {
+    padding-left: 70px;
+  }
+  body header #headlines {
+    padding-right: 70px;
+  }
+  body main {
+    height: 600px;
+  }
+  body main h1 {
+    font-size: 3.8rem;
+    letter-spacing: 18px;
+    padding-top: 70px;
+  }
+  body .aboutThermo {
+    height: 400px;
+  }
+  body .aboutThermo .textContainer {
+    width: 900px;
+  }
+  body .aboutThermo .textContainer h4 {
+    font-size: 1.6rem;
+  }
+  body .aboutThermo .textContainer p {
+    font-size: 1.2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 40px;
+  }
+  body footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+/*# sourceMappingURL=landing.350b0f59.css.map */
