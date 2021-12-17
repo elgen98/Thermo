@@ -114,59 +114,7 @@ body {
     }
   }
 
-  footer {
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid lightgray;
-    #footerInfo {
-      width: 450px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      h4 {
-        padding-top: 40px;
-        padding-bottom: 10px;
-        margin: 0px;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        text-align: center;
-      }
-      p {
-        padding: 0px;
-        margin: 0px;
-        font-size: 0.9rem;
-        text-align: center;
-        list-style: none;
-        a {
-          text-decoration: none;
-          color: black;
-          &:hover {
-            font-weight: bold;
-          }
-        }
-      }
-    }
-    #footerIcons {
-      padding-top: 60px;
-      padding-bottom: 60px;
-      width: 450px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      a {
-        padding-top: 10px;
-        letter-spacing: 1px;
-        font-weight: bold;
-        text-decoration: none;
-        color: black;
-      }
-    }
-  }
+  @include mixins.footerMobile;
 }
 
 @media screen and (min-width: 768px) {
