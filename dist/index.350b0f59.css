@@ -1,0 +1,249 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap%22";
+html,
+body {
+  font-size: 12pt;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+  width: 100%;
+}
+html header,
+body header {
+  background-color: #ffffff;
+  height: 50px;
+  display: flex;
+  border-bottom: 1px solid lightgray;
+}
+html header .navBar,
+body header .navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  padding-left: 25px;
+}
+html header .navBar .brandName,
+body header .navBar .brandName {
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
+  text-align: left;
+}
+html header .navBar #headlines,
+body header .navBar #headlines {
+  height: 30px;
+  padding: 0px;
+  padding-right: 10px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  border-bottom: none;
+  gap: 40px;
+}
+html header .navBar #headlines .aboutBtn,
+body header .navBar #headlines .aboutBtn {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  border-style: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+html main,
+body main {
+  display: flex;
+  flex-direction: column;
+}
+html main #mainHeroImg,
+body main #mainHeroImg {
+  background: url("heroimgMobile.2bf16f20.jpg") no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+html main #mainHeroImg h1,
+body main #mainHeroImg h1 {
+  padding: 0px;
+  margin: 0px;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 14px;
+}
+html main #mainHeroImg p,
+body main #mainHeroImg p {
+  font-size: 1.1rem;
+  background-color: rgba(255, 255, 255, 0.637);
+  width: 320px;
+  text-align: center;
+}
+html main #mainHeroImg .startShop,
+body main #mainHeroImg .startShop {
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+html main #mainHeroImg .startShop:hover,
+body main #mainHeroImg .startShop:hover {
+  background-color: black;
+  color: white;
+}
+html main .aboutThermo,
+body main .aboutThermo {
+  height: 100vh;
+  border-bottom: 1px solid #b9b7b7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0px;
+}
+html main .aboutThermo .textContainer,
+body main .aboutThermo .textContainer {
+  width: 450px;
+}
+html main .aboutThermo .textContainer h4,
+body main .aboutThermo .textContainer h4 {
+  text-align: center;
+  text-transform: uppercase;
+}
+html main .aboutThermo .textContainer p,
+body main .aboutThermo .textContainer p {
+  font-size: 0.9rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  line-height: 25px;
+}
+html footer,
+body footer {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid lightgray;
+}
+html footer #footerInfo,
+body footer #footerInfo {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+html footer #footerInfo h4,
+body footer #footerInfo h4 {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  margin: 0px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  text-align: center;
+}
+html footer #footerInfo p,
+body footer #footerInfo p {
+  padding: 0px;
+  margin: 0px;
+  font-size: 0.9rem;
+  text-align: center;
+  list-style: none;
+}
+html footer #footerInfo p a,
+body footer #footerInfo p a {
+  text-decoration: none;
+  color: black;
+}
+html footer #footerInfo p a:hover,
+body footer #footerInfo p a:hover {
+  font-weight: bold;
+}
+html footer #footerIcons,
+body footer #footerIcons {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+html footer #footerIcons a,
+body footer #footerIcons a {
+  padding-top: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+@media screen and (min-width: 768px) {
+  body header .navBar .brandName {
+    padding-left: 30px;
+  }
+  body header .navBar #headlines {
+    padding-right: 35px;
+  }
+  body main #mainHeroImg {
+    height: 100vh;
+    background: url("heroimg.070c70bc.jpg") no-repeat;
+    background-size: 100%;
+  }
+  body main #mainHeroImg h1 {
+    font-size: 3.8rem;
+    letter-spacing: 18px;
+  }
+  body main #mainHeroImg p {
+    width: 480px;
+  }
+  body main .aboutThermo {
+    height: 100vh;
+  }
+  body main .aboutThermo .textContainer {
+    width: 800px;
+  }
+  body main .aboutThermo .textContainer h4 {
+    font-size: 1.6rem;
+  }
+  body main .aboutThermo .textContainer p {
+    font-size: 1.2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 40px;
+  }
+  body footer {
+    height: 300px;
+    border-top: 1px solid lightgray;
+  }
+  body footer #footerInfo {
+    width: 1500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  body footer #footerInfo h4 {
+    padding-left: 30px;
+    text-align: left;
+  }
+  body footer #footerInfo p {
+    padding-left: 30px;
+    text-align: left;
+  }
+  body footer #footerIcons {
+    width: 1500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+/*# sourceMappingURL=index.350b0f59.css.map */

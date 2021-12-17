@@ -1,0 +1,541 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap%22";
+body {
+  font-size: 12pt;
+  font-family: "Roboto", sans-serif;
+  margin: 0px auto;
+  width: 100%;
+}
+header {
+  background-color: #ffffff;
+  height: 50px;
+  display: flex;
+  border-bottom: 1px solid lightgray;
+}
+header .navBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding-left: 25px;
+}
+header .navBar #cartBtn .cartQuanStyle {
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12.5px;
+  justify-content: center;
+  transform: translate(22px, -30px);
+  position: absolute;
+}
+header .navBar .brandName {
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
+  text-align: left;
+}
+header .navBar #cartBtn {
+  border-style: none;
+  background-color: transparent;
+  margin-right: 15px;
+  line-height: 1;
+  color: black;
+  font-size: 0.8rem;
+  text-align: right;
+  cursor: pointer;
+}
+#cartbtn {
+  position: absolute;
+}
+#cartbtn .cartQuanStyle {
+  position: absolute;
+  color: orange;
+  font-size: large;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+main .thermoTitle {
+  padding: 0px;
+  letter-spacing: 10px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+main .productContainerStyle {
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+main .productContainerStyle div {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+main .productContainerStyle div Img {
+  width: 100%;
+}
+main .productContainerStyle div h2 {
+  font-size: 0.8rem;
+  margin: 0px;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+main .productContainerStyle div span {
+  padding-left: 15px;
+  font-size: 0.8rem;
+}
+main .productContainerStyle div span {
+  padding-left: 15px;
+  font-size: 0.8rem;
+}
+main .productContainerStyle div .sizeContainer,
+main .productContainerStyle div .colorContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  font-size: 0.8rem;
+  padding-left: 15px;
+}
+main .productContainerStyle div .sizeContainer button,
+main .productContainerStyle div .colorContainer button {
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  border: none;
+  background-color: #b9b8b8;
+  cursor: pointer;
+}
+main .productContainerStyle div .sizeContainer .blackBtn,
+main .productContainerStyle div .colorContainer .blackBtn {
+  background-color: black;
+}
+main .productContainerStyle div .sizeContainer .silverBtn,
+main .productContainerStyle div .colorContainer .silverBtn {
+  background-color: silver;
+}
+main .productContainerStyle div .sizeContainer .greenBtn,
+main .productContainerStyle div .colorContainer .greenBtn {
+  background-color: green;
+}
+main .productContainerStyle div .sizeContainer .selectedSize,
+main .productContainerStyle div .colorContainer .selectedSize {
+  background-color: blue;
+  color: white;
+}
+main .productContainerStyle div .sizeContainer #selectedColor,
+main .productContainerStyle div .colorContainer #selectedColor {
+  border: black 2px solid;
+}
+main .productContainerStyle div .sizeContainer #selectedColorBlack,
+main .productContainerStyle div .colorContainer #selectedColorBlack {
+  border: blue 2px solid;
+}
+main .productContainerStyle div .btnDivStyle {
+  width: 140px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 5px;
+}
+main .productContainerStyle div .btnDivStyle .btnStyle {
+  height: 22px;
+  width: 22px;
+  font-size: 0.8rem;
+  font-style: italic;
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+  background-color: #474747;
+  border: 0.8px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main .productContainerStyle div .btnDivStyle .btnStyle:hover {
+  background-color: #9aa388;
+  transition: ease-in-out 0.2s;
+}
+main .productContainerStyle div .btnDivStyle .cartBtnStyle {
+  background-color: #b9b8b8;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  height: 21px;
+  width: 21px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+main .productContainerStyle div .btnDivStyle .cartBtnStyle:hover {
+  background-color: black;
+  transition: ease-in-out 0.2s;
+}
+main .productContainerStyle div .btnDivStyle .inCart {
+  background-color: green;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  height: 21px;
+  width: 21px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+main .productContainerStyle div .btnDivStyle .inCart:hover {
+  background-color: black;
+  transition: ease-in-out 0.2s;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal .modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  width: 72%;
+  height: 650px;
+  border: 1px solid #888;
+  overflow: scroll;
+}
+.modal .modal-content .disappear {
+  color: #aaa;
+  float: right;
+  font-size: 1rem;
+}
+.modal .modal-content .disappear:hover, .modal .modal-content .disappear:focus {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+}
+.modal .modal-content .emptyDivStyle {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  transform: translate(0px, 100px);
+}
+.modal .modal-content .emptyDivStyle .smileyStyle {
+  font-size: 5rem;
+}
+.softDisplay > button {
+  border-radius: 50%;
+  border: none;
+  background-color: #f7f7f7;
+  margin: 1px;
+  padding: 0px;
+  margin: 0px;
+  height: 30px;
+  width: 30px;
+  font-size: 1rem;
+  box-shadow: 0.5px 0.5px 5px;
+}
+.softDisplay > button:hover {
+  cursor: pointer;
+  background-color: #c2c2c2;
+  transition: 0.3s ease;
+}
+.softDisplay > .removeBtn {
+  background-color: white;
+  font-size: 2rem;
+  margin-left: 5px;
+  box-shadow: none;
+}
+.softDisplay > .removeBtn:hover {
+  color: red;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: white;
+}
+#cartBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transform: translate(0px, 50px);
+  bottom: 100px;
+}
+#cartBtns button {
+  height: 50px;
+  border: 1px white solid;
+  border-radius: 5px;
+  background-color: lightgreen;
+  color: black;
+}
+#cartBtns button:hover {
+  background-color: rgba(245, 222, 179, 0.479);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.productSpec {
+  display: grid;
+  transform: translate(370px, 420px);
+  width: 20%;
+}
+.quantityContainer {
+  display: flex;
+  flex-direction: row;
+}
+.quantityContainer .qtyDisplay {
+  transform: translate(300px, 5px);
+  text-transform: uppercase;
+}
+.quantityContainer .qtyDisplay .softDisplay {
+  transform: translate(0px, 100px);
+  width: 100%;
+}
+.quantityContainer .qtyDisplay .softDisplay .minusBtn {
+  transform: translate(-10px, 0px);
+}
+.quantityContainer .qtyDisplay .softDisplay .plusBtn {
+  transform: translate(10px, 0px);
+}
+.quantityContainer .qtyDisplay .softDisplay .removeBtn {
+  transform: translate(15px, 7px);
+}
+.quantityContainer .qtyDisplay p {
+  transform: translate(0px, 10px);
+}
+.quantityContainer .priceDisplay {
+  transform: translate(750px, 100px);
+  text-transform: uppercase;
+}
+.quantityContainer .priceDisplay p {
+  transform: translate(0px, -85px);
+}
+.quantityContainer .productDisplay {
+  transform: translate(-150px, 12.5px);
+  text-transform: uppercase;
+}
+.quantityContainer .productDisplay img {
+  width: 75%;
+  height: 75%;
+}
+.quantityContainer .productDisplay h2 {
+  font-size: 20px;
+}
+.quantityContainer .productDisplay p {
+  transform: translate(-2.5px, 0px);
+}
+.quantityContainer p {
+  font-size: 1.5rem;
+  transform: translate(35px, 0px);
+  color: #9e9e90;
+  font-weight: bold;
+}
+footer {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid lightgray;
+}
+footer #footerInfo {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+footer #footerInfo h4 {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  margin: 0px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  text-align: center;
+}
+footer #footerInfo p {
+  padding: 0px;
+  margin: 0px;
+  font-size: 0.9rem;
+  text-align: center;
+  list-style: none;
+}
+footer #footerInfo p a {
+  text-decoration: none;
+  color: black;
+}
+footer #footerInfo p a:hover {
+  font-weight: bold;
+}
+footer #footerIcons {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+footer #footerIcons a {
+  padding-top: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+@media screen and (min-width: 768px) {
+  body header {
+    padding-right: 35px;
+  }
+  body header .brandName {
+    padding-left: 30px;
+  }
+  body main .productContainerStyle {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  body main .productContainerStyle div {
+    width: 280px;
+  }
+  body main .productContainerStyle div h2 {
+    font-size: 1rem;
+  }
+  body main .productContainerStyle div .btnDivStyle {
+    width: 270px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 5px;
+  }
+  body footer {
+    height: 300px;
+    border-top: 1px solid lightgray;
+  }
+  body footer #footerInfo {
+    width: 1500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  body footer #footerInfo h4 {
+    padding-left: 30px;
+    text-align: left;
+  }
+  body footer #footerInfo p {
+    padding-left: 30px;
+    text-align: left;
+  }
+  body footer #footerIcons {
+    width: 1500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+@media screen and (max-width: 768px) {
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    width: 72%;
+    min-height: 550px;
+    border: 1px solid #888;
+    overflow: auto;
+  }
+  .modal-content .disappear {
+    color: #aaa;
+    float: right;
+    font-size: 1rem;
+  }
+  .modal-content .disappear:hover, .modal-content .disappear:focus {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .quantityContainer,
+.productSpec {
+    display: flex;
+    flex-direction: column;
+  }
+  .quantityContainer .qtyDisplay,
+.productSpec .qtyDisplay {
+    transform: translate(0px, 0px);
+    text-transform: uppercase;
+  }
+  .quantityContainer .qtyDisplay .softDisplay,
+.productSpec .qtyDisplay .softDisplay {
+    transform: translate(165px, 100px);
+    width: 50%;
+    z-index: 1;
+    flex-wrap: wrap;
+  }
+  .quantityContainer .qtyDisplay p,
+.productSpec .qtyDisplay p {
+    transform: translate(0px, 10px);
+  }
+  .quantityContainer .priceDisplay,
+.productSpec .priceDisplay {
+    transform: translate(157px, 100px);
+    text-transform: uppercase;
+    width: 40%;
+  }
+  .quantityContainer .priceDisplay p,
+.productSpec .priceDisplay p {
+    display: none;
+  }
+  .quantityContainer .productDisplay,
+.productSpec .productDisplay {
+    transform: translate(0px, 0px);
+    text-transform: uppercase;
+    width: 50%;
+  }
+  .quantityContainer .productDisplay img,
+.productSpec .productDisplay img {
+    width: 75%;
+    height: 75%;
+  }
+  .quantityContainer .productDisplay h2,
+.productSpec .productDisplay h2 {
+    font-size: 15px;
+  }
+  .quantityContainer .productDisplay p,
+.productSpec .productDisplay p {
+    transform: translate(-2.5px, 0px);
+  }
+  .quantityContainer p,
+.productSpec p {
+    display: none;
+  }
+
+  .productSpec {
+    transform: translate(130px, 285px);
+    width: 30%;
+  }
+
+  #cartBtns {
+    bottom: 0;
+    transform: translate(0px, 100px);
+  }
+}
+/*# sourceMappingURL=products.7cee6a32.css.map */

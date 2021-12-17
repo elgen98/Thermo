@@ -1,0 +1,340 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap";
+body main #maincontainer,
+html main #maincontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main #maincontainer #formContainer,
+html main #maincontainer #formContainer, body main #maincontainer #formContainer #form #cardContainer,
+html main #maincontainer #formContainer #form #cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+body,
+html {
+  font-size: 12pt;
+  width: 100%;
+  margin: auto 0;
+  font-family: "Roboto", sans-serif;
+}
+body header,
+html header {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  padding-left: 10px;
+  height: 50px;
+  border-bottom: lightgrey 1px solid;
+}
+body header .brandName,
+html header .brandName {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 4px;
+  padding-left: 15px;
+}
+body main #maincontainer,
+html main #maincontainer {
+  margin: 20px;
+}
+body main #maincontainer .emptyDiv,
+html main #maincontainer .emptyDiv {
+  height: 400px;
+  width: 300px;
+  border: lightgrey 2px solid;
+  border-radius: 25px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body main #maincontainer .emptyDiv #moreBtnStyle,
+html main #maincontainer .emptyDiv #moreBtnStyle {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 20px;
+  border: none;
+  cursor: pointer;
+}
+body main #maincontainer #checkoutDiv,
+html main #maincontainer #checkoutDiv {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  border: lightgrey 2px solid;
+  border-radius: 25px;
+  margin: 30px;
+}
+body main #maincontainer #checkoutDiv h3,
+html main #maincontainer #checkoutDiv h3 {
+  margin: 25px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+body main #maincontainer #checkoutDiv #summaryDiv,
+html main #maincontainer #checkoutDiv #summaryDiv {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 360px;
+}
+body main #maincontainer #checkoutDiv #summaryDiv #table,
+html main #maincontainer #checkoutDiv #summaryDiv #table {
+  margin: 10px;
+  text-align: left;
+  font-size: 0.8rem;
+}
+body main #maincontainer #checkoutDiv #summaryDiv #table tbody .editBtn,
+html main #maincontainer #checkoutDiv #summaryDiv #table tbody .editBtn {
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+body main #maincontainer #checkoutDiv #totalDiv,
+html main #maincontainer #checkoutDiv #totalDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+body main #maincontainer #formContainer,
+html main #maincontainer #formContainer {
+  width: 360px;
+  border: lightgrey 2px solid;
+  border-radius: 25px;
+  margin: 30px;
+}
+body main #maincontainer #formContainer #form,
+html main #maincontainer #formContainer #form {
+  margin: 25px;
+}
+body main #maincontainer #formContainer #form label,
+html main #maincontainer #formContainer #form label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  letter-spacing: 1.5px;
+}
+body main #maincontainer #formContainer #form #cardContainer label,
+html main #maincontainer #formContainer #form #cardContainer label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  letter-spacing: 1.5px;
+}
+body main #maincontainer #formContainer #form #cardContainer .cardInfoHidden,
+html main #maincontainer #formContainer #form #cardContainer .cardInfoHidden {
+  display: none;
+}
+body main #maincontainer #formContainer #form .checkboxInfo,
+html main #maincontainer #formContainer #form .checkboxInfo {
+  font-size: 0.7rem;
+}
+body main #maincontainer #formContainer #form input[type=text]:valid,
+body main #maincontainer #formContainer #form input[type=email]:valid,
+body main #maincontainer #formContainer #form input[type=number]:valid,
+html main #maincontainer #formContainer #form input[type=text]:valid,
+html main #maincontainer #formContainer #form input[type=email]:valid,
+html main #maincontainer #formContainer #form input[type=number]:valid {
+  background: url("https://webdevtrick.com/wp-content/uploads/check-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: 98% 4px;
+}
+body main #maincontainer #formContainer #form #confirmorderBtn,
+html main #maincontainer #formContainer #form #confirmorderBtn {
+  border-style: none;
+  cursor: pointer;
+}
+body main #maincontainer #checkoutModal,
+html main #maincontainer #checkoutModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+body main #maincontainer #checkoutModal .modal-content,
+html main #maincontainer #checkoutModal .modal-content {
+  text-align: center;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  width: 45%;
+  height: 320px;
+  border: 1px solid #888;
+}
+body main #maincontainer #checkoutModal .modal-content .startpage a,
+html main #maincontainer #checkoutModal .modal-content .startpage a {
+  text-decoration: none;
+  color: #aaa;
+  float: right;
+  font-size: 1.2rem;
+}
+body main #maincontainer #checkoutModal .modal-content .startpage a:hover, body main #maincontainer #checkoutModal .modal-content .startpage a:focus,
+html main #maincontainer #checkoutModal .modal-content .startpage a:hover,
+html main #maincontainer #checkoutModal .modal-content .startpage a:focus {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+}
+body main #maincontainer #checkoutModal .modal-content #checkout-content,
+html main #maincontainer #checkoutModal .modal-content #checkout-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main #maincontainer #checkoutModal .modal-content #checkout-content h2,
+html main #maincontainer #checkoutModal .modal-content #checkout-content h2 {
+  text-transform: uppercase;
+  padding-top: 10px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+body main #maincontainer #checkoutModal .modal-content #checkout-content .textDiv,
+html main #maincontainer #checkoutModal .modal-content #checkout-content .textDiv {
+  font-size: 0.8rem;
+  text-align: center;
+}
+body footer,
+html footer {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid lightgray;
+}
+body footer #footerInfo,
+html footer #footerInfo {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body footer #footerInfo h4,
+html footer #footerInfo h4 {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  margin: 0px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  text-align: center;
+}
+body footer #footerInfo p,
+html footer #footerInfo p {
+  padding: 0px;
+  margin: 0px;
+  font-size: 0.9rem;
+  text-align: center;
+  list-style: none;
+}
+body footer #footerInfo p a,
+html footer #footerInfo p a {
+  text-decoration: none;
+  color: black;
+}
+body footer #footerInfo p a:hover,
+html footer #footerInfo p a:hover {
+  font-weight: bold;
+}
+body footer #footerIcons,
+html footer #footerIcons {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body footer #footerIcons a,
+html footer #footerIcons a {
+  padding-top: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+@media screen and (min-width: 768px) {
+  body header .brandName {
+    padding-left: 45px;
+  }
+  body main #maincontainer {
+    margin: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
+  body main #maincontainer #checkoutDiv {
+    height: 585px;
+    width: 400px;
+  }
+  body main #maincontainer #checkoutDiv #summaryDiv {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 400px;
+  }
+  body main #maincontainer #checkoutDiv #summaryDiv #table {
+    width: 380px;
+    padding-left: 10px;
+  }
+  body main #maincontainer #formContainer {
+    width: 600px;
+  }
+  body main #maincontainer #checkoutModal .modal-content {
+    height: 400px;
+  }
+  body main #maincontainer #checkoutModal .modal-content #checkout-content h2 {
+    font-size: 1.6rem;
+  }
+  body main #maincontainer #checkoutModal .modal-content #checkout-content .textDiv {
+    font-size: 1rem;
+  }
+  body footer {
+    height: 300px;
+    border-top: 1px solid lightgray;
+  }
+  body footer #footerInfo {
+    width: 1500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  body footer #footerInfo h4 {
+    padding-left: 30px;
+    text-align: left;
+  }
+  body footer #footerInfo p {
+    padding-left: 30px;
+    text-align: left;
+  }
+  body footer #footerIcons {
+    width: 1500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+/*# sourceMappingURL=checkout.3336d8b8.css.map */
