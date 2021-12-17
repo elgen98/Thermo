@@ -3,7 +3,7 @@ import { Products } from "./Models/models";
 window.onload = function () {
   document.getElementById("cartBtn").addEventListener("click", printCart);
   checkLocalStorage();
-  fetchAndPrintData();
+  //fetchAndPrintData();
   printProducts();
 };
 
@@ -114,7 +114,7 @@ let productArr = [
   productVIII,
 ];
 
-let cartArr = [];
+let cartArr;
 
 let cartQuanDiv: HTMLDivElement = document.createElement("div");
 cartQuanDiv.className = "cartQuanStyle";
