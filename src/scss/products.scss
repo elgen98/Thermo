@@ -388,25 +388,17 @@ footer {
       transform: translate(0px, 0px);
       text-transform: uppercase;
       .softDisplay {
-        transform: translate(210px, 100px);
+        transform: translate(165px, 100px);
         width: 50%;
         z-index: 1;
-        .minusBtn {
-          transform: translate(-10px, 0px);
-        }
-        .plusBtn {
-          transform: translate(10px, 0px);
-        }
-        .removeBtn {
-          transform: translate(10px, 7px);
-        }
+        flex-wrap: wrap;
       }
       p {
         transform: translate(0px, 10px);
       }
     }
     .priceDisplay {
-      transform: translate(220px, 100px);
+      transform: translate(157px, 100px);
       text-transform: uppercase;
       width: 40%;
       p {
@@ -433,11 +425,11 @@ footer {
     }
   }
   .productSpec {
-    transform: translate(150px, 300px);
+    transform: translate(130px, 285px);
     width: 30%;
   }
   #cartBtns {
-    bottom: 100px;
-    transform: translate(0px, 0px);
+    bottom: 0;
+    transform: translate(0px, 100px);
   }
 }
