@@ -357,14 +357,14 @@ function printCart() {
       addQuantity(i);
       calculatePrice(i);
       printCart();
-      toLocalStorage(productArr, cartQuantity);
+      toLocalStorage(cartArr, cartQuantity);
     });
 
     minusBtn.addEventListener("click", () => {
       subtractQuantity(i);
       calculatePrice(i);
       printCart();
-      toLocalStorage(productArr, cartQuantity);
+      toLocalStorage(cartArr, cartQuantity);
     });
 
     name.innerHTML = cartArr[i].name;
